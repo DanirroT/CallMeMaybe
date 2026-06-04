@@ -1,0 +1,195 @@
+
+from pydantic import (BaseModel, Field, field_validator, PrivateAttr)
+from enum import Enum
+from typing import NamedTuple, TypedDict
+
+
+class Hubs(str, Enum):
+    START_HUB = "start_hub"
+    HUB = "hub"
+    END_HUB = "end_hub"
+
+    def __str__(self) -> str:
+        return self.value
+
+
+class ZoneType(str, Enum):
+    NORMAL = "normal"
+    BLOCKED = "blocked"
+    RESTRICTED = "restricted"
+    PRIORITY = "priority"
+
+    def __str__(self) -> str:
+        return self.value
+
+
+class Colors(str, Enum):
+    RED = "red"
+    BLUE = "blue"
+    GREEN = "green"
+    DARKRED = "darkred"
+    DARKBLUE = "darkblue"
+    DARKGREEN = "darkgreen"
+
+    BLACK = "black"
+    DARKGREY = "darkgrey"
+    GREY = "grey"
+    LIGHTGREY = "lightgrey"
+    WHITE = "white"
+    BROWN = "brown"
+
+    YELLOW = "yellow"
+    CYAN = "cyan"
+    MAGENTA = "magenta"
+
+    ORANGE = "orange"
+    PURPLE = "purple"
+    LIME = "lime"
+    LIGHTBLUE = "lightblue"
+
+    GOLD = "gold"
+    MAROON = "maroon"
+    CRIMSON = "crimson"
+    PINK = "pink"
+    VIOLET = "violet"
+
+    RAINBOW = "rainbow"
+    NONE = "none"
+
+    def __str__(self) -> str:
+        return self.value
+
+
+class Coordinates(NamedTuple):
+    x: int
+    y: int
+
+    def __str__(self) -> str:
+        return f"x: {self.x}, y: {self.y}"
+
+
+class ZoneDataRaw(TypedDict):
+    name: str
+    hub_type: str
+    loc: Coordinates
+    zone: str
+    color: str
+    max_drones: int
+
+
+class ZoneData(TypedDict):
+    name: str
+    hub_type: Hubs
+    loc: Coordinates
+    zone: ZoneType
+    color: Colors
+    max_drones: int
+
+
+class ConnData(TypedDict):
+    start: str
+    end: str
+    max_link_capacity: int
+
+
+class Zone(BaseModel):
+    name: str = Field(min_length=1)
+    hub_type: Hubs = Field()
+    loc: Coordinates = Field()
+    zone: ZoneType = Field(default=ZoneType.NORMAL)
+    color: Colors = Field(default=Colors.NONE)
+    max_drones: int = Field(gt=0, default=1)
+    _occupancy: int = PrivateAttr(default_factory=int)
+    _zone_connections: dict["Zone", int] = PrivateAttr(
+        default_factory=dict["Zone", int])
+
+    @field_validator("loc", mode="before")
+    @classmethod
+    def parse_coordinates(cls, v: str | Coordinates) -> Coordinates:
+        """Parse coordinate strings like 'x,y' into coordinate tuples."""
+        if isinstance(v, str):
+            x, y = v.split(",")
+            return Coordinates(int(x), int(y))
+        return v
+
+    def zero_connections(self) -> None:
+        self._zone_connections = {}
+
+    def get_connections(self) -> dict["Zone", int]:
+        return dict(self._zone_connections)
+
+    def add_connection(self, add_zone: "Zone", link_capacity: int) -> None:
+        if add_zone is self:
+            raise ValueError(
+                f"A Zone cannot be connected to itself: {self.name}")
+        if add_zone not in self._zone_connections.keys():
+            self._zone_connections[add_zone] = link_capacity
+        else:
+            raise ValueError(f"Duplicate connection between "
+                             f"{self.name} and {add_zone.name}")
+
+    def zero_occupancy(self) -> None:
+        self._occupancy = 0
+
+    def get_occupancy(self) -> int:
+        return self._occupancy
+
+    def update_occupancy(self, delta: int) -> None:
+        self._occupancy += delta
+        if self._occupancy < 0:
+            raise ValueError("Occupancy cannot be negative:", self.name)
+
+    def __hash__(self) -> int:
+        return hash(self.name)
+
+    def __str__(self) -> str:
+        return f"{self.name} in {self.loc}"
+
+    """
+    @field_validator("metadata", mode="before")
+    def parse_metadata(cls, v: list[str] | dict[str, str | int]
+                       ) -> dict[str, str | int]:
+        if isinstance(v, list):
+            for cell in v:
+
+                cell_split = cell.split(",")
+
+                if len(cell_split) != 2:
+                    raise ValueError(
+                        f"{cell} "
+                        "is not formatted correctly.\n"
+                        "\tCorrect formatting is: <data>=<value>"
+                    )
+
+                if cell_split[0] not in ["zone", "color", "max_drones"]:
+
+                try:
+                    x = int(cell_split[0])
+                    y = int(cell_split[1])
+                except ValueError as e:
+                    raise ValueError(
+                        "cell's 2 values must be Integers. "
+                        f"{cell}\nValueError: {e}"
+                    )
+
+            return {"zone": zone if zone else "normal",
+                    "color": color if color else "none",
+                    "max_drones": max_drones if max_drones else 1,
+                    }
+
+        return v
+        """
+
+
+class Connection(BaseModel):
+    start: str = Field(min_length=1)
+    end: str = Field(min_length=1)
+    max_link_capacity: int = Field(gt=0, default=1)
+
+    def __str__(self) -> str:
+        return (f"{self.start} to {self.end}" +
+                f" cap {self.max_link_capacity}"
+                if (self.max_link_capacity != 1) else "")
+
+    def __hash__(self) -> int:
+        return hash(str(self))
