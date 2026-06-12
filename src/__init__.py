@@ -4,13 +4,13 @@
 #                               Coordinates, ZoneDataRaw, ZoneData,
 #                               ConnData, Colors)
 from .holder_classes import FunctDef, Parameter
-from .input import val_args, get_prompts, get_funct_defs
+from .input import val_args, get_prompts, get_funct_defs, create_output_file
 # from src.validation_error_handling import error_processing
 # from src.visualizer import WindowedVisualizer, terminal_clear
 # from src.__main__ import main
 
 __all__: list[str] = [
-    "val_args", "get_prompts", "get_funct_defs",
+    "val_args", "get_prompts", "get_funct_defs", "create_output_file",
     "FunctDef", "Parameter"
 ]
 

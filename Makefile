@@ -6,13 +6,22 @@
 #    By: dmota-ri <dmota-ri@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/10 16:50:27 by dmota-ri          #+#    #+#              #
-#    Updated: 2026/06/09 20:55:38 by dmota-ri         ###   ########.fr        #
+#    Updated: 2026/06/12 16:34:34 by dmota-ri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Fly-in
 
-DEPENDENCIES = numpy pydantic mypy flake8
+# DEPENDENCIES = numpy pydantic mypy flake8
+
+DEPENDENCIES = pydantic mypy flake8
+
+# Extra?? - protobuf, accelerate
+
+# /etc/resolv.conf
+
+# nameserver 8.8.8.8
+# nameserver 1.1.1.1
 
 SRC = src
 
@@ -37,11 +46,14 @@ debug:
 	@:
 
 install: $(VENV)
+
+	uv venv $(VENV)
 	. $(VENV)bin/activate
-	pip install $(DEPENDENCIES)
+	uv sync
+	uv pip install $(DEPENDENCIES)
 
 $(VENV):
-	$(PYTHON) venv $(VENV)
+	uv venv $(VENV)
 
 clean:
 	@$(RM) ./__pycache__/ ./.mypy_cache/

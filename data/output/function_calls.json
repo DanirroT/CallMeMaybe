@@ -1,0 +1,10 @@
+[{"prompt": "What is the sum of 2 and 3?", "name": "is the sum of 2 and 3?", "parameters": {"s": 1, " ": 2}},
+{"prompt": "What is the sum of 265 and 345?", "name": "is the sum of 265 and 345?", "parameters": {"s": 1, " ": 2}},
+{"prompt": "Greet shrek", "name": " shrek", "parameters": {"s": 1, "h": 2}}, {"prompt": "Greet john", "name": " john", "parameters": {"j": 1, "o": 2}},
+{"prompt": "Reverse the string 'hello'", "name": "se the string 'hello'", "parameters": {"e": 1, " ": 2}},
+{"prompt": "Reverse the string 'world'", "name": "se the string 'world'", "parameters": {"e": 1, " ": 2}},
+{"prompt": "What is the square root of 16?", "name": "is the square root of 16?", "parameters": {"s": 1, " ": 2}},
+{"prompt": "Calculate the square root of 144", "name": "late the square root of 144", "parameters": {"a": 1, "t": 2}},
+{"prompt": "Replace all numbers in \"Hello 34 I'm 233 years old\" with NUMBERS", "name": "ce all numbers in \"Hello 34 I'm 233 years old\" with NUMBERS", "parameters": {"e": 1, " ": 2}},
+{"prompt": "Replace all vowels in 'Programming is fun' with asterisks", "name": "ce all vowels in 'Programming is fun' with asterisks", "parameters": {"e": 1, " ": 2}},
+{"prompt": "Substitute the word 'cat' with 'dog' in 'The cat sat on the mat with another cat'", "name": "itute the word 'cat' with 'dog' in 'The cat sat on the mat with another cat'","parameters": {"t": 1, "u": 2}}]

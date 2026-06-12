@@ -4,9 +4,7 @@ from src import FunctDef, Parameter
 # from src.map_classes import DroneMap
 from typing import Any
 import json
-# import numpy as np
-import pydantic
-# import  Qwen/Qwen3-0.6B
+import os
 
 
 def val_args(args: list[str]) -> dict[str, str]:
@@ -79,20 +77,20 @@ def get_funct_defs(file_name: str) -> list[FunctDef]:
         raise FileNotFoundError(
             f"Functions Definition File \"{file_name}\" not found {e}")
 
-    print(parsed_funct_defs)
+    # print(parsed_funct_defs)
 
     out_list: list[FunctDef] = []
 
     for funct in parsed_funct_defs:
-        print()
-        print(funct)
-        print()
-        print(funct["parameters"])
+        # print()
+        # print(funct)
+        # print()
+        # print(funct["parameters"])
 
         params: list[Parameter] = []
         if len(funct["parameters"]):
             for name, type_dict in funct["parameters"].items():
-                params.append(Parameter(name=name, type=type_dict["type"]))
+                params.append(Parameter(p_name=name, p_type=type_dict["type"]))
 
         out_list.append(FunctDef(
             name=funct["name"],
@@ -102,6 +100,41 @@ def get_funct_defs(file_name: str) -> list[FunctDef]:
         ))
 
     return out_list
+
+
+def create_output_file(file_name: str) -> None:
+
+    if "/" in file_name:
+        last_slash = 0
+        i = 0
+        for char in file_name:
+            if char == "/":
+                last_slash = i
+            i += 1
+
+        path = file_name[:last_slash]
+
+        try:
+            os.makedirs(path)
+        except FileExistsError:
+            pass
+
+    try:
+        with open(file_name, "x") as output_file:
+            pass
+    except FileExistsError:
+        print(f"File \"{file_name}\" "
+              "already Exists, do you wish to replace it?")
+        # answer = input("Y for 'yes', any for 'no': ").lower()
+        answer = "y"
+        if answer == "y":
+            with open(file_name, "w") as output_file:
+                output_file.write("")
+            print("File Cleared, continuing...")
+        else:
+            print("Stopping Program")
+            raise
+
 
 # def str_to_dict_parse(in_str: str, entry_sep: str = ",", kv_sep: str = ":",
 #                       expected_size: int | None = None) -> dict[str, str]:

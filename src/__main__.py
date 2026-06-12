@@ -1,21 +1,16 @@
 
 
 import sys
+from typing import Any
+import json
 
-# from ..llm_sdk.llm_sdk import Small_LLM_Model
+# import numpy as np
 
-from llm_sdk.llm_sdk import Small_LLM_Model
-
-from src import (val_args, get_prompts, get_funct_defs,
+from src import (val_args, get_prompts, get_funct_defs, create_output_file,
                  FunctDef
                  )
-# from llm_sdk.llm_sdk import Small_LLM_Model
+
 # from pydantic import ValidationError
-# from src.input import read_map_file
-# from src.drone_class import DroneManager
-# from src.visualizer import WindowedVisualizer
-# # from visualizer import terminal_clear
-# from src.validation_error_handling import error_processing
 # from typing import Any
 
 
@@ -27,7 +22,7 @@ def main(args: list[str]) -> None:
         print(f"Arguments passed incorrectly: {e}")
         return
 
-    print(arg_inputs)
+    # print(arg_inputs)
 
     try:
         inputs = get_prompts(arg_inputs["input"])
@@ -35,9 +30,9 @@ def main(args: list[str]) -> None:
         print(e)
         return
 
-    print ()
-    print (inputs)
-    print ()
+    # print ()
+    # print (inputs)
+    # print ()
 
     try:
         funct_defs = get_funct_defs(arg_inputs["functions_definition"])
@@ -45,62 +40,71 @@ def main(args: list[str]) -> None:
         print(e)
         return
 
-    print ()
-    print ("\n".join(map(str, funct_defs)))
-    print ()
+    # print ()
+    # print ("\n".join(map(str, funct_defs)))
+    # print ()
 
-    llm = Small_LLM_Model()
+    try:
+        create_output_file(arg_inputs["output"])
+    except FileExistsError:
+        return
+
+    out_list: list[dict[str, str | dict[str, Any]]] = []
+
+    input("setup complete")
+
+    # from llm_sdk import Small_LLM_Model
+
+    input("Small_LLM_Model Class Loaded")
+    print()
+    print()
+
+    # try:
+    #     os.environ["HF_TOKEN"] = ""  # "hf_xxxxxxxxxxxxxxxxx"
+    #     llm = Small_LLM_Model()
+    # except Exception as e:
+    #     print("an unexpected error has occurred:\n", e)
+    #     return
+
+    print()
+    print()
+    input("LLM Class generated")
 
     for prompt in inputs:
         print()
-        print(prompt)
-        print()
+        input(prompt)
 
-        tokenized = llm.encode(prompt)
+        # tokenized = llm.encode(prompt)
 
-        print(tokenized)
+        # print("Prompt Tokenized:")
+        # print(tokenized)
 
-        print(llm.decode(tokenized))
+        # rever = llm.decode(tokenized)
 
+        # print("Prompt re-coded:")
+        # print(rever)
 
-    # file_name = args[1]
-    # try:
-    #     drone_map = read_map_file(file_name)
-    # except FileNotFoundError as e:
-    #     print(e)
-    #     return
-    # except ValidationError as e:
-    #     error_processing(e.errors())
-    #     return
-    # except ValueError as e:
-    #     print(f"Error reading map file: {e}")
-    #     return
-    # except Exception as e:
-    #     print(f"Unexpected error occurred: {e}")
-    #     return
+        name = prompt[:5]
 
-    # print()
-    # print("Drones", drone_map.nb_drones)
-    # print("Zones", len(drone_map.zones))
-    # print("Connections", len(drone_map.connections))
+        parameters = {prompt[6]: 1, prompt[7]: 2}
 
-    # print()
+        out_list.append({
+            "prompt": prompt,
+            "name": name,
+            "parameters": parameters
+        })
 
-    # print(drone_map.get_nice_summary())
+        print(out_list[-1])
 
-    # print()
+    out_str = json.dumps(out_list, indent=4)
 
-    # print("Name:", file_name, end="\t")
-
-    # drone_map.print_map()
-
-    # manager = DroneManager(drone_map, WindowedVisualizer)
-
-    # try:
-    #     manager.run_program()
-    # except ValueError as e:
-    #     print(f"Error: {e}")
-    # print("END SIM")
+    try:
+        with open(arg_inputs["output"], "w") as output_file:
+            # inputs = input_file.read()
+            output_file.write(out_str)
+    except FileNotFoundError as e:
+        raise FileNotFoundError(f"Output File \"{arg_inputs['output']}\" "
+                                f"not found {e}")
 
 
 if __name__ == "__main__":

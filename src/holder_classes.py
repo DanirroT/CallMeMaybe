@@ -4,18 +4,18 @@ from typing import Any
 
 
 class Parameter(BaseModel):
-    name: str = Field(min_length=1)
-    type: str = Field(min_length=1)
+    p_name: str = Field(min_length=1)
+    p_type: str = Field(min_length=1)
 
     def __str__(self):
         return (
-            f"{self.name} t: {self.type}"
+            f"{self.p_name} t: {self.p_type}"
         )
 
 
 # class Returns(BaseModel):
 #     # pass
-#     type: str = Field(min_length=1)
+#     p_type: str = Field(min_length=1)
 
 
 class FunctDef(BaseModel):
