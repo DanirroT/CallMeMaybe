@@ -6,15 +6,13 @@
 #    By: dmota-ri <dmota-ri@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/10 16:50:27 by dmota-ri          #+#    #+#              #
-#    Updated: 2026/06/12 16:34:34 by dmota-ri         ###   ########.fr        #
+#    Updated: 2026/06/15 13:14:59 by dmota-ri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Fly-in
 
-# DEPENDENCIES = numpy pydantic mypy flake8
-
-DEPENDENCIES = pydantic mypy flake8
+# DEPENDENCIES = pydantic mypy flake8 protobuf accelerate
 
 # Extra?? - protobuf, accelerate
 
@@ -47,10 +45,9 @@ debug:
 
 install: $(VENV)
 
-	uv venv $(VENV)
 	. $(VENV)bin/activate
 	uv sync
-	uv pip install $(DEPENDENCIES)
+# 	uv pip install $(DEPENDENCIES)
 
 $(VENV):
 	uv venv $(VENV)
