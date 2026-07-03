@@ -1,0 +1,408 @@
+make
+
+All Imports done
+
+
+File "data/output/function_calls.json" already Exists, do you wish to replace it?
+File Cleared, continuing...
+
+setup complete
+
+
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights: 100%|█| 311/311 [03:16<00:00,  1.59it/s, Materializing param=model.norm.wei
+llm created True
+
+
+
+
+vocab: /home/tribeirinho/.cache/huggingface/hub/models--Qwen--Qwen3-0.6B/snapshots/c1899de289a04d12100db370d81485cdf75e47ca/vocab.json
+merges: /home/tribeirinho/.cache/huggingface/hub/models--Qwen--Qwen3-0.6B/snapshots/c1899de289a04d12100db370d81485cdf75e47ca/merges.txt
+tokenizer: /home/tribeirinho/.cache/huggingface/hub/models--Qwen--Qwen3-0.6B/snapshots/c1899de289a04d12100db370d81485cdf75e47ca/tokenizer.json
+
+
+
+
+LLM Class generated
+
+Name: fn_add_numbers
+Description: Add two numbers together and return their sum.
+Params: a t: number
+        b t: number
+Return: number
+
+
+Prompt Tokenized int:
+
+tensor([  675,    25,  5168,  2891, 32964,   198,  5009,    25,  2691,  1378,
+         5109,  3786,   323,   470,   862,  2629,   624,  4870,    25,   264,
+          259,    25,  1372,   198,  2233,   259,    25,  1372,   198,  5598,
+           25,  1372])
+
+Prompt Tokenized str:
+['Name', ':', 'Ġfn', '_add', '_numbers', 'Ċ', 'Description', ':', 'ĠAdd', 'Ġtwo', 'Ġnumbers', 'Ġtogether', 'Ġand', 'Ġreturn', 'Ġtheir', 'Ġsum', '.Ċ', 'Params', ':', 'Ġa', 'Ġt', ':', 'Ġnumber', 'Ċ', 'ĉb', 'Ġt', ':', 'Ġnumber', 'Ċ', 'Return', ':', 'Ġnumber']
+
+
+
+Name: fn_greet
+Description: Generate a greeting message for a person by name.
+Params: name t: string
+Return: string
+
+
+Prompt Tokenized int:
+
+tensor([  675,    25,  5168,  1889,  3744,   198,  5009,    25, 19813,   264,
+        42113,  1943,   369,   264,  1697,   553,   829,   624,  4870,    25,
+          829,   259,    25,   914,   198,  5598,    25,   914])
+
+Prompt Tokenized str:
+['Name', ':', 'Ġfn', '_g', 'reet', 'Ċ', 'Description', ':', 'ĠGenerate', 'Ġa', 'Ġgreeting', 'Ġmessage', 'Ġfor', 'Ġa', 'Ġperson', 'Ġby', 'Ġname', '.Ċ', 'Params', ':', 'Ġname', 'Ġt', ':', 'Ġstring', 'Ċ', 'Return', ':', 'Ġstring']
+
+
+
+Name: fn_reverse_string
+Description: Reverse a string and return the reversed result.
+Params: s t: string
+Return: string
+
+
+Prompt Tokenized int:
+
+tensor([  675,    25,  5168, 43277,  3904,   198,  5009,    25, 24277,   264,
+          914,   323,   470,   279, 27437,  1102,   624,  4870,    25,   274,
+          259,    25,   914,   198,  5598,    25,   914])
+
+Prompt Tokenized str:
+['Name', ':', 'Ġfn', '_reverse', '_string', 'Ċ', 'Description', ':', 'ĠReverse', 'Ġa', 'Ġstring', 'Ġand', 'Ġreturn', 'Ġthe', 'Ġreversed', 'Ġresult', '.Ċ', 'Params', ':', 'Ġs', 'Ġt', ':', 'Ġstring', 'Ċ', 'Return', ':', 'Ġstring']
+
+
+
+Name: fn_get_square_root
+Description: Calculate the square root of a number.
+Params: a t: number
+Return: number
+
+
+Prompt Tokenized int:
+
+tensor([  675,    25,  5168,  3062, 39794, 12993,   198,  5009,    25, 20517,
+          279,  9334,  3704,   315,   264,  1372,   624,  4870,    25,   264,
+          259,    25,  1372,   198,  5598,    25,  1372])
+
+Prompt Tokenized str:
+['Name', ':', 'Ġfn', '_get', '_square', '_root', 'Ċ', 'Description', ':', 'ĠCalculate', 'Ġthe', 'Ġsquare', 'Ġroot', 'Ġof', 'Ġa', 'Ġnumber', '.Ċ', 'Params', ':', 'Ġa', 'Ġt', ':', 'Ġnumber', 'Ċ', 'Return', ':', 'Ġnumber']
+
+
+
+Name: fn_substitute_string_with_regex
+Description: Replace all occurrences matching a regex pattern in a string.
+Params: source_string t: string
+        regex t: string
+        replacement t: string
+Return: string
+
+
+Prompt Tokenized int:
+
+tensor([  675,    25,  5168,  5228,  7660,  3904,  6615, 41832,   198,  5009,
+           25, 29558,   678, 56015, 12579,   264, 20180,  5383,   304,   264,
+          914,   624,  4870,    25,  2530,  3904,   259,    25,   914,   198,
+          197, 26387,   259,    25,   914,   198, 17200, 16101,   259,    25,
+          914,   198,  5598,    25,   914])
+
+Prompt Tokenized str:
+['Name', ':', 'Ġfn', '_sub', 'stitute', '_string', '_with', '_regex', 'Ċ', 'Description', ':', 'ĠReplace', 'Ġall', 'Ġoccurrences', 'Ġmatching', 'Ġa', 'Ġregex', 'Ġpattern', 'Ġin', 'Ġa', 'Ġstring', '.Ċ', 'Params', ':', 'Ġsource', '_string', 'Ġt', ':', 'Ġstring', 'Ċ', 'ĉ', 'regex', 'Ġt', ':', 'Ġstring', 'Ċ', 'ĉre', 'placement', 'Ġt', ':', 'Ġstring', 'Ċ', 'Return', ':', 'Ġstring']
+
+
+
+What is the sum of 2 and 3?
+
+Prompt Tokenized int:
+
+tensor([3838,  374,  279, 2629,  315,  220,   17,  323,  220,   18,   30])
+
+Prompt Tokenized str:
+['What', 'Ġis', 'Ġthe', 'Ġsum', 'Ġof', 'Ġ', '2', 'Ġand', 'Ġ', '3', '?']
+
+
+
+Starting Generation
+
+max_val: 9223372036854775807    ID: 58  added_token: [
+max_val: 15.979804039001465     ID: 16  added_token: 1
+max_val: 17.84189224243164      ID: 60  added_token: ]
+max_val: 17.08401870727539      ID: 481 added_token: Ġ-
+max_val: 15.557940483093262     ID: 30317       added_token: ĠBrain
+max_val: 16.048961639404297     ID: 25824       added_token: Mass
+max_val: 18.320541381835938     ID: 198 added_token: Ċ
+max_val: 18.631437301635742     ID: 16141       added_token: Answer
+max_val: 21.417278289794922     ID: 25  added_token: :
+max_val: 21.13177490234375      ID: 220 added_token: Ġ
+max_val: 9223372036854775807    ID: 13  added_token: .
+{'prompt': 'What is the sum of 2 and 3?', 'name': '[1] - BrainMass\nAnswer: .', 'parameters': {}}
+
+What is the sum of 265 and 345?
+
+Prompt Tokenized int:
+
+tensor([3838,  374,  279, 2629,  315,  220,   17,   21,   20,  323,  220,   18,
+          19,   20,   30])
+
+Prompt Tokenized str:
+['What', 'Ġis', 'Ġthe', 'Ġsum', 'Ġof', 'Ġ', '2', '6', '5', 'Ġand', 'Ġ', '3', '4', '5', '?']
+
+
+
+Starting Generation
+
+max_val: 9223372036854775807    ID: 58  added_token: [
+max_val: 16.926464080810547     ID: 32  added_token: A
+max_val: 22.040084838867188     ID: 60  added_token: ]
+max_val: 19.037731170654297     ID: 220 added_token: Ġ
+max_val: 19.92530059814453      ID: 21  added_token: 6
+max_val: 19.250991821289062     ID: 15  added_token: 0
+max_val: 20.43345832824707      ID: 15  added_token: 0
+max_val: 19.142126083374023     ID: 508 added_token: Ġ[
+max_val: 27.59700584411621      ID: 33  added_token: B
+max_val: 30.437904357910156     ID: 60  added_token: ]
+max_val: 9223372036854775807    ID: 13  added_token: .
+{'prompt': 'What is the sum of 265 and 345?', 'name': '[A] 600 [B].', 'parameters': {}}
+
+Greet shrek
+
+Prompt Tokenized int:
+
+tensor([   38,  3744,   557, 41861])
+
+Prompt Tokenized str:
+['G', 'reet', 'Ġsh', 'rek']
+
+
+
+Starting Generation
+
+max_val: 9223372036854775807    ID: 58  added_token: [
+max_val: 14.712079048156738     ID: 16  added_token: 1
+max_val: 17.773832321166992     ID: 60  added_token: ]
+max_val: 16.565765380859375     ID: 323 added_token: Ġand
+max_val: 13.632862091064453     ID: 279 added_token: Ġthe
+max_val: 13.545225143432617     ID: 2732        added_token: Ġrest
+max_val: 19.318391799926758     ID: 315 added_token: Ġof
+max_val: 18.927631378173828     ID: 279 added_token: Ġthe
+max_val: 15.266424179077148     ID: 1879        added_token: Ġworld
+max_val: 16.748817443847656     ID: 13  added_token: .
+{'prompt': 'Greet shrek', 'name': '[1] and the rest of the world.', 'parameters': {}}
+
+Greet john
+
+Prompt Tokenized int:
+
+tensor([   38,  3744, 39642])
+
+Prompt Tokenized str:
+['G', 'reet', 'Ġjohn']
+
+
+
+Starting Generation
+
+max_val: 9223372036854775807    ID: 58  added_token: [
+max_val: 14.582987785339355     ID: 16  added_token: 1
+max_val: 18.160329818725586     ID: 60  added_token: ]
+max_val: 17.148677825927734     ID: 323 added_token: Ġand
+max_val: 14.351212501525879     ID: 806 added_token: Ġhis
+max_val: 16.60553550720215      ID: 2997        added_token: Ġfamily
+max_val: 17.303590774536133     ID: 11  added_token: ,
+max_val: 18.235904693603516     ID: 323 added_token: Ġand
+max_val: 17.322402954101562     ID: 2548        added_token: Ġask
+max_val: 17.743886947631836     ID: 1105        added_token: Ġthem
+max_val: 9223372036854775807    ID: 13  added_token: .
+{'prompt': 'Greet john', 'name': '[1] and his family, and ask them.', 'parameters': {}}
+
+Reverse the string 'hello'
+
+Prompt Tokenized int:
+
+tensor([45695,   279,   914,   364, 14990,     6])
+
+Prompt Tokenized str:
+['Reverse', 'Ġthe', 'Ġstring', "Ġ'", 'hello', "'"]
+
+
+
+Starting Generation
+
+max_val: 9223372036854775807    ID: 58  added_token: [
+max_val: 18.191070556640625     ID: 16  added_token: 1
+max_val: 18.526390075683594     ID: 25  added_token: :
+max_val: 19.890878677368164     ID: 18  added_token: 3
+max_val: 23.322782516479492     ID: 60  added_token: ]
+max_val: 21.411752700805664     ID: 304 added_token: Ġin
+max_val: 19.139759063720703     ID: 13027       added_token: ĠPython
+max_val: 20.090316772460938     ID: 271 added_token: ĊĊ
+max_val: 21.444141387939453     ID: 14582       added_token: Question
+max_val: 24.179288864135742     ID: 25  added_token: :
+max_val: 9223372036854775807    ID: 13  added_token: .
+{'prompt': "Reverse the string 'hello'", 'name': '[1:3] in Python\n\nQuestion:.', 'parameters': {}}
+
+Reverse the string 'world'
+
+Prompt Tokenized int:
+
+tensor([45695,   279,   914,   364, 14615,     6])
+
+Prompt Tokenized str:
+['Reverse', 'Ġthe', 'Ġstring', "Ġ'", 'world', "'"]
+
+
+
+Starting Generation
+
+max_val: 9223372036854775807    ID: 58  added_token: [
+max_val: 19.223121643066406     ID: 16  added_token: 1
+max_val: 19.56817626953125      ID: 25  added_token: :
+max_val: 20.525896072387695     ID: 18  added_token: 3
+max_val: 23.614683151245117     ID: 60  added_token: ]
+max_val: 21.477371215820312     ID: 304 added_token: Ġin
+max_val: 19.24581527709961      ID: 13027       added_token: ĠPython
+max_val: 20.216339111328125     ID: 271 added_token: ĊĊ
+max_val: 21.271635055541992     ID: 14582       added_token: Question
+max_val: 24.09204864501953      ID: 25  added_token: :
+max_val: 9223372036854775807    ID: 13  added_token: .
+{'prompt': "Reverse the string 'world'", 'name': '[1:3] in Python\n\nQuestion:.', 'parameters': {}}
+
+What is the square root of 16?
+
+Prompt Tokenized int:
+
+tensor([3838,  374,  279, 9334, 3704,  315,  220,   16,   21,   30])
+
+Prompt Tokenized str:
+['What', 'Ġis', 'Ġthe', 'Ġsquare', 'Ġroot', 'Ġof', 'Ġ', '1', '6', '?']
+
+
+
+Starting Generation
+
+max_val: 9223372036854775807    ID: 58  added_token: [
+max_val: 16.215682983398438     ID: 10189       added_token: blank
+max_val: 23.481016159057617     ID: 60  added_token: ]
+max_val: 15.723714828491211     ID: 1939        added_token: ?ĊĊ
+max_val: 19.468109130859375     ID: 1249        added_token: To
+max_val: 22.503644943237305     ID: 1477        added_token: Ġfind
+max_val: 22.51898765563965      ID: 279 added_token: Ġthe
+max_val: 25.253732681274414     ID: 9334        added_token: Ġsquare
+max_val: 27.453744888305664     ID: 3704        added_token: Ġroot
+max_val: 25.20220375061035      ID: 315 added_token: Ġof
+max_val: 9223372036854775807    ID: 13  added_token: .
+{'prompt': 'What is the square root of 16?', 'name': '[blank]?\n\nTo find the square root of.', 'parameters': {}}
+
+Calculate the square root of 144
+
+Prompt Tokenized int:
+
+tensor([47866,   279,  9334,  3704,   315,   220,    16,    19,    19])
+
+Prompt Tokenized str:
+['Calculate', 'Ġthe', 'Ġsquare', 'Ġroot', 'Ġof', 'Ġ', '1', '4', '4']
+
+
+
+Starting Generation
+
+max_val: 9223372036854775807    ID: 58  added_token: [
+max_val: 17.269168853759766     ID: 16  added_token: 1
+max_val: 17.750179290771484     ID: 60  added_token: ]
+max_val: 17.137712478637695     ID: 323 added_token: Ġand
+max_val: 17.540477752685547     ID: 508 added_token: Ġ[
+max_val: 20.633926391601562     ID: 17  added_token: 2
+max_val: 21.9016170501709       ID: 60  added_token: ]
+max_val: 17.776330947875977     ID: 323 added_token: Ġand
+max_val: 19.249408721923828     ID: 508 added_token: Ġ[
+max_val: 22.903038024902344     ID: 18  added_token: 3
+max_val: 9223372036854775807    ID: 13  added_token: .
+{'prompt': 'Calculate the square root of 144', 'name': '[1] and [2] and [3.', 'parameters': {}}
+
+Replace all numbers in "Hello 34 I'm 233 years old" with NUMBERS
+
+Prompt Tokenized int:
+
+tensor([23107,   678,  5109,   304,   330,  9707,   220,    18,    19,   358,
+         2776,   220,    17,    18,    18,  1635,  2310,     1,   448, 15943,
+        44116])
+
+Prompt Tokenized str:
+['Replace', 'Ġall', 'Ġnumbers', 'Ġin', 'Ġ"', 'Hello', 'Ġ', '3', '4', 'ĠI', "'m", 'Ġ', '2', '3', '3', 'Ġyears', 'Ġold', '"', 'Ġwith', 'ĠNUM', 'BERS']
+
+
+
+Starting Generation
+
+max_val: 9223372036854775807    ID: 58  added_token: [
+max_val: 17.140525817871094     ID: 15  added_token: 0
+max_val: 19.760364532470703     ID: 60  added_token: ]
+max_val: 18.496971130371094     ID: 323 added_token: Ġand
+max_val: 16.919618606567383     ID: 15943       added_token: ĠNUM
+max_val: 25.762805938720703     ID: 44116       added_token: BERS
+max_val: 22.978771209716797     ID: 58  added_token: [
+max_val: 23.303791046142578     ID: 16  added_token: 1
+max_val: 21.30347442626953      ID: 60  added_token: ]
+max_val: 18.314979553222656     ID: 15576       added_token: Ġrespectively
+max_val: 9223372036854775807    ID: 13  added_token: .
+{'prompt': 'Replace all numbers in "Hello 34 I\'m 233 years old" with NUMBERS', 'name': '[0] and NUMBERS[1] respectively.', 'parameters': {}}
+
+Replace all vowels in 'Programming is fun' with asterisks
+
+Prompt Tokenized int:
+
+tensor([23107,   678, 78456,   304,   364, 45719,   374,  2464,     6,   448,
+        33937, 92834])
+
+Prompt Tokenized str:
+['Replace', 'Ġall', 'Ġvowels', 'Ġin', "Ġ'", 'Programming', 'Ġis', 'Ġfun', "'", 'Ġwith', 'Ġaster', 'isks']
+
+
+
+Starting Generation
+
+max_val: 9223372036854775807    ID: 58  added_token: [
+max_val: 16.596202850341797     ID: 16  added_token: 1
+max_val: 18.185911178588867     ID: 60  added_token: ]
+max_val: 18.417469024658203     ID: 323 added_token: Ġand
+max_val: 17.50551986694336      ID: 1221        added_token: Ġthen
+max_val: 17.430513381958008     ID: 8290        added_token: Ġreplace
+max_val: 18.57012176513672      ID: 678 added_token: Ġall
+max_val: 18.932273864746094     ID: 78456       added_token: Ġvowels
+max_val: 20.51222038269043      ID: 304 added_token: Ġin
+max_val: 20.45924186706543      ID: 364 added_token: Ġ'
+max_val: 9223372036854775807    ID: 13  added_token: .
+{'prompt': "Replace all vowels in 'Programming is fun' with asterisks", 'name': "[1] and then replace all vowels in '.", 'parameters': {}}
+
+Substitute the word 'cat' with 'dog' in 'The cat sat on the mat with another cat'
+
+Prompt Tokenized int:
+
+tensor([ 3136,  7660,   279,  3409,   364,  4616,     6,   448,   364, 18457,
+            6,   304,   364,   785,  8251,  7578,   389,   279,  5517,   448,
+         2441,  8251,     6])
+
+Prompt Tokenized str:
+['Sub', 'stitute', 'Ġthe', 'Ġword', "Ġ'", 'cat', "'", 'Ġwith', "Ġ'", 'dog', "'", 'Ġin', "Ġ'", 'The', 'Ġcat', 'Ġsat', 'Ġon', 'Ġthe', 'Ġmat', 'Ġwith', 'Ġanother', 'Ġcat', "'"]
+
+
+
+Starting Generation
+
+max_val: 9223372036854775807    ID: 58  added_token: [
+max_val: 16.908308029174805     ID: 16  added_token: 1
+max_val: 19.471769332885742     ID: 60  added_token: ]
+max_val: 20.189441680908203     ID: 323 added_token: Ġand
+max_val: 18.316097259521484     ID: 1221        added_token: Ġthen
+max_val: 16.728160858154297     ID: 3270        added_token: Ġwrite
+max_val: 20.11017417907715      ID: 279 added_token: Ġthe
+max_val: 18.61652183532715      ID: 11652       added_token: Ġsentence
+max_val: 19.245805740356445     ID: 304 added_token: Ġin
+max_val: 17.540138244628906     ID: 279 added_token: Ġthe
+max_val: 9223372036854775807    ID: 13  added_token: .
+{'prompt': "Substitute the word 'cat' with 'dog' in 'The cat sat on the mat with another cat'", 'name': '[1] and then write the sentence in the.', 'parameters': {}}

@@ -1,0 +1,57 @@
+[
+    {
+        "prompt": "What is the sum of 2 and 3?",
+        "name": "[1] - BrainMass\nAnswer: .",
+        "parameters": {}
+    },
+    {
+        "prompt": "What is the sum of 265 and 345?",
+        "name": "[A] 600 [B].",
+        "parameters": {}
+    },
+    {
+        "prompt": "Greet shrek",
+        "name": "[1] and the rest of the world.",
+        "parameters": {}
+    },
+    {
+        "prompt": "Greet john",
+        "name": "[1] and his family, and ask them.",
+        "parameters": {}
+    },
+    {
+        "prompt": "Reverse the string 'hello'",
+        "name": "[1:3] in Python\n\nQuestion:.",
+        "parameters": {}
+    },
+    {
+        "prompt": "Reverse the string 'world'",
+        "name": "[1:3] in Python\n\nQuestion:.",
+        "parameters": {}
+    },
+    {
+        "prompt": "What is the square root of 16?",
+        "name": "[blank]?\n\nTo find the square root of.",
+        "parameters": {}
+    },
+    {
+        "prompt": "Calculate the square root of 144",
+        "name": "[1] and [2] and [3.",
+        "parameters": {}
+    },
+    {
+        "prompt": "Replace all numbers in \"Hello 34 I'm 233 years old\" with NUMBERS",
+        "name": "[0] and NUMBERS[1] respectively.",
+        "parameters": {}
+    },
+    {
+        "prompt": "Replace all vowels in 'Programming is fun' with asterisks",
+        "name": "[1] and then replace all vowels in '.",
+        "parameters": {}
+    },
+    {
+        "prompt": "Substitute the word 'cat' with 'dog' in 'The cat sat on the mat with another cat'",
+        "name": "[1] and then write the sentence in the.",
+        "parameters": {}
+    }
+]

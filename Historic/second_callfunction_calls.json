@@ -1,0 +1,57 @@
+[
+    {
+        "prompt": "What is the sum of 2 and 3?",
+        "name": "{1} - 2 and 3?{1} - 2 and 3?{1} - 2 and 3?{1} - 2 and 3?{1} - 2 and 3?{1} - 2 and 3?{1} - 2 and 3?{1} - 2 and 3?{1} - 2 and 3?{1} - 2 and 3?.",
+        "parameters": {}
+    },
+    {
+        "prompt": "What is the sum of 265 and 345?",
+        "name": "{1} - 265 + 345?\n\nLet me calculate this step by step.\n\nFirst, I will add 265 and 345.",
+        "parameters": {}
+    },
+    {
+        "prompt": "Greet shrek",
+        "name": "{shrek} and welcome to the world of the Shrek universe.",
+        "parameters": {}
+    },
+    {
+        "prompt": "Greet john",
+        "name": "{1} and john{2} and say that you are both here to help with the problem.",
+        "parameters": {}
+    },
+    {
+        "prompt": "Reverse the string 'hello'",
+        "name": "{1} to 'olleh' and then reverse the string 'hello' again to 'olleh' again.",
+        "parameters": {}
+    },
+    {
+        "prompt": "Reverse the string 'world'",
+        "name": "{1} to 'world' in the first position and 'world' in the second position, and then reverse the entire string again.",
+        "parameters": {}
+    },
+    {
+        "prompt": "What is the square root of 16?",
+        "name": "{1} |{2} |{3} |{4} |{5} |{6} |{7} |{8} |{9} |{10} |{11} |{12} |{13} |{14} |{15} |{16} |{17} |{18} |{19} |{20} |{21} |{22}.",
+        "parameters": {}
+    },
+    {
+        "prompt": "Calculate the square root of 144",
+        "name": "{144} and then find the square root of 144{144} again.",
+        "parameters": {}
+    },
+    {
+        "prompt": "Replace all numbers in \"Hello 34 I'm 233 years old\" with NUMBERS",
+        "name": "{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,.",
+        "parameters": {}
+    },
+    {
+        "prompt": "Replace all vowels in 'Programming is fun' with asterisks",
+        "name": "{1} and then add a space between the two parts.",
+        "parameters": {}
+    },
+    {
+        "prompt": "Substitute the word 'cat' with 'dog' in 'The cat sat on the mat with another cat'",
+        "name": "{ and then add a word to the end of the sentence.",
+        "parameters": {}
+    }
+]

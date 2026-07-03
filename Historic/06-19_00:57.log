@@ -1,0 +1,168 @@
+All Imports done
+
+
+[2AFile "data/output/function_calls.json" already Exists, do you wish to replace it?
+File Cleared, continuing...
+setup complete
+
+
+LLM created True
+
+
+
+
+vocab: /home/tribeirinho/.cache/huggingface/hub/models--Qwen--Qwen3-0.6B/snapshots/c1899de289a04d12100db370d81485cdf75e47ca/vocab.json
+merges: /home/tribeirinho/.cache/huggingface/hub/models--Qwen--Qwen3-0.6B/snapshots/c1899de289a04d12100db370d81485cdf75e47ca/merges.txt
+tokenizer: /home/tribeirinho/.cache/huggingface/hub/models--Qwen--Qwen3-0.6B/snapshots/c1899de289a04d12100db370d81485cdf75e47ca/tokenizer.json
+
+
+LLM Class generated
+
+{"name":"fn_add_numbers","description":"Add two numbers together and return their sum.","parameters":{"a":{"type":"number"},"b":{"type":"number"}},"return":{"type":"number"}
+
+{"name":"fn_greet","description":"Generate a greeting message for a person by name.","parameters":{"name":{"type":"string"}},"return":{"type":"string"}
+
+{"name":"fn_reverse_string","description":"Reverse a string and return the reversed result.","parameters":{"s":{"type":"string"}},"return":{"type":"string"}
+
+{"name":"fn_get_square_root","description":"Calculate the square root of a number.","parameters":{"a":{"type":"number"}},"return":{"type":"number"}
+
+{"name":"fn_substitute_string_with_regex","description":"Replace all occurrences matching a regex pattern in a string.","parameters":{"source_string":{"type":"string"},"regex":{"type":"string"},"replacement":{"type":"string"}},"return":{"type":"string"}
+
+237
+
+What is the sum of 2 and 3?
+
+Prompt Tokenized int:
+
+tensor([    1, 40581,   788,   330,  3838,   374,   279,  2629,   315,   220,
+           17,   323,   220,    18,  7521])
+
+Prompt Tokenized str:
+['"', 'prompt', '":', 'Ġ"', 'What', 'Ġis', 'Ġthe', 'Ġsum', 'Ġof', 'Ġ', '2', 'Ġand', 'Ġ', '3', '?"']
+starting len: 252
+
+Starting Generation
+
+
+#  0 - max_val: inf	ID:    90	added_token: {	log: ['{']
+#  1 - max_val: inf	ID:   198	added_token: Ċ	
+#  2 - max_val: inf	ID:   257	added_token: ĠĠĠĠ	
+#  3 - max_val: 20.078	ID:   330	added_token: Ġ"	
+#  4 - max_val: 17.68	ID:  13786	added_token: parameters	
+#  5 - max_val: 22.718	ID:   788	added_token: ":	
+#  6 - max_val: 20.592	ID:   341	added_token: Ġ{Ċ	
+#  7 - max_val: 21.896	ID:   286	added_token: ĠĠĠĠĠĠĠ	
+#  8 - max_val: 22.84	ID:   330	added_token: Ġ"	
+#  9 - max_val: 22.3	ID:    64	added_token: a	
+# 10 - max_val: 24.177	ID:   788	added_token: ":	
+# 11 - max_val: 21.284	ID:   220	added_token: Ġ	
+# 12 - max_val: 24.798	ID:    17	added_token: 2	
+# 13 - max_val: 22.814	ID:   345	added_token: ,Ċ	
+# 14 - max_val: 28.34	ID:   286	added_token: ĠĠĠĠĠĠĠ	
+# 15 - max_val: 27.801	ID:   330	added_token: Ġ"	
+# 16 - max_val: 27.896	ID:    65	added_token: b	
+# 17 - max_val: 26.579	ID:   788	added_token: ":	
+# 18 - max_val: 23.79	ID:   220	added_token: Ġ	
+# 19 - max_val: 26.875	ID:    18	added_token: 3	
+# 20 - max_val: 23.556	ID:   198	added_token: Ċ	
+# 21 - max_val: 22.343	ID:   262	added_token: ĠĠĠ	
+# 22 - max_val: 24.297	ID:   456	added_token: Ġ}Ċ	
+# 23 - max_val: 18.887	ID:  42273	added_token: }"ĊĊ	
+# 24 - max_val: 15.268	ID:  32313	added_token: Okay	
+# 25 - max_val: 25.479	ID:    11	added_token: ,	log: ['{']
+# 26 - max_val: 25.839	ID:  1077	added_token: Ġlet	
+# 27 - max_val: 24.688	ID:   594	added_token: 's	
+# 28 - max_val: 24.596	ID:  1490	added_token: Ġsee	
+# 29 - max_val: 26.356	ID:    13	added_token: .	
+# 30 - max_val: 26.878	ID:   576	added_token: ĠThe	
+# 31 - max_val: 27.181	ID:  1196	added_token: Ġuser	
+# 32 - max_val: 22.901	ID:  3897	added_token: Ġprovided	
+# 33 - max_val: 24.984	ID:   264	added_token: Ġa	
+# 34 - max_val: 24.115	ID:  1140	added_token: Ġlist	
+# 35 - max_val: 30.846	ID:   315	added_token: Ġof	
+# 36 - max_val: 25.136	ID:  4718	added_token: ĠJSON	
+# 37 - max_val: 29.013	ID:  5746	added_token: Ġfunctions	
+# 38 - max_val: 25.584	ID:   323	added_token: Ġand	
+# 39 - max_val: 23.845	ID:   264	added_token: Ġa	
+# 40 - max_val: 23.144	ID:  9934	added_token: Ġprompt	
+# 41 - max_val: 24.784	ID:    13	added_token: .	
+# 42 - max_val: 27.125	ID:   576	added_token: ĠThe	
+# 43 - max_val: 22.131	ID:  9934	added_token: Ġprompt	
+# 44 - max_val: 27.104	ID:   374	added_token: Ġis	
+# 45 - max_val: 26.239	ID:  10161	added_token: Ġasking	
+# 46 - max_val: 26.233	ID:   369	added_token: Ġfor	
+# 47 - max_val: 29.42	ID:   279	added_token: Ġthe	
+# 48 - max_val: 30.729	ID:  2629	added_token: Ġsum	
+# 49 - max_val: 32.127	ID:   315	added_token: Ġof	
+# 50 - max_val: 29.806	ID:   220	added_token: Ġ	
+# 51 - max_val: 37.433	ID:    17	added_token: 2	
+# 52 - max_val: 31.037	ID:   323	added_token: Ġand	
+# 53 - max_val: 30.493	ID:   220	added_token: Ġ	
+# 54 - max_val: 35.046	ID:    18	added_token: 3	
+# 55 - max_val: 26.829	ID:    13	added_token: .	
+# 56 - max_val: 23.843	ID:   576	added_token: ĠThe	
+# 57 - max_val: 22.547	ID:  5746	added_token: Ġfunctions	
+# 58 - max_val: 26.048	ID:  2500	added_token: Ġavailable	
+# 59 - max_val: 26.459	ID:   525	added_token: Ġare	
+# 60 - max_val: 20.659	ID:  5168	added_token: Ġfn	
+# 61 - max_val: 32.88	ID:  2891	added_token: _add	
+# 62 - max_val: 32.526	ID:  32964	added_token: _numbers	
+# 63 - max_val: 28.157	ID:    11	added_token: ,	log: ['{']
+# 64 - max_val: 25.137	ID:  5168	added_token: Ġfn	
+# 65 - max_val: 31.869	ID:  1889	added_token: _g	
+# 66 - max_val: 35.035	ID:  3744	added_token: reet	
+# 67 - max_val: 28.594	ID:    11	added_token: ,	log: ['{']
+# 68 - max_val: 25.902	ID:  5168	added_token: Ġfn	
+# 69 - max_val: 35.398	ID:  43277	added_token: _reverse	
+# 70 - max_val: 31.318	ID:  3904	added_token: _string	
+# 71 - max_val: 29.982	ID:    11	added_token: ,	log: ['{']
+# 72 - max_val: 27.228	ID:  5168	added_token: Ġfn	
+# 73 - max_val: 33.778	ID:  3062	added_token: _get	
+# 74 - max_val: 33.682	ID:  39794	added_token: _square	
+# 75 - max_val: 33.684	ID:  12993	added_token: _root	
+# 76 - max_val: 29.901	ID:    11	added_token: ,	log: ['{']
+# 77 - max_val: 26.855	ID:   323	added_token: Ġand	
+# 78 - max_val: 31.818	ID:  5168	added_token: Ġfn	
+# 79 - max_val: 34.737	ID:  5228	added_token: _sub	
+# 80 - max_val: 34.95	ID:  7660	added_token: stitute	
+# 81 - max_val: 32.086	ID:  3904	added_token: _string	
+# 82 - max_val: 30.638	ID:  6615	added_token: _with	
+# 83 - max_val: 34.243	ID:  41832	added_token: _regex	
+# 84 - max_val: 27.012	ID:   382	added_token: .ĊĊ	
+# 85 - max_val: 25.717	ID:  22464	added_token: Looking	
+# 86 - max_val: 29.457	ID:   518	added_token: Ġat	
+# 87 - max_val: 26.913	ID:   279	added_token: Ġthe	
+# 88 - max_val: 21.279	ID:  5029	added_token: Ġparameters	
+# 89 - max_val: 24.166	ID:   369	added_token: Ġfor	
+# 90 - max_val: 22.641	ID:  5168	added_token: Ġfn	
+# 91 - max_val: 33.531	ID:  2891	added_token: _add	
+# 92 - max_val: 33.588	ID:  32964	added_token: _numbers	
+# 93 - max_val: 26.71	ID:    11	added_token: ,	log: ['{']
+# 94 - max_val: 27.054	ID:   432	added_token: Ġit	
+# 95 - max_val: 27.978	ID:  7460	added_token: Ġrequires	
+# 96 - max_val: 27.026	ID:  1378	added_token: Ġtwo	
+# 97 - max_val: 29.186	ID:  5109	added_token: Ġnumbers	
+# 98 - max_val: 25.505	ID:    11	added_token: ,	log: ['{']
+# 99 - max_val: 28.085	ID:   264	added_token: Ġa	
+# 100 - max_val: 31.593	ID:   323	added_token: Ġand	
+# 101 - max_val: 32.641	ID:   293	added_token: Ġb	
+# 102 - max_val: 29.299	ID:    13	added_token: .	
+# 103 - max_val: 28.012	ID:   576	added_token: ĠThe	
+# 104 - max_val: 23.066	ID:  9934	added_token: Ġprompt	
+# 105 - max_val: 21.22	ID:  5711	added_token: Ġuses	
+# 106 - max_val: 22.84	ID:   264	added_token: Ġa	
+# 107 - max_val: 23.649	ID:   323	added_token: Ġand	
+# 108 - max_val: 30.904	ID:   293	added_token: Ġb	
+# 109 - max_val: 25.848	ID:   438	added_token: Ġas	
+# 110 - max_val: 25.48	ID:   220	added_token: Ġ	
+# 111 - max_val: 32.076	ID:    17	added_token: 2	
+# 112 - max_val: 31.027	ID:   323	added_token: Ġand	
+# 113 - max_val: 29.871	ID:   220	added_token: Ġ	
+# 114 - max_val: 38.046	ID:    18	added_token: 3	
+# 115 - max_val: 26.706	ID:    11	added_token: ,	log: ['{']
+# 116 - max_val: 28.204	ID:   892	added_token: Ġwhich	
+# 117 - max_val: 24.623	ID:  9071	added_token: Ġmatches	
+# 118 - max_val: 24.821	ID:   279	added_token: Ġthe	
+# 119 - max_val: 27.225	ID:  5029	added_token: Ġparameters	
+# 120 - max_val: 26.803	ID:    13	added_token: .	
+# 121 - max_val: 27.012	ID:  2055	added_token:

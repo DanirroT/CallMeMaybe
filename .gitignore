@@ -2,5 +2,8 @@
 **/.mypy_cache/
 **/.venv/
 .venv
+.env
 **/.vscode/
-data/output
+data/output/
+*~
+

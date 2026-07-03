@@ -1,0 +1,88 @@
+All Imports done
+
+
+[2AFile "data/output/function_calls.json" already Exists, do you wish to replace it?
+File Cleared, continuing...
+setup complete
+
+
+LLM created True
+
+
+
+
+vocab: /home/tribeirinho/.cache/huggingface/hub/models--Qwen--Qwen3-0.6B/snapshots/c1899de289a04d12100db370d81485cdf75e47ca/vocab.json
+merges: /home/tribeirinho/.cache/huggingface/hub/models--Qwen--Qwen3-0.6B/snapshots/c1899de289a04d12100db370d81485cdf75e47ca/merges.txt
+tokenizer: /home/tribeirinho/.cache/huggingface/hub/models--Qwen--Qwen3-0.6B/snapshots/c1899de289a04d12100db370d81485cdf75e47ca/tokenizer.json
+
+
+LLM Class generated
+
+{"name":"fn_add_numbers","description":"Add two numbers together and return their sum.","parameters":{"a":{"type":"number"},"b":{"type":"number"}},"return":{"type":"number"}
+
+{"name":"fn_greet","description":"Generate a greeting message for a person by name.","parameters":{"name":{"type":"string"}},"return":{"type":"string"}
+
+{"name":"fn_reverse_string","description":"Reverse a string and return the reversed result.","parameters":{"s":{"type":"string"}},"return":{"type":"string"}
+
+{"name":"fn_get_square_root","description":"Calculate the square root of a number.","parameters":{"a":{"type":"number"}},"return":{"type":"number"}
+
+{"name":"fn_substitute_string_with_regex","description":"Replace all occurrences matching a regex pattern in a string.","parameters":{"source_string":{"type":"string"},"regex":{"type":"string"},"replacement":{"type":"string"}},"return":{"type":"string"}
+
+249
+
+What is the sum of 2 and 3?
+
+Prompt Tokenized int:
+
+tensor([    1, 40581,   788,   330,  3838,   374,   279,  2629,   315,   220,
+           17,   323,   220,    18,  7521])
+
+Prompt Tokenized str:
+['"', 'prompt', '":', 'Ġ"', 'What', 'Ġis', 'Ġthe', 'Ġsum', 'Ġof', 'Ġ', '2', 'Ġand', 'Ġ', '3', '?"']
+starting len: 264
+
+Starting Generation
+
+
+generating: #  0 - max_val: 17.984	ID:   756	added_token: ",Ċ
+generating: #  1 - max_val: 21.317	ID:  31486	added_token: "name
+generating: #  2 - max_val: 29.611	ID:   788	added_token: ":
+generating: #  3 - max_val: 26.4	ID:   330	added_token: Ġ"
+generating: #  4 - max_val: 31.002	ID:  8822	added_token: fn
+generating: #  5 - max_val: 32.359	ID:  2891	added_token: _add
+generating: #  6 - max_val: 31.661	ID:  32964	added_token: _numbers
+generating: #  7 - max_val: 24.221	ID:   756	added_token: ",Ċ
+generating: #  8 - max_val: 29.937	ID:     1	added_token: "
+generating: #  9 - max_val: 29.567	ID:  13786	added_token: parameters
+generating: # 10 - max_val: 28.935	ID:   788	added_token: ":
+generating: # 11 - max_val: 24.974	ID:   341	added_token: Ġ{Ċ
+generating: # 12 - max_val: 24.45	ID:   262	added_token: ĠĠĠ
+generating: # 13 - max_val: 28.339	ID:   330	added_token: Ġ"
+generating: # 14 - max_val: 28.61	ID:    64	added_token: a
+generating: # 15 - max_val: 30.23	ID:   788	added_token: ":
+generating: # 16 - max_val: 24.067	ID:   220	added_token: Ġ
+generating: # 17 - max_val: 28.196	ID:    17	added_token: 2
+generating: # 18 - max_val: 24.738	ID:   345	added_token: ,Ċ
+generating: # 19 - max_val: 30.42	ID:   262	added_token: ĠĠĠ
+generating: # 20 - max_val: 30.693	ID:   330	added_token: Ġ"
+generating: # 21 - max_val: 31.608	ID:    65	added_token: b
+generating: # 22 - max_val: 29.56	ID:   788	added_token: ":
+generating: # 23 - max_val: 26.324	ID:   220	added_token: Ġ
+generating: # 24 - max_val: 29.479	ID:    18	added_token: 3
+generating: # 25 - max_val: 25.221	ID:   198	added_token: Ċ
+generating: # 26 - max_val: 21.531	ID:   532	added_token: }Ċ
+generating: # 27 - max_val: 17.446	ID:  73594	added_token: ```
+generating: # 28 - max_val: 17.898	ID:  2236	added_token: json
+generating: # 29 - max_val: 23.152	ID:   198	added_token: Ċ
+generating: # 30 - max_val: 20.483	ID:  73594	added_token: ```
+generating: # 31 - max_val: 15.043	ID:  4710	added_token: ĠĊĊ
+generating: # 32 - max_val: 17.251	ID:  73594	added_token: ```
+generating: # 33 - max_val: 19.716	ID:  2236	added_token: json
+generating: # 34 - max_val: 23.183	ID:   198	added_token: Ċ
+generating: # 35 - max_val: 22.051	ID:  73594	added_token: ```
+generating: # 36 - max_val: 19.869	ID:  4710	added_token: ĠĊĊ
+generating: # 37 - max_val: 18.523	ID:  73594	added_token: ```
+generating: # 38 - max_val: 22.877	ID:  2236	added_token: json
+generating: # 39 - max_val: 23.916	ID:   198	added_token: Ċ
+generating: # 40 - max_val: 22.201	ID:  73594	added_token: ```
+generating: # 41 - max_val: 20.669	ID:  4710	added_token: ĠĊĊ

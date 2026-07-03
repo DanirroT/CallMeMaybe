@@ -1,0 +1,155 @@
+All Imports done
+
+
+[2AFile "data/output/function_calls.json" already Exists, do you wish to replace it?
+File Cleared, continuing...
+setup complete
+
+
+LLM created True
+
+
+
+
+vocab: /home/tribeirinho/.cache/huggingface/hub/models--Qwen--Qwen3-0.6B/snapshots/c1899de289a04d12100db370d81485cdf75e47ca/vocab.json
+merges: /home/tribeirinho/.cache/huggingface/hub/models--Qwen--Qwen3-0.6B/snapshots/c1899de289a04d12100db370d81485cdf75e47ca/merges.txt
+tokenizer: /home/tribeirinho/.cache/huggingface/hub/models--Qwen--Qwen3-0.6B/snapshots/c1899de289a04d12100db370d81485cdf75e47ca/tokenizer.json
+
+
+LLM Class generated
+
+{"name":"fn_add_numbers","description":"Add two numbers together and return their sum.","parameters":{"a":{"type":"number"},"b":{"type":"number"}},"return":{"type":"number"}
+
+
+{"name":"fn_greet","description":"Generate a greeting message for a person by name.","parameters":{"name":{"type":"string"}},"return":{"type":"string"}
+
+
+{"name":"fn_reverse_string","description":"Reverse a string and return the reversed result.","parameters":{"s":{"type":"string"}},"return":{"type":"string"}
+
+
+{"name":"fn_get_square_root","description":"Calculate the square root of a number.","parameters":{"a":{"type":"number"}},"return":{"type":"number"}
+
+
+{"name":"fn_substitute_string_with_regex","description":"Replace all occurrences matching a regex pattern in a string.","parameters":{"source_string":{"type":"string"},"regex":{"type":"string"},"replacement":{"type":"string"}},"return":{"type":"string"}
+
+
+Instructions
+[5370, 5712, 510, 4913, 606, 3252, 8822, 2891, 32964, 2198, 4684, 3252, 2212, 1378, 5109, 3786, 323, 470, 862, 2629, 47891, 13786, 22317, 64, 22317, 1313, 3252, 4082, 58640, 65, 22317, 1313, 3252, 4082, 30975, 1335, 689, 22317, 1313, 3252, 4082, 16707, 5370, 5712, 510, 4913, 606, 3252, 8822, 1889, 3744, 2198, 4684, 3252, 31115, 264, 42113, 1943, 369, 264, 1697, 553, 829, 47891, 13786, 22317, 606, 22317, 1313, 3252, 917, 30975, 1335, 689, 22317, 1313, 3252, 917, 16707, 5370, 5712, 510, 4913, 606, 3252, 8822, 43277, 3904, 2198, 4684, 3252, 45695, 264, 914, 323, 470, 279, 27437, 1102, 47891, 13786, 22317, 82, 22317, 1313, 3252, 917, 30975, 1335, 689, 22317, 1313, 3252, 917, 16707, 5370, 5712, 510, 4913, 606, 3252, 8822, 3062, 39794, 12993, 2198, 4684, 3252, 47866, 279, 9334, 3704, 315, 264, 1372, 47891, 13786, 22317, 64, 22317, 1313, 3252, 4082, 30975, 1335, 689, 22317, 1313, 3252, 4082, 16707, 5370, 5712, 510, 4913, 606, 3252, 8822, 5228, 7660, 3904, 6615, 41832, 2198, 4684, 3252, 23107, 678, 56015, 12579, 264, 20180, 5383, 304, 264, 914, 47891, 13786, 22317, 2427, 3904, 22317, 1313, 3252, 917, 58640, 26387, 22317, 1313, 3252, 917, 58640, 83631, 22317, 1313, 3252, 917, 30975, 1335, 689, 22317, 1313, 3252, 917, 16707, 5370, 15042, 510, 515, 262, 330, 40581, 788, 330, 41968, 9934, 756, 262, 330, 606, 788, 330, 8822, 1269, 756, 262, 330, 13786, 788, 341, 286, 330, 903, 16, 788, 1685, 16, 6189, 345, 286, 330, 903, 17, 788, 1685, 17, 6189, 198, 286, 366, 1112, 397, 262, 456, 630]
+255
+[756, 262, 330, 606, 788, 330]
+
+What is the sum of 2 and 3?
+
+Prompt Tokenized int:
+
+tensor([3838,  374,  279, 2629,  315,  220,   17,  323,  220,   18,   30])
+
+Prompt Tokenized str:
+['What', 'Ġis', 'Ġthe', 'Ġsum', 'Ġof', 'Ġ', '2', 'Ġand', 'Ġ', '3', '?']
+
+Starting Generation 278
+
+JSON Function:
+{"name":"fn_add_numbers","description":"Add two numbers together and return their sum.","parameters":{"a":{"type":"number"},"b":{"type":"number"}},"return":{"type":"number"}
+JSON Function:
+{"name":"fn_greet","description":"Generate a greeting message for a person by name.","parameters":{"name":{"type":"string"}},"return":{"type":"string"}
+JSON Function:
+{"name":"fn_reverse_string","description":"Reverse a string and return the reversed result.","parameters":{"s":{"type":"string"}},"return":{"type":"string"}
+JSON Function:
+{"name":"fn_get_square_root","description":"Calculate the square root of a number.","parameters":{"a":{"type":"number"}},"return":{"type":"number"}
+JSON Function:
+{"name":"fn_substitute_string_with_regex","description":"Replace all occurrences matching a regex pattern in a string.","parameters":{"source_string":{"type":"string"},"regex":{"type":"string"},"replacement":{"type":"string"}},"return":{"type":"string"}
+JSON Format:
+{
+    "prompt": "given prompt",
+    "name": "fn_name",
+    "parameters": {
+        "param1": param1_val,
+        "param2": param2_val
+        <...>
+    }
+}
+
+{
+    "prompt": "What is the sum of 2 and 3?",
+    "name": "
+
+['{', '"']
+
+
+generating: # 23 - max_val: 28.536	ID:  8822	added_token: fn	
+generating: # 24 - max_val: 28.926	ID:  2891	added_token: _add	
+generating: # 25 - max_val: 30.396	ID:  32964	added_token: _numbers	
+generating: # 26 - max_val: 25.407	ID:   756	added_token: ",Ċ	log: ['{']
+generating: # 27 - max_val: 26.955	ID:   262	added_token: ĠĠĠ	
+generating: # 28 - max_val: 27.229	ID:   330	added_token: Ġ"	log: ['{', '"']
+generating: # 29 - max_val: 28.58	ID:  13786	added_token: parameters	
+generating: # 30 - max_val: 26.747	ID:   788	added_token: ":	log: ['{']
+generating: # 31 - max_val: 23.458	ID:   341	added_token: Ġ{Ċ	log: ['{', '{']
+generating: # 32 - max_val: 25.637	ID:   286	added_token: ĠĠĠĠĠĠĠ	
+generating: # 33 - max_val: 25.329	ID:   330	added_token: Ġ"	log: ['{', '{', '"']
+generating: # 34 - max_val: 27.052	ID:    64	added_token: a	
+generating: # 35 - max_val: 26.951	ID:   788	added_token: ":	log: ['{', '{']
+generating: # 36 - max_val: 23.676	ID:   220	added_token: Ġ	
+generating: # 37 - max_val: 27.43	ID:    17	added_token: 2	
+generating: # 38 - max_val: 25.07	ID:   345	added_token: ,Ċ	
+generating: # 39 - max_val: 32.806	ID:   286	added_token: ĠĠĠĠĠĠĠ	
+generating: # 40 - max_val: 28.544	ID:   330	added_token: Ġ"	log: ['{', '{', '"']
+generating: # 41 - max_val: 30.952	ID:    65	added_token: b	
+generating: # 42 - max_val: 28.67	ID:   788	added_token: ":	log: ['{', '{']
+generating: # 43 - max_val: 26.247	ID:   220	added_token: Ġ	
+generating: # 44 - max_val: 29.387	ID:    18	added_token: 3	
+generating: # 45 - max_val: 27.396	ID:   198	added_token: Ċ	
+generating: # 46 - max_val: 25.652	ID:   262	added_token: ĠĠĠ	
+generating: # 47 - max_val: 25.807	ID:   456	added_token: Ġ}Ċ	Detected Bracket ending log: ['{']
+generating: # 48 - max_val: 21.746	ID:   630	added_token: }ĊĊ	:
+: REPLACED:# 48 - max_val: 21.718	ID:   532	added_token: }Ċ	Detected Bracket ending log: []
+
+Response Generated 304
+JSON Function:
+{"name":"fn_add_numbers","description":"Add two numbers together and return their sum.","parameters":{"a":{"type":"number"},"b":{"type":"number"}},"return":{"type":"number"}
+JSON Function:
+{"name":"fn_greet","description":"Generate a greeting message for a person by name.","parameters":{"name":{"type":"string"}},"return":{"type":"string"}
+JSON Function:
+{"name":"fn_reverse_string","description":"Reverse a string and return the reversed result.","parameters":{"s":{"type":"string"}},"return":{"type":"string"}
+JSON Function:
+{"name":"fn_get_square_root","description":"Calculate the square root of a number.","parameters":{"a":{"type":"number"}},"return":{"type":"number"}
+JSON Function:
+{"name":"fn_substitute_string_with_regex","description":"Replace all occurrences matching a regex pattern in a string.","parameters":{"source_string":{"type":"string"},"regex":{"type":"string"},"replacement":{"type":"string"}},"return":{"type":"string"}
+JSON Format:
+{
+    "prompt": "given prompt",
+    "name": "fn_name",
+    "parameters": {
+        "param1": param1_val,
+        "param2": param2_val
+        <...>
+    }
+}
+
+{
+    "prompt": "What is the sum of 2 and 3?",
+    "name": "fn_add_numbers",
+    "parameters": {
+        "a": 2,
+        "b": 3
+    }
+}
+
+
+
+adding to list
+{
+    "prompt": "What is the sum of 2 and 3?",
+    "name": "fn_add_numbers",
+    "parameters": {
+        "a": 2,
+        "b": 3
+    }
+}
+
+
+
+success
+
+
