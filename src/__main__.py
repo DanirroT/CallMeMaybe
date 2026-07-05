@@ -1,11 +1,13 @@
 import sys
 import os
+from dotenv import load_dotenv
 # import random
 import httpcore
-from typing import Any
+from typing import Any, cast
 import json
+# from json import JSONDecodeError
 from torch import Tensor
-from src import (val_args,
+from src import (val_args, ft_repr,
                  DefFunctException, FunctDef, Parameter
                  )
 from llm_sdk import Small_LLM_Model
@@ -39,8 +41,8 @@ class FunctCallLLM():
     #             list[dict[str, str | dict[str, Any]]] |
     #             dict[str, str | dict[str, Any]])
     to_export: (str |
-                list[str] |
-                dict[str, str | dict[str, Any]])
+                dict[str, str | dict[str, Any]] |
+                list[str | dict[str, str | dict[str, Any]]])
 
     def __init__(self, arg_inputs: dict[str, str] | None,
                  setting: bool = True) -> None:
@@ -65,7 +67,7 @@ class FunctCallLLM():
             # print ()
 
             try:
-                self._create_output_file(arg_inputs["output"])
+                self._create_output_file(arg_inputs["output"], setting)
             except FileExistsError:
                 raise
 
@@ -124,7 +126,7 @@ class FunctCallLLM():
         #     self.json_text_int[json_char] = self.vocab_text_int[json_char]
         #     self.json_int_text[self.vocab_text_int[json_char]] = json_char
 
-        print()
+        # print()
         # input()
 
         try:
@@ -138,7 +140,8 @@ class FunctCallLLM():
                             f"Callable Function number {error_len}: "
                             f"{self.funct_defs[error_len]}:\n\n{e}")
 
-    def redefine_inputs(self, arg_inputs: dict[str, str]) -> None:
+    def redefine_inputs(self, arg_inputs: dict[str, str],
+                        setting: bool = True) -> None:
 
         try:
             self._get_prompts(arg_inputs["input"])
@@ -159,7 +162,7 @@ class FunctCallLLM():
         # print ()
 
         try:
-            self._create_output_file(arg_inputs["output"])
+            self._create_output_file(arg_inputs["output"], setting)
         except FileExistsError:
             raise
 
@@ -188,7 +191,7 @@ class FunctCallLLM():
 
         # print(parsed_inputs)
 
-        self.raw_prompts = [obj["prompt"] for obj in parsed_inputs]
+        self.raw_prompts = [ft_repr(obj["prompt"]) for obj in parsed_inputs]
 
         # print("inputs")
         # print(self.raw_prompts)
@@ -226,7 +229,10 @@ class FunctCallLLM():
                 returns=funct["returns"]["type"]
             ))
 
-    def _create_output_file(self, file_name: str) -> None:
+    def _create_output_file(self, file_name: str, mode: bool = True) -> None:
+
+        if not mode:
+            file_name = file_name[:-5] + "TEST" + file_name[-5:]
 
         self.output_path = file_name
 
@@ -268,6 +274,7 @@ class FunctCallLLM():
         if init:
             print()
             print()
+            load_dotenv()
             # self._llm = Small_LLM_Model(device="cuda")
             self._llm = Small_LLM_Model(device="cpu")
             print("LLM created True")
@@ -322,9 +329,9 @@ class FunctCallLLM():
         self.tokenized_int_funct_list = []
 
         for funct in self.funct_defs:
-            print('\a', end="")
-            print(funct)
-            print()
+            # print('\a', end="")
+            # print(funct)
+            # print()
 
             if self._llm:
                 tokenized_tensor_funct = self._llm.encode(str(funct))
@@ -397,9 +404,9 @@ class FunctCallLLM():
                 self.instructions += json_prompt + t_funct
 
             self.instructions += format_request
-            print("Instructions")
-            print(self.instructions)
-            print(len(self.instructions))
+            # print("Instructions")
+            # print(self.instructions)
+            # print(len(self.instructions))
 
         else:
             self.instructions = []
@@ -409,7 +416,7 @@ class FunctCallLLM():
             #                               self.vocab_text_int["ĠĠĠĠ"],
             #                               self.vocab_text_int["\""]]
 
-        print(self.universal_post_prompt)
+        # print(self.universal_post_prompt)
 
     def run_model(self) -> None:
 
@@ -477,7 +484,8 @@ b
 
             print()
             print("Starting Generation ", len(added_token),
-                  "\n\n", self.id_decode(added_token), "\n\n", container_log, sep="")
+                  "\n\n", self.id_decode(added_token), "\n\n",
+                  container_log, sep="")
             print()
             print('\a', end="")
             # input()
@@ -497,7 +505,7 @@ b
                 #       (answer_len >= 70) or
                 #       ((len(pre_determined_list)) == 0))
 
-                if ((answer_len >= 70) or ((len(pre_determined_list)) == 0)):
+                if ((answer_len >= 120) or ((len(pre_determined_list)) == 0)):
                     print("Response too long, Cutting", container_log,
                           sep="\t")
                     logits_funct[self.vocab_text_int["}"]] = sys.maxsize
@@ -553,27 +561,6 @@ b
             print("Response Generated ", len(added_token),
                   "\n", self.id_decode(added_token), sep="")
 
-            # print()
-            # print()
-            # print(":")
-            # print()
-            # print(self.id_decode(added_token[answer_len:]))
-            # print()
-            # print(":")
-            # print()
-            # print(self.id_decode(added_token[:answer_len]))
-            # print()
-            # print(":")
-            # print()
-            # print(self.id_decode(added_token[instruct_len:]))
-            # print()
-            # print(":")
-            # print()
-            # print(self.id_decode(added_token[:instruct_len]))
-            # print()
-            # print(":")
-            # print()
-
             str_response = self.id_decode(added_token[instruct_len:])
 
             # str_response = ("{}"
@@ -598,7 +585,7 @@ b
             self.to_export.append(str_response)
 
             print(self.to_export[-1])
-            break
+            # break
 
         # except Exception as e:
         #     raise Exception("An error has occurred in the Processing"
@@ -775,9 +762,9 @@ b
                 if ((last_added_token in [self.vocab_text_int["}"],
                                           self.vocab_text_int["}Ċ"],
                                           self.vocab_text_int["Ġ}Ċ"]]
-                        and container_log[-1] == "{")
-                    or (last_added_token in [self.vocab_text_int["]"],
-                                             self.vocab_text_int["]Ċ"]]
+                    and container_log[-1] == "{") or
+                    (last_added_token in [self.vocab_text_int["]"],
+                                          self.vocab_text_int["]Ċ"]]
                         and container_log[-1] == "[")):
                     print("Detected Bracket ending", end=" ")
                     container_log.pop()
@@ -804,12 +791,45 @@ b
         if isinstance(self.to_export, str):
             out_str = self.to_export
         elif isinstance(self.to_export, dict):
-            out_str = json.dumps([self.to_export], indent=4)  # pyright: ignore
+            out_str = json.dumps([self.to_export], indent=4)
         elif isinstance(self.to_export, list):  # pyright: ignore
-            out_str = json.dumps(self.to_export, indent=4)  # pyright: ignore
+            if isinstance(self.to_export[0], str):
+                # to_export: str = cast(str, self.to_export)
+                # converted: list[dict[str, Any]] = []
+                # for out in to_export:
+                #     try:
+                #         converted.append(json.loads(out))
+                #     except JSONDecodeError as e:
+                #         print(e)
+                # out_str = json.dumps(converted, indent=4)
+
+                to_export: str = cast(str, self.to_export)
+
+
+                out_list: list[str] = []
+
+                for out in to_export:
+                    # print()
+                    # print()
+                    # print(out)
+                    in_list = [x for x in out.split("\n") if x]
+                    out_list.append("\n    ".join(in_list))
+                    # print()out_list
+                    # print()
+                    # print(out_list)
+                out_str = "[\n    " + ",\n    ".join(out_list) + "\n]"
+
+            elif isinstance(self.to_export[0], dict):  # pyright: ignore
+                out_str = json.dumps(self.to_export, indent=4)
+
+            else:
+                raise TypeError(
+                    "'self.to_export' is an unknown type:\n\n---\n\n"
+                    f"{self.to_export}\n\n---\n\nType: {type(self.to_export)}")
         else:
-            raise TypeError("'self.to_export' is an unknown type:"
-                            f" {type(self.to_export)}")
+            raise TypeError(
+                "'self.to_export' is an unknown type:\n\n---\n\n"
+                f"{self.to_export}\n\n---\n\nType: {type(self.to_export)}")
 
         print(out_str)
 
@@ -835,6 +855,10 @@ def main(args: list[str]) -> None:
 
     # mode = False
     mode = True
+
+    from time import localtime
+    st = localtime()
+    print(f"Start Time: {st.tm_hour}:{st.tm_min}")
 
     try:
         arg_inputs = val_args(args)
@@ -865,6 +889,12 @@ def main(args: list[str]) -> None:
     except FileNotFoundError as e:
         print(e)
         return
+
+    et = localtime()
+    print(f"Start Time: {st.tm_hour}:{st.tm_min}")
+    print(f"End Time: {et.tm_hour}:{et.tm_min}")
+    rt = (et.tm_hour - st.tm_hour) * 60 + (et.tm_min - st.tm_min)
+    print(f"Run Time: {rt} minutes")
 
 
 if __name__ == "__main__":

@@ -6,13 +6,13 @@
 #    By: dmota-ri <dmota-ri@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/10 16:50:27 by dmota-ri          #+#    #+#              #
-#    Updated: 2026/06/19 00:34:53 by dmota-ri         ###   ########.fr        #
+#    Updated: 2026/07/04 20:28:17 by dmota-ri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Fly-in
 
-# DEPENDENCIES = pydantic mypy flake8 protobuf accelerate
+# DEPENDENCIES = pydantic mypy flake8 protobuf accelerate dotenv
 
 # Extra?? - protobuf, accelerate
 
@@ -36,12 +36,14 @@ RM = rm -fr
 .ONESHELL:
 
 run:
-	@$(UV_RUN) $(SRC) $(filter-out $@,$(MAKECMDGOALS))
+	@time $(UV_RUN) $(SRC) $(filter-out $@,$(MAKECMDGOALS))
 
 NOW = $(shell date +%m-%d_%H:%M)
 
 record:
-	@$(UV_RUN) $(SRC) $(filter-out $@,$(MAKECMDGOALS)) | tee Historic/$(NOW).log
+	@time $(UV_RUN) $(SRC) $(filter-out $@,$(MAKECMDGOALS)) | tee Historic/$(NOW).log
+	@echo "\n\nOutput_file:\n\n" >> Historic/$(NOW).log
+	@cat /data/output/function_calls.json >> Historic/$(NOW).log
 
 #  2>&1
 debug:

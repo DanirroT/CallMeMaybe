@@ -48,3 +48,21 @@ def val_args(args: list[str]) -> dict[str, str]:
         raise ValueError("\nProgram Stopped")
 
     return arg_inputs
+
+
+def ft_repr(s: str) -> str:
+    out: str = ""
+    for char in s:
+        if char in ["\"", "\\"]:
+            out += "\\" + char
+        elif char == "\n":
+            out += "\n"
+        elif char == "\t":
+            out += "\t"
+        elif char == "\0":
+            out += "\0"
+        elif char == "\v":
+            out += "\v"
+        else:
+            out += char
+    return out
