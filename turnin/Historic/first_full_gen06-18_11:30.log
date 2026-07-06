@@ -1,0 +1,179 @@
+All Imports done
+File "data/output/function_calls.json" already Exists, do you wish to replace it?
+File Cleared, continuing...
+setup complete
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights: 100%|█| 311/311 [00:57<00:00,  5.38it/s, Materializing param=model.norm.wei
+LLM created True
+vocab: /home/tribeirinho/.cache/huggingface/hub/models--Qwen--Qwen3-0.6B/snapshots/c1899de289a04d12100db370d81485cdf75e47ca/vocab.json
+merges: /home/tribeirinho/.cache/huggingface/hub/models--Qwen--Qwen3-0.6B/snapshots/c1899de289a04d12100db370d81485cdf75e47ca/merges.txt
+tokenizer: /home/tribeirinho/.cache/huggingface/hub/models--Qwen--Qwen3-0.6B/snapshots/c1899de289a04d12100db370d81485cdf75e47ca/tokenizer.json
+LLM Class generated
+        {
+                "name": "fn_add_numbers",
+                "description": "Add two numbers together and return their sum.",
+                "parameters": {
+                        "a": {
+                                "type": "number"
+                        },
+                        "b": {
+                                "type": "number"
+                        }
+                },
+                "return": {
+                        "type": "number"
+        }
+        {
+                "name": "fn_greet",
+                "description": "Generate a greeting message for a person by name.",
+                "parameters": {
+                        "name": {
+                                "type": "string"
+                        }
+                },
+                "return": {
+                        "type": "string"
+        }
+        {
+                "name": "fn_reverse_string",
+                "description": "Reverse a string and return the reversed result.",
+                "parameters": {
+                        "s": {
+                                "type": "string"
+                        }
+                },
+                "return": {
+                        "type": "string"
+        }
+        {
+                "name": "fn_get_square_root",
+                "description": "Calculate the square root of a number.",
+                "parameters": {
+                        "a": {
+                                "type": "number"
+                        }
+                },
+                "return": {
+                        "type": "number"
+        }
+        {
+                "name": "fn_substitute_string_with_regex",
+                "description": "Replace all occurrences matching a regex pattern in a string.",
+                "parameters": {
+                        "source_string": {
+                                "type": "string"
+                        },
+                        "regex": {
+                                "type": "string"
+                        },
+                        "replacement": {
+                                "type": "string"
+                        }
+                },
+                "return": {
+                        "type": "string"
+        }
+386
+What is the sum of 2 and 3?Prompt Tokenized int:tensor([3838,  374,  279, 2629,  315,  220,   17,  323,  220,   18,   30])Prompt Tokenized str:
+['What', 'Ġis', 'Ġthe', 'Ġsum', 'Ġof', 'Ġ', '2', 'Ġand', 'Ġ', '3', '?']
+397Starting Generation
+max_val: 9223372036854775807    ID: 90  added_token: {
+['{']
+max_val: 9223372036854775807    ID: 198 added_token: Ċ
+max_val: 9223372036854775807    ID: 257 added_token: ĠĠĠĠ
+max_val: 17.216609954833984     ID: 330 added_token: Ġ"
+max_val: 18.549774169921875     ID: 606 added_token: name
+max_val: 23.58683967590332      ID: 788 added_token: ":
+max_val: 22.604719161987305     ID: 330 added_token: Ġ"
+max_val: 26.82360076904297      ID: 8822        added_token: fn
+max_val: 28.25385093688965      ID: 2891        added_token: _add
+max_val: 28.89473533630371      ID: 32964       added_token: _numbers
+max_val: 23.147659301757812     ID: 756 added_token: ",Ċ
+max_val: 21.75906753540039      ID: 257 added_token: ĠĠĠĠ
+max_val: 24.241893768310547     ID: 330 added_token: Ġ"
+max_val: 23.4197940826416       ID: 13786       added_token: parameters
+max_val: 24.004798889160156     ID: 788 added_token: ":
+max_val: 21.863006591796875     ID: 341 added_token: Ġ{Ċ
+max_val: 21.113452911376953     ID: 260 added_token: ĠĠĠĠĠĠĠĠ
+max_val: 22.697736740112305     ID: 330 added_token: Ġ"
+max_val: 26.18513298034668      ID: 64  added_token: a
+max_val: 25.323060989379883     ID: 788 added_token: ":
+max_val: 20.39220428466797      ID: 220 added_token: Ġ
+max_val: 24.55023956298828      ID: 17  added_token: 2
+max_val: 23.243009567260742     ID: 345 added_token: ,Ċ
+max_val: 27.29692840576172      ID: 260 added_token: ĠĠĠĠĠĠĠĠ
+max_val: 26.661434173583984     ID: 330 added_token: Ġ"
+max_val: 27.325206756591797     ID: 65  added_token: b
+max_val: 26.452695846557617     ID: 788 added_token: ":
+max_val: 23.689800262451172     ID: 220 added_token: Ġ
+max_val: 26.94253158569336      ID: 18  added_token: 3
+max_val: 24.44710350036621      ID: 198 added_token: Ċ
+max_val: 23.289630889892578     ID: 257 added_token: ĠĠĠĠ
+max_val: 24.599266052246094     ID: 456 added_token: Ġ}Ċ
+max_val: 18.91421127319336      ID: 532 added_token: }Ċ
+max_val: 17.60555648803711      ID: 785 added_token: The
+max_val: 17.036584854125977     ID: 729 added_token: Ġfunction
+max_val: 16.063032150268555     ID: 374 added_token: Ġis
+max_val: 17.187747955322266     ID: 2598        added_token: Ġcalled
+max_val: 17.18724250793457      ID: 448 added_token: Ġwith
+max_val: 19.08928680419922      ID: 279 added_token: Ġthe
+max_val: 19.3514404296875       ID: 5029        added_token: Ġparameters
+max_val: 17.7810115814209       ID: 264 added_token: Ġa
+max_val: 21.05634307861328      ID: 323 added_token: Ġand
+max_val: 22.620574951171875     ID: 293 added_token: Ġb
+max_val: 19.928756713867188     ID: 11  added_token: ,
+max_val: 20.930849075317383     ID: 892 added_token: Ġwhich
+max_val: 21.30449867248535      ID: 525 added_token: Ġare
+max_val: 19.670555114746094     ID: 220 added_token: Ġ
+max_val: 22.856168746948242     ID: 17  added_token: 2
+max_val: 23.33568000793457      ID: 323 added_token: Ġand
+max_val: 23.00454330444336      ID: 220 added_token: Ġ
+max_val: 26.028942108154297     ID: 18  added_token: 3
+max_val: 20.61077880859375      ID: 13  added_token: .
+max_val: 19.93396759033203      ID: 576 added_token: ĠThe
+max_val: 19.14155387878418      ID: 2629        added_token: Ġsum
+max_val: 21.67633819580078      ID: 374 added_token: Ġis
+max_val: 21.06100082397461      ID: 220 added_token: Ġ
+max_val: 22.705631256103516     ID: 20  added_token: 5
+max_val: 21.731460571289062     ID: 624 added_token: .Ċ
+max_val: 17.784101486206055     ID: 785 added_token: The
+max_val: 18.28566551208496      ID: 4226        added_token: Ġanswer
+max_val: 22.731685638427734     ID: 374 added_token: Ġis
+max_val: 21.03875732421875      ID: 220 added_token: Ġ
+max_val: 24.876667022705078     ID: 20  added_token: 5
+max_val: 22.031824111938477     ID: 624 added_token: .Ċ
+max_val: 17.94770622253418      ID: 785 added_token: The
+max_val: 19.007902145385742     ID: 4226        added_token: Ġanswer
+max_val: 23.938852310180664     ID: 374 added_token: Ġis
+max_val: 21.833694458007812     ID: 220 added_token: Ġ
+max_val: 24.05308723449707      ID: 20  added_token: 5
+max_val: 21.88705062866211      ID: 624 added_token: .Ċ
+max_val: 21.794761657714844     ID: 785 added_token: The
+max_val: 23.697097778320312     ID: 4226        added_token: Ġanswer
+max_val: 27.739948272705078     ID: 374 added_token: Ġis
+max_val: 24.016332626342773     ID: 220 added_token: Ġ
+max_val: 24.634862899780273     ID: 20  added_token: 5
+max_val: 22.985857009887695     ID: 624 added_token: .Ċ
+max_val: 23.44584083557129      ID: 785 added_token: The
+max_val: 24.570707321166992     ID: 4226        added_token: Ġanswer
+max_val: 27.4945125579834       ID: 374 added_token: Ġis
+max_val: 24.127769470214844     ID: 220 added_token: Ġ
+max_val: 26.219541549682617     ID: 20  added_token: 5
+max_val: 22.950069427490234     ID: 624 added_token: .Ċ
+max_val: 22.825443267822266     ID: 785 added_token: The
+max_val: 25.06781768798828      ID: 4226        added_token: Ġanswer
+max_val: 27.32326316833496      ID: 374 added_token: Ġis
+max_val: 24.166173934936523     ID: 220 added_token: Ġ
+max_val: 26.31304359436035      ID: 20  added_token: 5
+max_val: 22.57027816772461      ID: 624 added_token: .Ċ
+max_val: 20.819927215576172     ID: 785 added_token: The
+max_val: 24.437267303466797     ID: 4226        added_token: Ġanswer
+max_val: 26.850860595703125     ID: 374 added_token: Ġis
+max_val: 23.868091583251953     ID: 220 added_token: Ġ
+max_val: 26.053295135498047     ID: 20  added_token: 5
+max_val: 22.99177360534668      ID: 624 added_token: .Ċ
+max_val: 22.286436080932617     ID: 785 added_token: The
+max_val: 24.792255401611328     ID: 4226        added_token: Ġanswer
+max_val: 26.953763961791992     ID: 374 added_token: Ġis
+max_val: 23.993356704711914     ID: 220 added_token: Ġ
+max_val: 26.61467742919922      ID: 20  added_token: 5BREAK

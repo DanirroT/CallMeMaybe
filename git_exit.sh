@@ -10,6 +10,7 @@ else
 fi
 
 make fclean
+make clean
 echo ""
 git status
 echo ""
@@ -21,7 +22,7 @@ git commit -m "${COMMIT_MESSAGE}"
 echo ""
 if [ $? -ne 0 ]; then
     echo "Warning: Commit failed or there were no changes to commit."
-    exit 0 
+    exit 0
 fi
 git push
 echo ""

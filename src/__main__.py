@@ -275,8 +275,8 @@ class FunctCallLLM():
             print()
             print()
             load_dotenv()
-            # self._llm = Small_LLM_Model(device="cuda")
-            self._llm = Small_LLM_Model(device="cpu")
+            # self._llm = Small_LLM_Model(device="cpu")
+            self._llm = Small_LLM_Model()
             print("LLM created True")
             print()
             print()
@@ -291,16 +291,29 @@ class FunctCallLLM():
             self._llm = None
             print("LLM created False")
 
+            # self.llm_files["vocab"] = (
+            #     "/home/tribeirinho/.cache/huggingface/hub/"
+            #     "models--Qwen--Qwen3-0.6B/snapshots/"
+            #     "c1899de289a04d12100db370d81485cdf75e47ca/vocab.json")
+            # self.llm_files["merges"] = (
+            #     "/home/tribeirinho/.cache/huggingface/hub/"
+            #     "models--Qwen--Qwen3-0.6B/snapshots/"
+            #     "c1899de289a04d12100db370d81485cdf75e47ca/merges.txt")
+            # self.llm_files["tokenizer"] = (
+            #     "/home/tribeirinho/.cache/huggingface/hub/"
+            #     "models--Qwen--Qwen3-0.6B/snapshots/"
+            #     "c1899de289a04d12100db370d81485cdf75e47ca/tokenizer.json")
+
             self.llm_files["vocab"] = (
-                "/home/tribeirinho/.cache/huggingface/hub/"
+                "/home/dmota-ri/.cache/huggingface/hub/"
                 "models--Qwen--Qwen3-0.6B/snapshots/"
                 "c1899de289a04d12100db370d81485cdf75e47ca/vocab.json")
             self.llm_files["merges"] = (
-                "/home/tribeirinho/.cache/huggingface/hub/"
+                "/home/dmota-ri/.cache/huggingface/hub/"
                 "models--Qwen--Qwen3-0.6B/snapshots/"
                 "c1899de289a04d12100db370d81485cdf75e47ca/merges.txt")
             self.llm_files["tokenizer"] = (
-                "/home/tribeirinho/.cache/huggingface/hub/"
+                "/home/dmota-ri/.cache/huggingface/hub/"
                 "models--Qwen--Qwen3-0.6B/snapshots/"
                 "c1899de289a04d12100db370d81485cdf75e47ca/tokenizer.json")
 
@@ -805,7 +818,6 @@ b
 
                 to_export: str = cast(str, self.to_export)
 
-
                 out_list: list[str] = []
 
                 for out in to_export:
@@ -856,10 +868,6 @@ def main(args: list[str]) -> None:
     # mode = False
     mode = True
 
-    from time import localtime
-    st = localtime()
-    print(f"Start Time: {st.tm_hour}:{st.tm_min}")
-
     try:
         arg_inputs = val_args(args)
     except ValueError as e:
@@ -889,12 +897,6 @@ def main(args: list[str]) -> None:
     except FileNotFoundError as e:
         print(e)
         return
-
-    et = localtime()
-    print(f"Start Time: {st.tm_hour}:{st.tm_min}")
-    print(f"End Time: {et.tm_hour}:{et.tm_min}")
-    rt = (et.tm_hour - st.tm_hour) * 60 + (et.tm_min - st.tm_min)
-    print(f"Run Time: {rt} minutes")
 
 
 if __name__ == "__main__":

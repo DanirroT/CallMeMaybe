@@ -6,20 +6,13 @@
 #    By: dmota-ri <dmota-ri@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/10 16:50:27 by dmota-ri          #+#    #+#              #
-#    Updated: 2026/07/06 16:42:06 by dmota-ri         ###   ########.fr        #
+#    Updated: 2026/07/06 18:29:07 by dmota-ri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Fly-in
 
 # DEPENDENCIES = pydantic mypy flake8 protobuf accelerate dotenv
-
-# Extra?? - protobuf, accelerate
-
-# /etc/resolv.conf
-
-# nameserver 8.8.8.8
-# nameserver 1.1.1.1
 
 SRC = src
 
