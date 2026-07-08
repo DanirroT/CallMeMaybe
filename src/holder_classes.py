@@ -75,7 +75,7 @@ class FunctDef(BaseModel):
             "},"
             "\"return\":{"
             f"\"type\":\"{self.returns}\""
-            "}\n"
+            "}}\n"
         )
 
 # print(FunctDef(name="n", description="desc",

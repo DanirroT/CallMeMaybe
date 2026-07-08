@@ -6,7 +6,7 @@
 #    By: dmota-ri <dmota-ri@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/10 16:50:27 by dmota-ri          #+#    #+#              #
-#    Updated: 2026/07/06 18:29:07 by dmota-ri         ###   ########.fr        #
+#    Updated: 2026/07/07 18:49:05 by dmota-ri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,27 +29,18 @@ RM = rm -fr
 .ONESHELL:
 
 run:
+	@$(UV_RUN) $(SRC) $(filter-out $@,$(MAKECMDGOALS))
+
+run_time:
 	@time $(UV_RUN) $(SRC) $(filter-out $@,$(MAKECMDGOALS))
 
-NOW = $(shell date +%m-%d_%H:%M)
-
-record:
-	@time $(UV_RUN) $(SRC) $(filter-out $@,$(MAKECMDGOALS)) | tee Historic/$(NOW).log
-	@echo "\n\nOutput_file:\n\n" >> Historic/$(NOW).log
-	@cat data/output/function_calls.json >> Historic/$(NOW).log
-
-#  2>&1
 debug:
 	@$(DEBUGGER) $(MAIN).py $(MAP_FILE)
-
-%:
-	@:
 
 install: $(VENV)
 
 	. $(VENV)bin/activate
 	uv sync
-# 	uv pip install $(DEPENDENCIES)
 
 $(VENV):
 	uv venv $(VENV)
@@ -65,4 +56,6 @@ lint:
 lint-strict:
 	@$(UV_RUN) flake8 $(OBJ) || true
 	@$(UV_RUN) mypy --strict $(OBJ) || true
-# 	@mypy --strict $(OBJ) || true
+
+%:
+	@:

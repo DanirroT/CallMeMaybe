@@ -145,10 +145,7 @@ class FunctCallLLM():
                 returns=funct["returns"]["type"]
             ))
 
-    def _create_output_file(self, file_name: str, mode: bool = True) -> None:
-
-        if not mode:
-            file_name = file_name[:-5] + "TEST" + file_name[-5:]
+    def _create_output_file(self, file_name: str) -> None:
 
         self.output_path = file_name
 
@@ -469,6 +466,9 @@ def main(args: list[str]) -> None:
 
     try:
         funct_caller = FunctCallLLM(arg_inputs)
+    except FileExistsError:
+        return
+
     except Exception as e:
         print("An error has occurred while building"
               f" 'FunctCallLLM':\n{e}")

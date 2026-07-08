@@ -78,30 +78,30 @@ JSON Format:
 ['{', '"']
 
 
-generating: # 23 - max_val: 28.536	ID:  8822	added_token: fn	
-generating: # 24 - max_val: 28.926	ID:  2891	added_token: _add	
-generating: # 25 - max_val: 30.396	ID:  32964	added_token: _numbers	
+generating: # 23 - max_val: 28.536	ID:  8822	added_token: fn
+generating: # 24 - max_val: 28.926	ID:  2891	added_token: _add
+generating: # 25 - max_val: 30.396	ID:  32964	added_token: _numbers
 generating: # 26 - max_val: 25.407	ID:   756	added_token: ",Ċ	log: ['{']
-generating: # 27 - max_val: 26.955	ID:   262	added_token: ĠĠĠ	
+generating: # 27 - max_val: 26.955	ID:   262	added_token: ĠĠĠ
 generating: # 28 - max_val: 27.229	ID:   330	added_token: Ġ"	log: ['{', '"']
-generating: # 29 - max_val: 28.58	ID:  13786	added_token: parameters	
+generating: # 29 - max_val: 28.58	ID:  13786	added_token: parameters
 generating: # 30 - max_val: 26.747	ID:   788	added_token: ":	log: ['{']
 generating: # 31 - max_val: 23.458	ID:   341	added_token: Ġ{Ċ	log: ['{', '{']
-generating: # 32 - max_val: 25.637	ID:   286	added_token: ĠĠĠĠĠĠĠ	
+generating: # 32 - max_val: 25.637	ID:   286	added_token: ĠĠĠĠĠĠĠ
 generating: # 33 - max_val: 25.329	ID:   330	added_token: Ġ"	log: ['{', '{', '"']
-generating: # 34 - max_val: 27.052	ID:    64	added_token: a	
+generating: # 34 - max_val: 27.052	ID:    64	added_token: a
 generating: # 35 - max_val: 26.951	ID:   788	added_token: ":	log: ['{', '{']
-generating: # 36 - max_val: 23.676	ID:   220	added_token: Ġ	
-generating: # 37 - max_val: 27.43	ID:    17	added_token: 2	
-generating: # 38 - max_val: 25.07	ID:   345	added_token: ,Ċ	
-generating: # 39 - max_val: 32.806	ID:   286	added_token: ĠĠĠĠĠĠĠ	
+generating: # 36 - max_val: 23.676	ID:   220	added_token: Ġ
+generating: # 37 - max_val: 27.43	ID:    17	added_token: 2
+generating: # 38 - max_val: 25.07	ID:   345	added_token: ,Ċ
+generating: # 39 - max_val: 32.806	ID:   286	added_token: ĠĠĠĠĠĠĠ
 generating: # 40 - max_val: 28.544	ID:   330	added_token: Ġ"	log: ['{', '{', '"']
-generating: # 41 - max_val: 30.952	ID:    65	added_token: b	
+generating: # 41 - max_val: 30.952	ID:    65	added_token: b
 generating: # 42 - max_val: 28.67	ID:   788	added_token: ":	log: ['{', '{']
-generating: # 43 - max_val: 26.247	ID:   220	added_token: Ġ	
-generating: # 44 - max_val: 29.387	ID:    18	added_token: 3	
-generating: # 45 - max_val: 27.396	ID:   198	added_token: Ċ	
-generating: # 46 - max_val: 25.652	ID:   262	added_token: ĠĠĠ	
+generating: # 43 - max_val: 26.247	ID:   220	added_token: Ġ
+generating: # 44 - max_val: 29.387	ID:    18	added_token: 3
+generating: # 45 - max_val: 27.396	ID:   198	added_token: Ċ
+generating: # 46 - max_val: 25.652	ID:   262	added_token: ĠĠĠ
 generating: # 47 - max_val: 25.807	ID:   456	added_token: Ġ}Ċ	Detected Bracket ending log: ['{']
 generating: # 48 - max_val: 21.746	ID:   630	added_token: }ĊĊ	:
 : REPLACED:# 48 - max_val: 21.718	ID:   532	added_token: }Ċ	Detected Bracket ending log: []
@@ -190,34 +190,34 @@ JSON Format:
 ['{', '"']
 
 
-generating: # 27 - max_val: 28.071	ID:  8822	added_token: fn	
-generating: # 28 - max_val: 27.878	ID:  2891	added_token: _add	
-generating: # 29 - max_val: 30.229	ID:  32964	added_token: _numbers	
+generating: # 27 - max_val: 28.071	ID:  8822	added_token: fn
+generating: # 28 - max_val: 27.878	ID:  2891	added_token: _add
+generating: # 29 - max_val: 30.229	ID:  32964	added_token: _numbers
 generating: # 30 - max_val: 25.262	ID:   756	added_token: ",Ċ	log: ['{']
-generating: # 31 - max_val: 26.58	ID:   262	added_token: ĠĠĠ	
+generating: # 31 - max_val: 26.58	ID:   262	added_token: ĠĠĠ
 generating: # 32 - max_val: 26.975	ID:   330	added_token: Ġ"	log: ['{', '"']
-generating: # 33 - max_val: 28.577	ID:  13786	added_token: parameters	
+generating: # 33 - max_val: 28.577	ID:  13786	added_token: parameters
 generating: # 34 - max_val: 26.67	ID:   788	added_token: ":	log: ['{']
 generating: # 35 - max_val: 23.598	ID:   341	added_token: Ġ{Ċ	log: ['{', '{']
-generating: # 36 - max_val: 25.572	ID:   286	added_token: ĠĠĠĠĠĠĠ	
+generating: # 36 - max_val: 25.572	ID:   286	added_token: ĠĠĠĠĠĠĠ
 generating: # 37 - max_val: 25.431	ID:   330	added_token: Ġ"	log: ['{', '{', '"']
-generating: # 38 - max_val: 26.726	ID:    64	added_token: a	
+generating: # 38 - max_val: 26.726	ID:    64	added_token: a
 generating: # 39 - max_val: 27.304	ID:   788	added_token: ":	log: ['{', '{']
-generating: # 40 - max_val: 23.428	ID:   220	added_token: Ġ	
-generating: # 41 - max_val: 28.413	ID:    17	added_token: 2	
-generating: # 42 - max_val: 27.902	ID:    21	added_token: 6	
-generating: # 43 - max_val: 28.74	ID:    20	added_token: 5	
-generating: # 44 - max_val: 24.648	ID:   345	added_token: ,Ċ	
-generating: # 45 - max_val: 32.929	ID:   286	added_token: ĠĠĠĠĠĠĠ	
+generating: # 40 - max_val: 23.428	ID:   220	added_token: Ġ
+generating: # 41 - max_val: 28.413	ID:    17	added_token: 2
+generating: # 42 - max_val: 27.902	ID:    21	added_token: 6
+generating: # 43 - max_val: 28.74	ID:    20	added_token: 5
+generating: # 44 - max_val: 24.648	ID:   345	added_token: ,Ċ
+generating: # 45 - max_val: 32.929	ID:   286	added_token: ĠĠĠĠĠĠĠ
 generating: # 46 - max_val: 28.506	ID:   330	added_token: Ġ"	log: ['{', '{', '"']
-generating: # 47 - max_val: 30.915	ID:    65	added_token: b	
+generating: # 47 - max_val: 30.915	ID:    65	added_token: b
 generating: # 48 - max_val: 27.989	ID:   788	added_token: ":	log: ['{', '{']
-generating: # 49 - max_val: 25.654	ID:   220	added_token: Ġ	
-generating: # 50 - max_val: 29.074	ID:    18	added_token: 3	
-generating: # 51 - max_val: 29.616	ID:    19	added_token: 4	
-generating: # 52 - max_val: 30.37	ID:    20	added_token: 5	
-generating: # 53 - max_val: 27.326	ID:   198	added_token: Ċ	
-generating: # 54 - max_val: 25.693	ID:   262	added_token: ĠĠĠ	
+generating: # 49 - max_val: 25.654	ID:   220	added_token: Ġ
+generating: # 50 - max_val: 29.074	ID:    18	added_token: 3
+generating: # 51 - max_val: 29.616	ID:    19	added_token: 4
+generating: # 52 - max_val: 30.37	ID:    20	added_token: 5
+generating: # 53 - max_val: 27.326	ID:   198	added_token: Ċ
+generating: # 54 - max_val: 25.693	ID:   262	added_token: ĠĠĠ
 generating: # 55 - max_val: 25.97	ID:   456	added_token: Ġ}Ċ	Detected Bracket ending log: ['{']
 generating: # 56 - max_val: 21.826	ID:   532	added_token: }Ċ	Detected Bracket ending log: []
 
@@ -304,24 +304,24 @@ JSON Format:
 ['{', '"']
 
 
-generating: # 16 - max_val: 30.024	ID:  8822	added_token: fn	
-generating: # 17 - max_val: 31.778	ID:  1889	added_token: _g	
-generating: # 18 - max_val: 33.412	ID:  3744	added_token: reet	
+generating: # 16 - max_val: 30.024	ID:  8822	added_token: fn
+generating: # 17 - max_val: 31.778	ID:  1889	added_token: _g
+generating: # 18 - max_val: 33.412	ID:  3744	added_token: reet
 generating: # 19 - max_val: 23.916	ID:   756	added_token: ",Ċ	log: ['{']
-generating: # 20 - max_val: 26.723	ID:   262	added_token: ĠĠĠ	
+generating: # 20 - max_val: 26.723	ID:   262	added_token: ĠĠĠ
 generating: # 21 - max_val: 27.316	ID:   330	added_token: Ġ"	log: ['{', '"']
-generating: # 22 - max_val: 28.415	ID:  13786	added_token: parameters	
+generating: # 22 - max_val: 28.415	ID:  13786	added_token: parameters
 generating: # 23 - max_val: 27.953	ID:   788	added_token: ":	log: ['{']
 generating: # 24 - max_val: 24.114	ID:   341	added_token: Ġ{Ċ	log: ['{', '{']
-generating: # 25 - max_val: 25.346	ID:   286	added_token: ĠĠĠĠĠĠĠ	
+generating: # 25 - max_val: 25.346	ID:   286	added_token: ĠĠĠĠĠĠĠ
 generating: # 26 - max_val: 26.106	ID:   330	added_token: Ġ"	log: ['{', '{', '"']
-generating: # 27 - max_val: 26.182	ID:   606	added_token: name	
+generating: # 27 - max_val: 26.182	ID:   606	added_token: name
 generating: # 28 - max_val: 27.66	ID:   788	added_token: ":	log: ['{', '{']
 generating: # 29 - max_val: 25.882	ID:   330	added_token: Ġ"	log: ['{', '{', '"']
-generating: # 30 - max_val: 31.772	ID:   927	added_token: sh	
-generating: # 31 - max_val: 34.643	ID:  41861	added_token: rek	
+generating: # 30 - max_val: 31.772	ID:   927	added_token: sh
+generating: # 31 - max_val: 34.643	ID:  41861	added_token: rek
 generating: # 32 - max_val: 24.679	ID:   698	added_token: "Ċ	log: ['{', '{']
-generating: # 33 - max_val: 25.371	ID:   262	added_token: ĠĠĠ	
+generating: # 33 - max_val: 25.371	ID:   262	added_token: ĠĠĠ
 generating: # 34 - max_val: 25.764	ID:   456	added_token: Ġ}Ċ	Detected Bracket ending log: ['{']
 generating: # 35 - max_val: 21.826	ID:   630	added_token: }ĊĊ	:
 : REPLACED:# 35 - max_val: 21.732	ID:   532	added_token: }Ċ	Detected Bracket ending log: []
@@ -407,23 +407,23 @@ JSON Format:
 ['{', '"']
 
 
-generating: # 15 - max_val: 29.663	ID:  8822	added_token: fn	
-generating: # 16 - max_val: 31.573	ID:  1889	added_token: _g	
-generating: # 17 - max_val: 33.361	ID:  3744	added_token: reet	
+generating: # 15 - max_val: 29.663	ID:  8822	added_token: fn
+generating: # 16 - max_val: 31.573	ID:  1889	added_token: _g
+generating: # 17 - max_val: 33.361	ID:  3744	added_token: reet
 generating: # 18 - max_val: 24.047	ID:   756	added_token: ",Ċ	log: ['{']
-generating: # 19 - max_val: 26.837	ID:   262	added_token: ĠĠĠ	
+generating: # 19 - max_val: 26.837	ID:   262	added_token: ĠĠĠ
 generating: # 20 - max_val: 27.408	ID:   330	added_token: Ġ"	log: ['{', '"']
-generating: # 21 - max_val: 28.016	ID:  13786	added_token: parameters	
+generating: # 21 - max_val: 28.016	ID:  13786	added_token: parameters
 generating: # 22 - max_val: 27.674	ID:   788	added_token: ":	log: ['{']
 generating: # 23 - max_val: 24.084	ID:   341	added_token: Ġ{Ċ	log: ['{', '{']
-generating: # 24 - max_val: 25.422	ID:   286	added_token: ĠĠĠĠĠĠĠ	
+generating: # 24 - max_val: 25.422	ID:   286	added_token: ĠĠĠĠĠĠĠ
 generating: # 25 - max_val: 26.058	ID:   330	added_token: Ġ"	log: ['{', '{', '"']
-generating: # 26 - max_val: 26.042	ID:   606	added_token: name	
+generating: # 26 - max_val: 26.042	ID:   606	added_token: name
 generating: # 27 - max_val: 27.829	ID:   788	added_token: ":	log: ['{', '{']
 generating: # 28 - max_val: 24.768	ID:   330	added_token: Ġ"	log: ['{', '{', '"']
-generating: # 29 - max_val: 29.228	ID:  47817	added_token: john	
+generating: # 29 - max_val: 29.228	ID:  47817	added_token: john
 generating: # 30 - max_val: 24.895	ID:   698	added_token: "Ċ	log: ['{', '{']
-generating: # 31 - max_val: 25.483	ID:   262	added_token: ĠĠĠ	
+generating: # 31 - max_val: 25.483	ID:   262	added_token: ĠĠĠ
 generating: # 32 - max_val: 26.215	ID:   456	added_token: Ġ}Ċ	Detected Bracket ending log: ['{']
 generating: # 33 - max_val: 22.142	ID:   532	added_token: }Ċ	Detected Bracket ending log: []
 
@@ -508,23 +508,23 @@ JSON Format:
 ['{', '"']
 
 
-generating: # 18 - max_val: 29.868	ID:  8822	added_token: fn	
-generating: # 19 - max_val: 31.665	ID:  43277	added_token: _reverse	
-generating: # 20 - max_val: 28.699	ID:  3904	added_token: _string	
+generating: # 18 - max_val: 29.868	ID:  8822	added_token: fn
+generating: # 19 - max_val: 31.665	ID:  43277	added_token: _reverse
+generating: # 20 - max_val: 28.699	ID:  3904	added_token: _string
 generating: # 21 - max_val: 25.483	ID:   756	added_token: ",Ċ	log: ['{']
-generating: # 22 - max_val: 26.355	ID:   262	added_token: ĠĠĠ	
+generating: # 22 - max_val: 26.355	ID:   262	added_token: ĠĠĠ
 generating: # 23 - max_val: 27.133	ID:   330	added_token: Ġ"	log: ['{', '"']
-generating: # 24 - max_val: 28.427	ID:  13786	added_token: parameters	
+generating: # 24 - max_val: 28.427	ID:  13786	added_token: parameters
 generating: # 25 - max_val: 26.787	ID:   788	added_token: ":	log: ['{']
 generating: # 26 - max_val: 23.365	ID:   341	added_token: Ġ{Ċ	log: ['{', '{']
-generating: # 27 - max_val: 25.255	ID:   286	added_token: ĠĠĠĠĠĠĠ	
+generating: # 27 - max_val: 25.255	ID:   286	added_token: ĠĠĠĠĠĠĠ
 generating: # 28 - max_val: 26.259	ID:   330	added_token: Ġ"	log: ['{', '{', '"']
-generating: # 29 - max_val: 26.867	ID:    82	added_token: s	
+generating: # 29 - max_val: 26.867	ID:    82	added_token: s
 generating: # 30 - max_val: 27.357	ID:   788	added_token: ":	log: ['{', '{']
 generating: # 31 - max_val: 25.041	ID:   330	added_token: Ġ"	log: ['{', '{', '"']
-generating: # 32 - max_val: 27.364	ID:  14990	added_token: hello	
+generating: # 32 - max_val: 27.364	ID:  14990	added_token: hello
 generating: # 33 - max_val: 24.917	ID:   698	added_token: "Ċ	log: ['{', '{']
-generating: # 34 - max_val: 25.675	ID:   262	added_token: ĠĠĠ	
+generating: # 34 - max_val: 25.675	ID:   262	added_token: ĠĠĠ
 generating: # 35 - max_val: 25.803	ID:   456	added_token: Ġ}Ċ	Detected Bracket ending log: ['{']
 generating: # 36 - max_val: 22.623	ID:   532	added_token: }Ċ	Detected Bracket ending log: []
 
@@ -609,23 +609,23 @@ JSON Format:
 ['{', '"']
 
 
-generating: # 18 - max_val: 29.767	ID:  8822	added_token: fn	
-generating: # 19 - max_val: 31.574	ID:  43277	added_token: _reverse	
-generating: # 20 - max_val: 28.561	ID:  3904	added_token: _string	
+generating: # 18 - max_val: 29.767	ID:  8822	added_token: fn
+generating: # 19 - max_val: 31.574	ID:  43277	added_token: _reverse
+generating: # 20 - max_val: 28.561	ID:  3904	added_token: _string
 generating: # 21 - max_val: 25.418	ID:   756	added_token: ",Ċ	log: ['{']
-generating: # 22 - max_val: 26.402	ID:   262	added_token: ĠĠĠ	
+generating: # 22 - max_val: 26.402	ID:   262	added_token: ĠĠĠ
 generating: # 23 - max_val: 27.039	ID:   330	added_token: Ġ"	log: ['{', '"']
-generating: # 24 - max_val: 28.319	ID:  13786	added_token: parameters	
+generating: # 24 - max_val: 28.319	ID:  13786	added_token: parameters
 generating: # 25 - max_val: 26.609	ID:   788	added_token: ":	log: ['{']
 generating: # 26 - max_val: 23.375	ID:   341	added_token: Ġ{Ċ	log: ['{', '{']
-generating: # 27 - max_val: 25.277	ID:   286	added_token: ĠĠĠĠĠĠĠ	
+generating: # 27 - max_val: 25.277	ID:   286	added_token: ĠĠĠĠĠĠĠ
 generating: # 28 - max_val: 26.201	ID:   330	added_token: Ġ"	log: ['{', '{', '"']
-generating: # 29 - max_val: 26.822	ID:    82	added_token: s	
+generating: # 29 - max_val: 26.822	ID:    82	added_token: s
 generating: # 30 - max_val: 27.314	ID:   788	added_token: ":	log: ['{', '{']
 generating: # 31 - max_val: 24.719	ID:   330	added_token: Ġ"	log: ['{', '{', '"']
-generating: # 32 - max_val: 28.033	ID:  14615	added_token: world	
+generating: # 32 - max_val: 28.033	ID:  14615	added_token: world
 generating: # 33 - max_val: 24.697	ID:   698	added_token: "Ċ	log: ['{', '{']
-generating: # 34 - max_val: 25.438	ID:   262	added_token: ĠĠĠ	
+generating: # 34 - max_val: 25.438	ID:   262	added_token: ĠĠĠ
 generating: # 35 - max_val: 25.741	ID:   456	added_token: Ġ}Ċ	Detected Bracket ending log: ['{']
 generating: # 36 - max_val: 22.545	ID:   532	added_token: }Ċ	Detected Bracket ending log: []
 
@@ -710,25 +710,25 @@ JSON Format:
 ['{', '"']
 
 
-generating: # 22 - max_val: 30.286	ID:  8822	added_token: fn	
-generating: # 23 - max_val: 31.923	ID:  3062	added_token: _get	
-generating: # 24 - max_val: 30.77	ID:  39794	added_token: _square	
-generating: # 25 - max_val: 32.99	ID:  12993	added_token: _root	
+generating: # 22 - max_val: 30.286	ID:  8822	added_token: fn
+generating: # 23 - max_val: 31.923	ID:  3062	added_token: _get
+generating: # 24 - max_val: 30.77	ID:  39794	added_token: _square
+generating: # 25 - max_val: 32.99	ID:  12993	added_token: _root
 generating: # 26 - max_val: 25.263	ID:   756	added_token: ",Ċ	log: ['{']
-generating: # 27 - max_val: 26.324	ID:   262	added_token: ĠĠĠ	
+generating: # 27 - max_val: 26.324	ID:   262	added_token: ĠĠĠ
 generating: # 28 - max_val: 27.101	ID:   330	added_token: Ġ"	log: ['{', '"']
-generating: # 29 - max_val: 28.274	ID:  13786	added_token: parameters	
+generating: # 29 - max_val: 28.274	ID:  13786	added_token: parameters
 generating: # 30 - max_val: 26.719	ID:   788	added_token: ":	log: ['{']
 generating: # 31 - max_val: 23.278	ID:   341	added_token: Ġ{Ċ	log: ['{', '{']
-generating: # 32 - max_val: 25.484	ID:   286	added_token: ĠĠĠĠĠĠĠ	
+generating: # 32 - max_val: 25.484	ID:   286	added_token: ĠĠĠĠĠĠĠ
 generating: # 33 - max_val: 24.658	ID:   330	added_token: Ġ"	log: ['{', '{', '"']
-generating: # 34 - max_val: 26.972	ID:    64	added_token: a	
+generating: # 34 - max_val: 26.972	ID:    64	added_token: a
 generating: # 35 - max_val: 26.601	ID:   788	added_token: ":	log: ['{', '{']
-generating: # 36 - max_val: 22.828	ID:   220	added_token: Ġ	
-generating: # 37 - max_val: 26.224	ID:    16	added_token: 1	
-generating: # 38 - max_val: 27.418	ID:    21	added_token: 6	
-generating: # 39 - max_val: 25.622	ID:   198	added_token: Ċ	
-generating: # 40 - max_val: 25.631	ID:   262	added_token: ĠĠĠ	
+generating: # 36 - max_val: 22.828	ID:   220	added_token: Ġ
+generating: # 37 - max_val: 26.224	ID:    16	added_token: 1
+generating: # 38 - max_val: 27.418	ID:    21	added_token: 6
+generating: # 39 - max_val: 25.622	ID:   198	added_token: Ċ
+generating: # 40 - max_val: 25.631	ID:   262	added_token: ĠĠĠ
 generating: # 41 - max_val: 26.0	ID:   456	added_token: Ġ}Ċ	Detected Bracket ending log: ['{']
 generating: # 42 - max_val: 21.683	ID:   630	added_token: }ĊĊ	:
 : REPLACED:# 42 - max_val: 21.504	ID:   532	added_token: }Ċ	Detected Bracket ending log: []
@@ -814,26 +814,26 @@ JSON Format:
 ['{', '"']
 
 
-generating: # 21 - max_val: 30.409	ID:  8822	added_token: fn	
-generating: # 22 - max_val: 31.075	ID:  3062	added_token: _get	
-generating: # 23 - max_val: 30.715	ID:  39794	added_token: _square	
-generating: # 24 - max_val: 32.989	ID:  12993	added_token: _root	
+generating: # 21 - max_val: 30.409	ID:  8822	added_token: fn
+generating: # 22 - max_val: 31.075	ID:  3062	added_token: _get
+generating: # 23 - max_val: 30.715	ID:  39794	added_token: _square
+generating: # 24 - max_val: 32.989	ID:  12993	added_token: _root
 generating: # 25 - max_val: 25.078	ID:   756	added_token: ",Ċ	log: ['{']
-generating: # 26 - max_val: 26.174	ID:   262	added_token: ĠĠĠ	
+generating: # 26 - max_val: 26.174	ID:   262	added_token: ĠĠĠ
 generating: # 27 - max_val: 27.356	ID:   330	added_token: Ġ"	log: ['{', '"']
-generating: # 28 - max_val: 28.412	ID:  13786	added_token: parameters	
+generating: # 28 - max_val: 28.412	ID:  13786	added_token: parameters
 generating: # 29 - max_val: 26.88	ID:   788	added_token: ":	log: ['{']
 generating: # 30 - max_val: 23.31	ID:   341	added_token: Ġ{Ċ	log: ['{', '{']
-generating: # 31 - max_val: 25.286	ID:   286	added_token: ĠĠĠĠĠĠĠ	
+generating: # 31 - max_val: 25.286	ID:   286	added_token: ĠĠĠĠĠĠĠ
 generating: # 32 - max_val: 24.539	ID:   330	added_token: Ġ"	log: ['{', '{', '"']
-generating: # 33 - max_val: 26.662	ID:    64	added_token: a	
+generating: # 33 - max_val: 26.662	ID:    64	added_token: a
 generating: # 34 - max_val: 26.912	ID:   788	added_token: ":	log: ['{', '{']
-generating: # 35 - max_val: 22.838	ID:   220	added_token: Ġ	
-generating: # 36 - max_val: 26.533	ID:    16	added_token: 1	
-generating: # 37 - max_val: 27.327	ID:    19	added_token: 4	
-generating: # 38 - max_val: 28.122	ID:    19	added_token: 4	
-generating: # 39 - max_val: 25.68	ID:   198	added_token: Ċ	
-generating: # 40 - max_val: 25.929	ID:   262	added_token: ĠĠĠ	
+generating: # 35 - max_val: 22.838	ID:   220	added_token: Ġ
+generating: # 36 - max_val: 26.533	ID:    16	added_token: 1
+generating: # 37 - max_val: 27.327	ID:    19	added_token: 4
+generating: # 38 - max_val: 28.122	ID:    19	added_token: 4
+generating: # 39 - max_val: 25.68	ID:   198	added_token: Ċ
+generating: # 40 - max_val: 25.929	ID:   262	added_token: ĠĠĠ
 generating: # 41 - max_val: 26.457	ID:   456	added_token: Ġ}Ċ	Detected Bracket ending log: ['{']
 generating: # 42 - max_val: 21.659	ID:   630	added_token: }ĊĊ	:
 : REPLACED:# 42 - max_val: 21.52	ID:   532	added_token: }Ċ	Detected Bracket ending log: []
@@ -921,58 +921,58 @@ JSON Format:
 ['{', '"']
 
 
-generating: # 33 - max_val: 27.728	ID:  8822	added_token: fn	
-generating: # 34 - max_val: 24.545	ID:  5228	added_token: _sub	
-generating: # 35 - max_val: 34.998	ID:  7660	added_token: stitute	
-generating: # 36 - max_val: 28.774	ID:  3904	added_token: _string	
-generating: # 37 - max_val: 31.672	ID:  6615	added_token: _with	
-generating: # 38 - max_val: 34.531	ID:  41832	added_token: _regex	
+generating: # 33 - max_val: 27.728	ID:  8822	added_token: fn
+generating: # 34 - max_val: 24.545	ID:  5228	added_token: _sub
+generating: # 35 - max_val: 34.998	ID:  7660	added_token: stitute
+generating: # 36 - max_val: 28.774	ID:  3904	added_token: _string
+generating: # 37 - max_val: 31.672	ID:  6615	added_token: _with
+generating: # 38 - max_val: 34.531	ID:  41832	added_token: _regex
 generating: # 39 - max_val: 25.437	ID:   756	added_token: ",Ċ	log: ['{']
-generating: # 40 - max_val: 26.581	ID:   262	added_token: ĠĠĠ	
+generating: # 40 - max_val: 26.581	ID:   262	added_token: ĠĠĠ
 generating: # 41 - max_val: 27.24	ID:   330	added_token: Ġ"	log: ['{', '"']
-generating: # 42 - max_val: 29.506	ID:  13786	added_token: parameters	
+generating: # 42 - max_val: 29.506	ID:  13786	added_token: parameters
 generating: # 43 - max_val: 27.067	ID:   788	added_token: ":	log: ['{']
 generating: # 44 - max_val: 24.589	ID:   341	added_token: Ġ{Ċ	log: ['{', '{']
-generating: # 45 - max_val: 25.448	ID:   286	added_token: ĠĠĠĠĠĠĠ	
+generating: # 45 - max_val: 25.448	ID:   286	added_token: ĠĠĠĠĠĠĠ
 generating: # 46 - max_val: 27.022	ID:   330	added_token: Ġ"	log: ['{', '{', '"']
-generating: # 47 - max_val: 29.448	ID:  2427	added_token: source	
-generating: # 48 - max_val: 31.392	ID:  3904	added_token: _string	
+generating: # 47 - max_val: 29.448	ID:  2427	added_token: source
+generating: # 48 - max_val: 31.392	ID:  3904	added_token: _string
 generating: # 49 - max_val: 27.328	ID:   788	added_token: ":	log: ['{', '{']
 generating: # 50 - max_val: 23.639	ID:   330	added_token: Ġ"	log: ['{', '{', '"']
-generating: # 51 - max_val: 27.067	ID:  9707	added_token: Hello	
-generating: # 52 - max_val: 26.16	ID:   220	added_token: Ġ	
-generating: # 53 - max_val: 28.666	ID:    18	added_token: 3	
-generating: # 54 - max_val: 29.556	ID:    19	added_token: 4	
-generating: # 55 - max_val: 31.076	ID:   358	added_token: ĠI	
-generating: # 56 - max_val: 34.73	ID:  2776	added_token: 'm	
-generating: # 57 - max_val: 29.548	ID:   220	added_token: Ġ	
-generating: # 58 - max_val: 33.526	ID:    17	added_token: 2	
-generating: # 59 - max_val: 34.468	ID:    18	added_token: 3	
-generating: # 60 - max_val: 30.958	ID:    18	added_token: 3	
-generating: # 61 - max_val: 34.777	ID:  1635	added_token: Ġyears	
-generating: # 62 - max_val: 33.571	ID:  2310	added_token: Ġold	
+generating: # 51 - max_val: 27.067	ID:  9707	added_token: Hello
+generating: # 52 - max_val: 26.16	ID:   220	added_token: Ġ
+generating: # 53 - max_val: 28.666	ID:    18	added_token: 3
+generating: # 54 - max_val: 29.556	ID:    19	added_token: 4
+generating: # 55 - max_val: 31.076	ID:   358	added_token: ĠI
+generating: # 56 - max_val: 34.73	ID:  2776	added_token: 'm
+generating: # 57 - max_val: 29.548	ID:   220	added_token: Ġ
+generating: # 58 - max_val: 33.526	ID:    17	added_token: 2
+generating: # 59 - max_val: 34.468	ID:    18	added_token: 3
+generating: # 60 - max_val: 30.958	ID:    18	added_token: 3
+generating: # 61 - max_val: 34.777	ID:  1635	added_token: Ġyears
+generating: # 62 - max_val: 33.571	ID:  2310	added_token: Ġold
 generating: # 63 - max_val: 26.319	ID:   756	added_token: ",Ċ	log: ['{', '{']
-generating: # 64 - max_val: 28.844	ID:   286	added_token: ĠĠĠĠĠĠĠ	
+generating: # 64 - max_val: 28.844	ID:   286	added_token: ĠĠĠĠĠĠĠ
 generating: # 65 - max_val: 29.926	ID:   330	added_token: Ġ"	log: ['{', '{', '"']
-generating: # 66 - max_val: 30.301	ID:  26387	added_token: regex	
+generating: # 66 - max_val: 30.301	ID:  26387	added_token: regex
 generating: # 67 - max_val: 28.695	ID:   788	added_token: ":	log: ['{', '{']
 generating: # 68 - max_val: 22.474	ID:   330	added_token: Ġ"	log: ['{', '{', '"']
-generating: # 69 - max_val: 21.883	ID:    18	added_token: 3	
-generating: # 70 - max_val: 25.753	ID:    19	added_token: 4	
-generating: # 71 - max_val: 22.481	ID:    91	added_token: |	
-generating: # 72 - max_val: 27.489	ID:    17	added_token: 2	
-generating: # 73 - max_val: 28.646	ID:    18	added_token: 3	
-generating: # 74 - max_val: 27.345	ID:    18	added_token: 3	
+generating: # 69 - max_val: 21.883	ID:    18	added_token: 3
+generating: # 70 - max_val: 25.753	ID:    19	added_token: 4
+generating: # 71 - max_val: 22.481	ID:    91	added_token: |
+generating: # 72 - max_val: 27.489	ID:    17	added_token: 2
+generating: # 73 - max_val: 28.646	ID:    18	added_token: 3
+generating: # 74 - max_val: 27.345	ID:    18	added_token: 3
 generating: # 75 - max_val: 23.842	ID:   756	added_token: ",Ċ	log: ['{', '{']
-generating: # 76 - max_val: 29.119	ID:   286	added_token: ĠĠĠĠĠĠĠ	
+generating: # 76 - max_val: 29.119	ID:   286	added_token: ĠĠĠĠĠĠĠ
 generating: # 77 - max_val: 29.533	ID:   330	added_token: Ġ"	log: ['{', '{', '"']
-generating: # 78 - max_val: 34.085	ID:  83631	added_token: replacement	
+generating: # 78 - max_val: 34.085	ID:  83631	added_token: replacement
 generating: # 79 - max_val: 30.948	ID:   788	added_token: ":	log: ['{', '{']
 generating: # 80 - max_val: 24.781	ID:   330	added_token: Ġ"	log: ['{', '{', '"']
-generating: # 81 - max_val: 26.607	ID:  17488	added_token: NUM	
-generating: # 82 - max_val: 30.593	ID:  44116	added_token: BERS	
+generating: # 81 - max_val: 26.607	ID:  17488	added_token: NUM
+generating: # 82 - max_val: 30.593	ID:  44116	added_token: BERS
 generating: # 83 - max_val: 24.571	ID:   698	added_token: "Ċ	log: ['{', '{']
-generating: # 84 - max_val: 25.497	ID:   262	added_token: ĠĠĠ	
+generating: # 84 - max_val: 25.497	ID:   262	added_token: ĠĠĠ
 generating: # 85 - max_val: 25.558	ID:   456	added_token: Ġ}Ċ	Detected Bracket ending log: ['{']
 generating: # 86 - max_val: 21.367	ID:  42273	added_token: }"ĊĊ	:
 : REPLACED:# 86 - max_val: 19.989	ID:    92	added_token: }	Detected Bracket ending log: []
@@ -1061,48 +1061,48 @@ JSON Format:
 ['{', '"']
 
 
-generating: # 24 - max_val: 26.289	ID:  8822	added_token: fn	
-generating: # 25 - max_val: 25.994	ID:  5228	added_token: _sub	
-generating: # 26 - max_val: 33.46	ID:  7660	added_token: stitute	
-generating: # 27 - max_val: 28.53	ID:  3904	added_token: _string	
-generating: # 28 - max_val: 30.346	ID:  6615	added_token: _with	
-generating: # 29 - max_val: 34.746	ID:  41832	added_token: _regex	
+generating: # 24 - max_val: 26.289	ID:  8822	added_token: fn
+generating: # 25 - max_val: 25.994	ID:  5228	added_token: _sub
+generating: # 26 - max_val: 33.46	ID:  7660	added_token: stitute
+generating: # 27 - max_val: 28.53	ID:  3904	added_token: _string
+generating: # 28 - max_val: 30.346	ID:  6615	added_token: _with
+generating: # 29 - max_val: 34.746	ID:  41832	added_token: _regex
 generating: # 30 - max_val: 25.331	ID:   756	added_token: ",Ċ	log: ['{']
-generating: # 31 - max_val: 27.262	ID:   262	added_token: ĠĠĠ	
+generating: # 31 - max_val: 27.262	ID:   262	added_token: ĠĠĠ
 generating: # 32 - max_val: 27.439	ID:   330	added_token: Ġ"	log: ['{', '"']
-generating: # 33 - max_val: 29.033	ID:  13786	added_token: parameters	
+generating: # 33 - max_val: 29.033	ID:  13786	added_token: parameters
 generating: # 34 - max_val: 26.91	ID:   788	added_token: ":	log: ['{']
 generating: # 35 - max_val: 24.398	ID:   341	added_token: Ġ{Ċ	log: ['{', '{']
-generating: # 36 - max_val: 25.528	ID:   286	added_token: ĠĠĠĠĠĠĠ	
+generating: # 36 - max_val: 25.528	ID:   286	added_token: ĠĠĠĠĠĠĠ
 generating: # 37 - max_val: 27.25	ID:   330	added_token: Ġ"	log: ['{', '{', '"']
-generating: # 38 - max_val: 29.927	ID:  2427	added_token: source	
-generating: # 39 - max_val: 31.047	ID:  3904	added_token: _string	
+generating: # 38 - max_val: 29.927	ID:  2427	added_token: source
+generating: # 39 - max_val: 31.047	ID:  3904	added_token: _string
 generating: # 40 - max_val: 27.211	ID:   788	added_token: ":	log: ['{', '{']
 generating: # 41 - max_val: 24.97	ID:   330	added_token: Ġ"	log: ['{', '{', '"']
-generating: # 42 - max_val: 31.08	ID:  45719	added_token: Programming	
-generating: # 43 - max_val: 28.85	ID:   374	added_token: Ġis	
-generating: # 44 - max_val: 27.335	ID:  2464	added_token: Ġfun	
+generating: # 42 - max_val: 31.08	ID:  45719	added_token: Programming
+generating: # 43 - max_val: 28.85	ID:   374	added_token: Ġis
+generating: # 44 - max_val: 27.335	ID:  2464	added_token: Ġfun
 generating: # 45 - max_val: 25.186	ID:   756	added_token: ",Ċ	log: ['{', '{']
-generating: # 46 - max_val: 29.754	ID:   286	added_token: ĠĠĠĠĠĠĠ	
+generating: # 46 - max_val: 29.754	ID:   286	added_token: ĠĠĠĠĠĠĠ
 generating: # 47 - max_val: 30.134	ID:   330	added_token: Ġ"	log: ['{', '{', '"']
-generating: # 48 - max_val: 32.016	ID:  26387	added_token: regex	
+generating: # 48 - max_val: 32.016	ID:  26387	added_token: regex
 generating: # 49 - max_val: 29.387	ID:   788	added_token: ":	log: ['{', '{']
 generating: # 50 - max_val: 23.496	ID:   330	added_token: Ġ"	log: ['{', '{', '"']
-generating: # 51 - max_val: 19.926	ID:  2561	added_token: ([	
-generating: # 52 - max_val: 25.713	ID:  5918	added_token: ae	
-generating: # 53 - max_val: 32.189	ID:  98255	added_token: iou	
-generating: # 54 - max_val: 25.701	ID:  13669	added_token: AE	
-generating: # 55 - max_val: 26.381	ID:  3810	added_token: IO	
-generating: # 56 - max_val: 30.393	ID:    52	added_token: U	
-generating: # 57 - max_val: 25.606	ID:  2467	added_token: ])	
+generating: # 51 - max_val: 19.926	ID:  2561	added_token: ([
+generating: # 52 - max_val: 25.713	ID:  5918	added_token: ae
+generating: # 53 - max_val: 32.189	ID:  98255	added_token: iou
+generating: # 54 - max_val: 25.701	ID:  13669	added_token: AE
+generating: # 55 - max_val: 26.381	ID:  3810	added_token: IO
+generating: # 56 - max_val: 30.393	ID:    52	added_token: U
+generating: # 57 - max_val: 25.606	ID:  2467	added_token: ])
 generating: # 58 - max_val: 25.3	ID:   756	added_token: ",Ċ	log: ['{', '{']
-generating: # 59 - max_val: 28.308	ID:   286	added_token: ĠĠĠĠĠĠĠ	
+generating: # 59 - max_val: 28.308	ID:   286	added_token: ĠĠĠĠĠĠĠ
 generating: # 60 - max_val: 29.502	ID:   330	added_token: Ġ"	log: ['{', '{', '"']
-generating: # 61 - max_val: 35.107	ID:  83631	added_token: replacement	
+generating: # 61 - max_val: 35.107	ID:  83631	added_token: replacement
 generating: # 62 - max_val: 30.85	ID:   788	added_token: ":	log: ['{', '{']
-generating: # 63 - max_val: 25.175	ID:  15630	added_token: Ġ"*	
+generating: # 63 - max_val: 25.175	ID:  15630	added_token: Ġ"*
 generating: # 64 - max_val: 27.939	ID:   698	added_token: "Ċ	log: ['{', '{']
-generating: # 65 - max_val: 25.863	ID:   262	added_token: ĠĠĠ	
+generating: # 65 - max_val: 25.863	ID:   262	added_token: ĠĠĠ
 generating: # 66 - max_val: 25.567	ID:   456	added_token: Ġ}Ċ	Detected Bracket ending log: ['{']
 generating: # 67 - max_val: 21.83	ID:  42273	added_token: }"ĊĊ	:
 : REPLACED:# 67 - max_val: 20.058	ID:    92	added_token: }	Detected Bracket ending log: []
@@ -1192,49 +1192,49 @@ JSON Format:
 ['{', '"']
 
 
-generating: # 35 - max_val: 29.255	ID:  8822	added_token: fn	
-generating: # 36 - max_val: 32.198	ID:  5228	added_token: _sub	
-generating: # 37 - max_val: 33.151	ID:  7660	added_token: stitute	
-generating: # 38 - max_val: 29.542	ID:  3904	added_token: _string	
-generating: # 39 - max_val: 32.396	ID:  6615	added_token: _with	
-generating: # 40 - max_val: 35.185	ID:  41832	added_token: _regex	
+generating: # 35 - max_val: 29.255	ID:  8822	added_token: fn
+generating: # 36 - max_val: 32.198	ID:  5228	added_token: _sub
+generating: # 37 - max_val: 33.151	ID:  7660	added_token: stitute
+generating: # 38 - max_val: 29.542	ID:  3904	added_token: _string
+generating: # 39 - max_val: 32.396	ID:  6615	added_token: _with
+generating: # 40 - max_val: 35.185	ID:  41832	added_token: _regex
 generating: # 41 - max_val: 25.921	ID:   756	added_token: ",Ċ	log: ['{']
-generating: # 42 - max_val: 26.979	ID:   262	added_token: ĠĠĠ	
+generating: # 42 - max_val: 26.979	ID:   262	added_token: ĠĠĠ
 generating: # 43 - max_val: 27.146	ID:   330	added_token: Ġ"	log: ['{', '"']
-generating: # 44 - max_val: 29.158	ID:  13786	added_token: parameters	
+generating: # 44 - max_val: 29.158	ID:  13786	added_token: parameters
 generating: # 45 - max_val: 26.898	ID:   788	added_token: ":	log: ['{']
 generating: # 46 - max_val: 24.245	ID:   341	added_token: Ġ{Ċ	log: ['{', '{']
-generating: # 47 - max_val: 25.129	ID:   286	added_token: ĠĠĠĠĠĠĠ	
+generating: # 47 - max_val: 25.129	ID:   286	added_token: ĠĠĠĠĠĠĠ
 generating: # 48 - max_val: 26.851	ID:   330	added_token: Ġ"	log: ['{', '{', '"']
-generating: # 49 - max_val: 29.302	ID:  2427	added_token: source	
-generating: # 50 - max_val: 31.317	ID:  3904	added_token: _string	
+generating: # 49 - max_val: 29.302	ID:  2427	added_token: source
+generating: # 50 - max_val: 31.317	ID:  3904	added_token: _string
 generating: # 51 - max_val: 26.649	ID:   788	added_token: ":	log: ['{', '{']
 generating: # 52 - max_val: 24.008	ID:   330	added_token: Ġ"	log: ['{', '{', '"']
-generating: # 53 - max_val: 28.557	ID:   785	added_token: The	
-generating: # 54 - max_val: 27.67	ID:  8251	added_token: Ġcat	
-generating: # 55 - max_val: 31.613	ID:  7578	added_token: Ġsat	
-generating: # 56 - max_val: 30.701	ID:   389	added_token: Ġon	
-generating: # 57 - max_val: 28.467	ID:   279	added_token: Ġthe	
-generating: # 58 - max_val: 35.877	ID:  5517	added_token: Ġmat	
-generating: # 59 - max_val: 33.553	ID:   448	added_token: Ġwith	
-generating: # 60 - max_val: 31.377	ID:  2441	added_token: Ġanother	
-generating: # 61 - max_val: 32.067	ID:  8251	added_token: Ġcat	
+generating: # 53 - max_val: 28.557	ID:   785	added_token: The
+generating: # 54 - max_val: 27.67	ID:  8251	added_token: Ġcat
+generating: # 55 - max_val: 31.613	ID:  7578	added_token: Ġsat
+generating: # 56 - max_val: 30.701	ID:   389	added_token: Ġon
+generating: # 57 - max_val: 28.467	ID:   279	added_token: Ġthe
+generating: # 58 - max_val: 35.877	ID:  5517	added_token: Ġmat
+generating: # 59 - max_val: 33.553	ID:   448	added_token: Ġwith
+generating: # 60 - max_val: 31.377	ID:  2441	added_token: Ġanother
+generating: # 61 - max_val: 32.067	ID:  8251	added_token: Ġcat
 generating: # 62 - max_val: 24.507	ID:   756	added_token: ",Ċ	log: ['{', '{']
-generating: # 63 - max_val: 29.794	ID:   286	added_token: ĠĠĠĠĠĠĠ	
+generating: # 63 - max_val: 29.794	ID:   286	added_token: ĠĠĠĠĠĠĠ
 generating: # 64 - max_val: 30.334	ID:   330	added_token: Ġ"	log: ['{', '{', '"']
-generating: # 65 - max_val: 31.55	ID:  26387	added_token: regex	
+generating: # 65 - max_val: 31.55	ID:  26387	added_token: regex
 generating: # 66 - max_val: 28.4	ID:   788	added_token: ":	log: ['{', '{']
 generating: # 67 - max_val: 23.524	ID:   330	added_token: Ġ"	log: ['{', '{', '"']
-generating: # 68 - max_val: 25.366	ID:  4616	added_token: cat	
+generating: # 68 - max_val: 25.366	ID:  4616	added_token: cat
 generating: # 69 - max_val: 23.396	ID:   756	added_token: ",Ċ	log: ['{', '{']
-generating: # 70 - max_val: 29.156	ID:   286	added_token: ĠĠĠĠĠĠĠ	
+generating: # 70 - max_val: 29.156	ID:   286	added_token: ĠĠĠĠĠĠĠ
 generating: # 71 - max_val: 29.449	ID:   330	added_token: Ġ"	log: ['{', '{', '"']
-generating: # 72 - max_val: 33.823	ID:  83631	added_token: replacement	
+generating: # 72 - max_val: 33.823	ID:  83631	added_token: replacement
 generating: # 73 - max_val: 30.475	ID:   788	added_token: ":	log: ['{', '{']
 generating: # 74 - max_val: 26.476	ID:   330	added_token: Ġ"	log: ['{', '{', '"']
-generating: # 75 - max_val: 32.304	ID:  18457	added_token: dog	
+generating: # 75 - max_val: 32.304	ID:  18457	added_token: dog
 generating: # 76 - max_val: 24.646	ID:   698	added_token: "Ċ	log: ['{', '{']
-generating: # 77 - max_val: 25.509	ID:   262	added_token: ĠĠĠ	
+generating: # 77 - max_val: 25.509	ID:   262	added_token: ĠĠĠ
 generating: # 78 - max_val: 26.069	ID:   456	added_token: Ġ}Ċ	Detected Bracket ending log: ['{']
 generating: # 79 - max_val: 21.559	ID:  42273	added_token: }"ĊĊ	:
 : REPLACED:# 79 - max_val: 20.182	ID:    92	added_token: }	Detected Bracket ending log: []
@@ -1296,7 +1296,7 @@ success
             "b": 3
         }
     }
-    
+
     {
         "prompt": "What is the sum of 265 and 345?",
         "name": "fn_add_numbers",
@@ -1305,7 +1305,7 @@ success
             "b": 345
         }
     }
-    
+
     {
         "prompt": "Greet shrek",
         "name": "fn_greet",
@@ -1313,7 +1313,7 @@ success
             "name": "shrek"
         }
     }
-    
+
     {
         "prompt": "Greet john",
         "name": "fn_greet",
@@ -1321,7 +1321,7 @@ success
             "name": "john"
         }
     }
-    
+
     {
         "prompt": "Reverse the string 'hello'",
         "name": "fn_reverse_string",
@@ -1329,7 +1329,7 @@ success
             "s": "hello"
         }
     }
-    
+
     {
         "prompt": "Reverse the string 'world'",
         "name": "fn_reverse_string",
@@ -1337,7 +1337,7 @@ success
             "s": "world"
         }
     }
-    
+
     {
         "prompt": "What is the square root of 16?",
         "name": "fn_get_square_root",
@@ -1345,7 +1345,7 @@ success
             "a": 16
         }
     }
-    
+
     {
         "prompt": "Calculate the square root of 144",
         "name": "fn_get_square_root",
@@ -1353,7 +1353,7 @@ success
             "a": 144
         }
     }
-    
+
     {
         "prompt": "Replace all numbers in \"Hello 34 I'm 233 years old\" with NUMBERS",
         "name": "fn_substitute_string_with_regex",
@@ -1388,5 +1388,3 @@ Run Time: 12 minutes
 
 
 Output_file:
-
-
