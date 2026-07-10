@@ -6,7 +6,7 @@
 #    By: dmota-ri <dmota-ri@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/10 16:50:27 by dmota-ri          #+#    #+#              #
-#    Updated: 2026/07/07 18:49:05 by dmota-ri         ###   ########.fr        #
+#    Updated: 2026/07/08 21:12:13 by dmota-ri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ run_time:
 	@time $(UV_RUN) $(SRC) $(filter-out $@,$(MAKECMDGOALS))
 
 debug:
-	@$(DEBUGGER) $(MAIN).py $(MAP_FILE)
+	@$(DEBUGGER) $(MAIN).py $(filter-out $@,$(MAKECMDGOALS))
 
 install: $(VENV)
 

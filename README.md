@@ -2,16 +2,16 @@ _This project has been created as part of the 42 curriculum by dmota-ri._
 
 # Description
 
-CallMeMaybe is designed to teach students how to handle Small Large Language Models (LLMs) using Python.
+CallMeMaybe is designed to teach students how to perform function calling with Small Language Models (LLMs) using Python.
 
-The goal is to create an algorithm that uses the provided `Small_LLM_Model` class being a wrapper around the `Qwen/Qwen3-0.6B` Small LLM to generate a list of Function Calling Dictionaries from given Prompts.
+The goal is to create an algorithm that uses the provided `Small_LLM_Model` class, a wrapper around the `Qwen/Qwen3-0.6B` Small Language Model, to generate structured Function Calling dictionaries from natural language prompts.
 
-The model takes in two files:
+The model takes in two input files:
 
 - `input` (default: data/input/function_calling_tests.json)
   - list of Prompt Dictionaries
   - Structure:
-    ```
+    ```json
     [
       {
         "prompt": "prompt1"
@@ -25,9 +25,9 @@ The model takes in two files:
 
 - `functions_definition` (default: data/input/functions_definition.json)
   - list of Functions Dictionaries
-  - Defines the possible Functions the Model will try to draw from and their code properties
+  - Defines the functions available to the model, together with their descriptions, parameters, and return types.
   - Structure:
-    ```
+    ```json
     [
       {
           "name": "fn_name1",
@@ -41,8 +41,8 @@ The model takes in two files:
             },
             <...>
           },
-          "returns": {
-            "type": returns_type
+          "return": {
+            "type": return_type
           }
       },
       {
@@ -57,21 +57,21 @@ The model takes in two files:
             },
             <...>
           },
-          "returns": {
-            "type": returns_type
+          "return": {
+            "type": return_type
           }
       },
       <...>
     ]
     ```
 
-These files are processed and Tokenized to be used by the LLM to generate a list of responses per prompt given. the result is an output file
+After loading and preprocessing both input files, each prompt is, independently, tokenized and processed by the LLM, producing exactly one Function Calling Dictionary. The generated responses are then written to an output file.
 
 - `output` (default: data/output/function_calls.json)
   - list of Function Calling Dictionaries
-  - Includes the original Prompt, the function to call and the parameters extracted from the Prompt
+  - Contains the original prompt, the selected function, and the extracted arguments for that function.
   - Structure:
-    ```
+    ```json
     [
       {
           "prompt": "given prompt1",
@@ -95,46 +95,42 @@ These files are processed and Tokenized to be used by the LLM to generate a list
     ]
     ```
 
+## Model Inner Workings - Algorithm Explanation
 
+This section describes the complete processing pipeline, from loading the input files to generating the final Function Calling dictionaries.
 
+### Arguments and Input Parsing
 
-• Algorithm explanation: Describe your constrained decoding approach in detail
-• Design decisions: Explain key choices in your implementation
-• Performance analysis: Discuss accuracy, speed, and reliability of your solution
-• Challenges faced: Document difficulties encountered and how you solved them
-• Testing strategy: Describe how you validated your implementation
+The first stage of the program is to parse and validate the console arguments. These determine the input files containing the prompts and function definitions, as well as the location of the output file.
 
+Before the model is initialized, every file is validated:
+- Input files must exist and be readable.
+- If the output path contains directories, they are created automatically when necessary.
+- If the output file already exists, the user is asked for confirmation before it is overwritten.
 
+Once the files have been validated, both JSON documents are loaded and converted into Python data structures. The prompt file is stored as a `list[str]`, while the function definitions are converted into a list of custom `FunctDef` objects that provide a more convenient interface than repeatedly accessing raw dictionaries.
 
-## Model Inner Workings
+If any validation or parsing step fails, the program terminates immediately with an informative error message describing the problem and, when appropriate, how to resolve it.
 
-This Section will go into detail on the inner workings of my implementation of the model from inputs to pre processing, processing and output.
+#### Design decision:
+- All validation is performed using the json package to read input files and the pydantic library to validate all inputs before converting them into my custom classes.
+- This process happens before the `Small_LLM_Model` is initialized. Loading the language model is the most time-consuming part of the program startup, so detecting invalid arguments or malformed input files early avoids unnecessary initialization and significantly reduces the time spent on failed executions.
 
-### Arguments and Input
+### Prompt construction and Tokenization
 
-First step is always to Parse the arguments given in the console, in this case the names of the files that will be read or written into. The code reads and checks if the files are all viable.
-- for input files, it will check if they exist at all.
-- for the output file, it will check of the path has '/' in it, dictating that it is inside a directory that may or may not exist, so it will always make sure that directory exists, and then try to create the output file. if it already exists, it will check with the user that it is ok for it to be overwritten.
+After the input files have been parsed, the `Small_LLM_Model` is initialized together with a set of helper objects, most notably the vocabularies used to translate between text tokens and token IDs.
 
-With the information of the input files loaded, the Pre-processing starts. first we convert the JSON into a Python structure (`List of Dicts`). from there we extract the information into my own structures. Prompts are saved as a `list of str` while `Functions` are saved as `FunctDef` that behave similarly to a Dict.
-
-if any of these steps are not successful, the program will end early and display an error message with basic information on what went wrong and at times instruction on how to fix it. Most importantly, it will save on the time that the LLM class needs to load every single time.
-
-### Tokenization and Logits Processing
-
-With the Inputs parsed and the LLM class loaded and helper objects are created (namely Vocabularies) we start the Tokenization Processing
-
-First i construct an universal prompt beginner, since all calls of the LLM must know what the functions available are, i generate a string designed to be small tokenswise but still have all the information available similar to this:
-```
+Before processing any user prompt, the program constructs a common instruction prefix shared by every generation. This prefix contains a compact description of every available function, including its name, description, parameters, and return type.
+```json
 JSON Function:
-{"name":"fn_name1","description":"description_str","parameters":{"param1":{"type":param1_type},"param2":{"type":param2_type},<...>},"return":{"type":returns_type}}
+{"name":"fn_name1","description":"description_str","parameters":{"param1":{"type":param1_type},"param2":{"type":param2_type},<...>},"return":{"type":return_type}}
 JSON Function:
-{"name":"fn_name1","description":"description_str","parameters":{"param1":{"type":param1_type},"param2":{"type":param2_type},<...>},"return":{"type":returns_type}}
+{"name":"fn_name1","description":"description_str","parameters":{"param1":{"type":param1_type},"param2":{"type":param2_type},<...>},"return":{"type":return_type}}
 JSON Function:
 <...>
 ```
-At the end of this structure i put in the desired output format:
-```
+After all available functions have been listed, the desired output format is appended to the instruction prefix.
+```json
 JSON Format:
 {
     "prompt": "given prompt",
@@ -147,60 +143,111 @@ JSON Format:
 }
 
 ```
-i give this one with all the extra things so the formatting comes out as best as possible from the generation.
 
-With all these predetermined prompt cores i join them together creating the final instructions. for each prompt, said prompt is added to the end of the instructions in the format:
+Providing the expected JSON structure encourages the model to continue in the demonstrated format, significantly improving the consistency of the generated output.
 
-```
+Finally, the current prompt is appended to the shared instruction prefix using the following partial JSON object:
+
+```json
 {
     "prompt": "prompt1",
     "name": "
 ```
 
-Ready for the Model to look at this and think it already generated the very start of the JSON formatted dictionary. with the Full prompt, Generation beginning with Logits Processing.
+This effectively turns generation into a constrained continuation of the required JSON structure rather than asking the model to create the complete object from scratch. The complete prompt is then tokenized, converted into token IDs, and passed to the language model for inference.
 
-The Way Generation works with the model we were given is:
+#### Design decision
+- The description of every available function is assembled only once into a common instruction prefix and reused for every prompt. This avoids repeatedly rebuilding identical instructions while ensuring every inference receives exactly the same context.
+- Function definitions are serialized as compact JSON without unnecessary whitespace. Since language models operate on tokens rather than characters, reducing formatting overhead leaves more of the context window available for meaningful information.
+- Instead of asking the model to generate an entire JSON object from scratch, generation begins immediately after the `"name"` key. This constrains the first prediction to selecting a function name and naturally guides the remainder of the generation toward the required output format.
 
-- Starting Prompt (str) is tokenized and then turned into Token IDs, turning into a List of Tokens IDs(Ints)
-- this List of Tokens is fed to the function get_logits_from_input_ids() which will return a list of Logits(floats) one for each token in the dictionaries
-- the logit with the highest value is the one that the model thinks is the most likely to come next based on the tokens it evaluated on this call, so we add the ID corresponding to that logit (logits.index(max(logits))) to the starting prompt.
-- with this new prompt we then do the process all over again until we get to the end of the generation, aa parameter we need to set outside of the loop in question.
 
-That is the basic loop of how we add to the prompt until we get the response we want.
+### Response Generation
 
-in my case, i have some extra steps. first of all, ive noticed sometimes the model liked to put a few too many spaces in the formatting, among other "wrong token" situations. so after generation, i check the token, and if it is one of the situations ive observed, it gets amended by replacing the output as necessary.
+Once the prompt has been converted into token IDs, it is passed to the `Small_LLM_Model` for *autoregressive generation*.
 
-The way i detect an End of Response is by detecting that all the Brackets in the response have been closed properly. we start with a '{' '"' and we add to it. when all the containers have been closed i detect an end of response. as a fail safe, if something goes wrong and we reach a length of 120 tokens, i forcibly start closing curly brackets until the generation finished
+At each iteration, the model evaluates the current sequence and produces a list of logits, one score for every token in the vocabulary. The token with the highest logit is selected as the next output token. Before being appended to the generated sequence, the token is checked against a small set of common formatting mistakes observed during development. When necessary, it is replaced with the corrected token. The updated sequence is then fed back into the model, repeating the process one token at a time.
+
+Generation continues until a complete Function Calling dictionary has been produced. Rather than relying on a fixed number of generated tokens, the program tracks the opening and closing of JSON containers. Since generation always begins with the opening `{` and the initial `"` already provided in the prompt, the response is considered complete once every opened container has been properly closed.
+
+As a fail-safe, generation is also limited to a maximum of 120 tokens. If this limit is reached before the JSON object has been closed, the remaining closing braces are generated manually, ensuring that the output remains syntactically valid JSON even in cases where generation reaches the token limit.
+
+#### Design Decisions
+
+- The implementation always selects the token with the highest logit instead of sampling from the distribution (Greedy decoding). Since the objective is to produce deterministic Function Calling dictionaries rather than creative text, greedy decoding provides consistent and repeatable results.
+- A lightweight post-processing step corrects a small set of recurring formatting mistakes before each token is appended to the generated sequence. Although the model generally produces the expected structure, these corrections improve formatting consistency and reduce malformed JSON output without affecting the generated content.
 
 ### Finalization and Outputs
 
-after the LLM has run it's corse, all the responses are decoded back into strings and then joined into the final content of the output file.
+After all prompts have been processed, the generated token sequences are decoded back into UTF-8 strings.
 
-with this content we must only open the file we created at the very beginning
+Each decoded response is combined into a single list of Function Calling dictionaries, which is then serialized as formatted JSON and written to the output file selected during argument parsing.
+
+At this point, all requested prompts have been processed, and the program exits normally.
+
+
+After the LLM has run it's corse, all the responses are decoded back into strings and then joined into the final content of the output file.
+
+### Performance Analysis
+
+The implementation prioritizes deterministic and reliable generation over raw throughput.
+
+Since greedy decoding is used, every prompt always produces the same output for the same inputs, making the program easy to debug and evaluate.
+
+The largest performance cost is loading the language model into memory. For this reason, all command-line arguments and input files are validated before model initialization, avoiding expensive startup when execution would fail due to invalid inputs.
+
+During generation, function definitions are assembled into a single reusable instruction prefix and reused for every prompt, avoiding unnecessary reconstruction of identical prompt content.
+
+
+## Challenges Faced
+
+Although the provided language model is straightforward to use, producing reliable results still required solving several practical problems.
+
+### Prompt construction
+
+The model requires enough information to understand the available functions while keeping the prompt compact enough to avoid wasting context.
+
+To address this, all function definitions are serialized into a compact JSON representation that is generated once and reused for every prompt, reducing unnecessary prompt size while keeping the information available to the model.
+
+### Deterministic function selection
+
+Unlike conversational applications, function calling benefits from predictable outputs.
+
+For this reason, greedy decoding was chosen over probabilistic sampling, ensuring identical inputs always produce identical outputs.
+
+### Producing valid JSON
+
+Large language models, especially smaller ones such as the one used, do not always generate syntactically correct JSON reliably. During development, occasional formatting inconsistencies, unfinished objects, and misplaced whitespace were observed.
+
+To improve reliability, the implementation combines prompt engineering, token correction, bracket tracking and a maximum generation length with automatic JSON closure. Together, these measures greatly improve the reliability of the generated JSON output.
 
 # Instructions
 
-For Execution, a Makefile is provided.
-
-Upon getting the module, une must use `make install` to create the `.venv` folder and sync the contents with the requirements of the model. From there. running the command `make` or `make run` on a shell console will execute the program. If you use `make run_time`, at the end, it will display the time in seconds the program took to finish.
-
-To change the default input and output files you may use the following format:
-  ```
-  make run [--functions_definition <function_definition_file>] [--input <input_file>] [--output <output_file>]
-  ```
+The project is managed through the provided Makefile, which offers the following rules:
+- install: Creates the project's `Python Virtual Environment` (if it does not already exist) and installs all required dependencies using `uv sync`.
+- run: Execute the main script of the project.
+  - If you wish to include non-default input or output files, you must add them like so:
+    ```bash
+    make run [--functions_definition <function_definition_file>] [--input <input_file>] [--output <output_file>]
+    ```
+- run_time: Behaves identically to `run`, but also displays the total execution time measured using Bash's `time` command.
+- debug: Run the main script in debug mode using Python’s built-in debugger using pdb.
+- clean: Removes temporary files and caches to keep the project environment clean.
+- lint: Executes the commands `flake8 .` and `mypy . --warn-return-any --warn-unused-ignores --ignore-missing-imports --disallow-untyped-defs --check-untyped-defs` to check for formatting and type hint errors
+- lint-strict: Executes the commands `flake8 .` and `mypy . --strict` to check for formatting and type hint errors more strictly
 
 In the case that the Output file already exists, the following message will appear:
   ```
-  File "<output_file>" already Exists, do you wish to replace it?
+  File "<output_file>" already exists. Do you wish to replace it?
   Y for 'yes', any for 'no':
   ```
-use 'y' to continue, or any other input to abort
+Use 'y' to continue, or any other input to abort
 
 # Resources
 
-Most of the core concepts I learned from previous others projects and through pure experimentation with the tokens and vocabularies.
+Most of the core concepts I learned from previous projects and through pure experimentation with the tokens and vocabularies.
 
-For further explanation of particular aspects of internal particular small inconsistencies or new errors i was not familiar with, I sometimes checked in with AI with mixed results. I also used it as a tool to sift through some particularly lengthy outputs to check for any inconsistencies i may have missed myself.
+For further explanation of specific aspects of internal small inconsistencies or new errors I was not familiar with, I sometimes checked in with AI, with mixed results. I also used it as a tool to sift through particularly lengthy outputs and check for any inconsistencies I might have missed.
 
 ## Sources:
 https://huggingface.co/

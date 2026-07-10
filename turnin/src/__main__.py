@@ -169,7 +169,7 @@ class FunctCallLLM():
                 pass
         except FileExistsError:
             print(f"File \"{file_name}\" "
-                  "already Exists, do you wish to replace it?")
+                  "already exists, do you wish to replace it?")
             answer = input("Y for 'yes', any for 'no': ").lower()
             if not answer == "y":
                 print("Stopping Program")
@@ -263,14 +263,20 @@ class FunctCallLLM():
             instruct_len: int = len(self.instructions)
 
             container_log: list[str] = ["{", "\""]
-            logits_funct: list[float] = [1 for _ in range(151643)]
+            # logits_funct: list[float] = [1 for _ in range(151643)]
 
             while True:
 
                 if ((answer_len >= 120)):
                     print("Response too long, Cutting", container_log,
                           sep="\t")
-                    logits_funct[self.vocab_text_int["}"]] = sys.maxsize
+                    logits_funct = [float(1) for _ in range(151643)]
+                    if container_log[-1] == "{":
+                        logits_funct[self.vocab_text_int["}"]] = sys.maxsize
+                    if container_log[-1] == "[":
+                        logits_funct[self.vocab_text_int["]"]] = sys.maxsize
+                    if container_log[-1] == "\"":
+                        logits_funct[self.vocab_text_int["\""]] = sys.maxsize
 
                 else:
                     logits_funct = (self._llm.get_logits_from_input_ids(
