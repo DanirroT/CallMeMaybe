@@ -6,7 +6,7 @@
 #    By: dmota-ri <dmota-ri@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/10 16:50:27 by dmota-ri          #+#    #+#              #
-#    Updated: 2026/07/08 21:12:13 by dmota-ri         ###   ########.fr        #
+#    Updated: 2026/07/14 17:37:13 by dmota-ri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ run:
 	@$(UV_RUN) $(SRC) $(filter-out $@,$(MAKECMDGOALS))
 
 run_time:
-	@time $(UV_RUN) $(SRC) $(filter-out $@,$(MAKECMDGOALS))
+	@time -f "\n\nTotal Run Time: %E" $(UV_RUN) $(SRC) $(filter-out $@,$(MAKECMDGOALS))
 
 debug:
 	@$(DEBUGGER) $(MAIN).py $(filter-out $@,$(MAKECMDGOALS))
@@ -48,6 +48,9 @@ $(VENV):
 clean:
 	@$(RM) ./__pycache__/ ./.mypy_cache/
 	@$(RM) ./$(SRC)/__pycache__/ ./$(SRC)/.mypy_cache/
+	@$(RM) ./llm_sdk/__pycache__/ ./llm_sdk/.mypy_cache/
+	@$(RM) data/output
+
 
 lint:
 	@$(UV_RUN) flake8 $(OBJ) || true

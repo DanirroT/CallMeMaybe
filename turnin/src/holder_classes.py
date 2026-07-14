@@ -20,15 +20,11 @@ class FunctDef(BaseModel):
 
     def __str__(self) -> str:
         return (
-            "{"
             f"\"name\":\"{self.name}\","
             f"\"description\":\"{self.description}\","
-            "\"parameters\":{"
+            "\"parameters\":"
             f"{','.join(map(str, self.parameters))}"
-            "},"
-            "\"return\":{"
-            f"\"type\":\"{self.returns}\""
-            "}}\n"
+            f",\"return type\":\"{self.returns}\"\n"
         )
 
 

@@ -1,174 +1,254 @@
 _This project has been created as part of the 42 curriculum by dmota-ri._
 
-• A “Description” section that clearly presents the project, including its goal and a
-brief overview.
-
-• An “Instructions” section containing any relevant information about compilation,
-installation, and/or execution.
-
-• A “Resources” section listing classic references related to the topic (documen-
-tation, articles, tutorials, etc.), as well as a description of how AI was used —
-specifying for which tasks and which parts of the project.
-
-➠ Additional sections may be required depending on the project (e.g., usage
-examples, feature list, technical choices, etc.).
-
-Any required additions will be explicitly listed below.
-
-For this project, the README.md must also include:
-• Algorithm explanation: Describe your constrained decoding approach in detail
-• Design decisions: Explain key choices in your implementation
-• Performance analysis: Discuss accuracy, speed, and reliability of your solution
-• Challenges faced: Document difficulties encountered and how you solved them
-• Testing strategy: Describe how you validated your implementation
-• Example usage: Provide clear examples of running your program
-
-
-
-
 # Description
 
-CallMeMaybe is designed to teach students how to Handle Small Large Language Models (LLMs) using Python.
+CallMeMaybe is designed to teach students how to perform function calling with Small Language Models (LLMs) using Python.
 
-The goal is to create an algurithm that takes in two input files, function_calling and functions_definition, takes in Prompts and Functions from each file and outputs a file with a
+The goal is to create an algorithm that uses the provided `Small_LLM_Model` class, a wrapper around the `Qwen/Qwen3-0.6B` Small Language Model, to generate structured Function Calling dictionaries from natural language prompts.
 
- of multiple **Coders** working together to **Compile**, **Debug** and **Refactor** Code into a central console by the means of a limited supply of **Dongles** that needs to be managed for the best possible efficiency and to try and evade **Burnout** at every turn.
+The model takes in two input files:
 
-During this Program, each `Coder` repeatedly:
-- acquires two `Dongles`;
-- Compiles (waits for `time_to_compile` ms);
-- Debugs (waits for `time_to_debug` ms);
-- Refactors (waits for `time_to_refactor` ms);
+- `input` (default: data/input/function_calling_tests.json)
+  - list of Prompt Dictionaries
+  - Structure:
+    ```json
+    [
+      {
+        "prompt": "prompt1"
+      },
+      {
+        "prompt": "prompt2"
+      },
+      <...>
+    ]
+    ```
 
-until the `number_of_compiles_required` has been met.
+- `functions_definition` (default: data/input/functions_definition.json)
+  - list of Functions Dictionaries
+  - Defines the functions available to the model, together with their descriptions, parameters, and return types.
+  - Structure:
+    ```json
+    [
+      {
+          "name": "fn_name1",
+          "description": "description_str",
+          "parameters": {
+            "param1": {
+              "type": param1_type
+            },
+            "param2": {
+              "type": param1_type
+            },
+            <...>
+          },
+          "return": {
+            "type": return_type
+          }
+      },
+      {
+          "name": "fn_name2",
+          "description": "description_str",
+          "parameters": {
+            "param1": {
+              "type": param1_type
+            },
+            "param2": {
+              "type": param1_type
+            },
+            <...>
+          },
+          "return": {
+            "type": return_type
+          }
+      },
+      <...>
+    ]
+    ```
 
-A Coder burns out if it fails to begin Compiling again within
-`time_to_burnout` ms.
+After loading and preprocessing both input files, each prompt is, independently, tokenized and processed by the LLM, producing exactly one Function Calling Dictionary. The generated responses are then written to an output file.
 
-After use, `Dongles` become temporarily unavailable for `dongle_cooldown` ms.
+- `output` (default: data/output/function_calls.json)
+  - list of Function Calling Dictionaries
+  - Contains the original prompt, the selected function, and the extracted arguments for that function.
+  - Structure:
+    ```json
+    [
+      {
+          "prompt": "given prompt1",
+          "name": "fn_name1",
+          "parameters": {
+              "param1": param1_val,
+              "param2": param2_val
+              <...>
+          }
+      },
+      {
+          "prompt": "given prompt2",
+          "name": "fn_name2",
+          "parameters": {
+              "param1": param1_val,
+              "param2": param2_val
+              <...>
+          }
+      },
+      <...>
+    ]
+    ```
 
-The `Scheduler` can allocate Dongles using either First In, First Out (FIFO), meaning the `Dongle` is given to the **Coder** whose request arrived first; or Earliest Deadline First (EDF), meaning `Dongle` is given to the **Coder** whose deadline is sooner, deadline being defined as `last_compile_start + time_to_burnout`.
+## Model Inner Workings - Algorithm Explanation
 
-## Thread Synchronization Mechanisms
+This section describes the complete processing pipeline, from loading the input files to generating the final Function Calling dictionaries.
 
-Threads cannot be left free to access shared memory and run without control, so we must implement those controls. This is made mainly in 3 forms: `Mutexes` (pthread_mutex_t), `Condition Variables` (pthread_cond_t), and `Shared State Variables`.
+### Arguments and Input Parsing
 
-### Mutexes Used
+The first stage of the program is to parse and validate the console arguments. These determine the input files containing the prompts and function definitions, as well as the location of the output file.
 
-`Mutexes` work like Locks. When you want to access some shared information or state, you must have the key. To do that, you use pthread_mutex_lock to take the key, and now you may look at and alter anything that is protected by that `Mutex`. To let go of the Key, you use pthread_mutex_unlock. If a second thread wants to use the key while it is taken by another, it will wait until the unlock happens, and the thread in waiting will immediately wake up and take it. Granted, there is not a data race between multiple threads all looking to get the same `Mutex`
+Before the model is initialized, every file is validated:
+- Input files must exist and be readable.
+- If the output path contains directories, they are created automatically when necessary.
+- If the output file already exists, the user is asked for confirmation before it is overwritten.
 
-Shared:
-- `Print` - Protects the Console log from corruption
-- `Burnout` - Protects the `Burnout State` Condition Variable
+Once the files have been validated, both JSON documents are loaded and converted into Python data structures. The prompt file is stored as a `list[str]`, while the function definitions are converted into a list of custom `FunctDef` objects that provide a more convenient interface than repeatedly accessing raw dictionaries.
 
-Used by Dongles
-- `State` - Protects the `Lock State` of the `Dongle`, as well as all Condition Variables relating to the `Dongle`
+If any validation or parsing step fails, the program terminates immediately with an informative error message describing the problem and, when appropriate, how to resolve it.
 
-### Condition Variables Used
+#### Design decision:
+- All validation is performed using the json package to read input files and the pydantic library to validate all inputs before converting them into my custom classes.
+- This process happens before the `Small_LLM_Model` is initialized. Loading the language model is the most time-consuming part of the program startup, so detecting invalid arguments or malformed input files early avoids unnecessary initialization and significantly reduces the time spent on failed executions.
 
-`Condition Variables` work like Signals that can be broadcast from any thread and be detected by any other threads that are actively waiting for it. `Condition Variables` also must be protected by a `Mutex`, so it is impossible for multiple `Threads` to broadcast them as well as to make sure there are no data races between a broadcast and a receiving of said broadcast.
+### Prompt construction and Tokenization
 
-Shared:
-- `Start Sim` - Serves as the Start Signal that makes all threads start working. Has a private `Mutex`.
+After the input files have been parsed, the `Small_LLM_Model` is initialized together with a set of helper objects, most notably the vocabularies used to translate between text tokens and token IDs.
 
-Used by Coders
-- `Compiling` - Serves to communicate between the `Main Coder Thread` and its `Coder Burnout Thread` to detect if a Burnout has occurred. Has a private `Mutex`.
+Before processing any user prompt, the program constructs a common instruction prefix shared by every generation. This prefix contains a compact description of every available function, including its name, description, parameters, and return type.
+```json
+JSON Function:
+{"name":"fn_name1","description":"description_str","parameters":{"param1":{"type":param1_type},"param2":{"type":param2_type},<...>},"return":{"type":return_type}}
+JSON Function:
+{"name":"fn_name1","description":"description_str","parameters":{"param1":{"type":param1_type},"param2":{"type":param2_type},<...>},"return":{"type":return_type}}
+JSON Function:
+<...>
+```
+After all available functions have been listed, the desired output format is appended to the instruction prefix.
+```json
+JSON Format:
+{
+    "prompt": "given prompt",
+    "name": "fn_name",
+    "parameters": {
+        "param1": param1_val,
+        "param2": param2_val
+        <...>
+    }
+}
 
-Used by Dongles
-- `Take` - Used to communicate between the `Main Coder Thread` and `Dongle Thread` to have the `Dongle` Lock itself
-- `Free` - Used to Communicate Between `Main Coder Thread` and `Dongle Thread` to have the `Dongle` start it's Cooldown and free itself when Ready
-- `Ready` - Used to Communicate Between `Dongle Thread` and `Main Coder Thread` to signal the `Dongle` has been freed and to allow the Coders to check if they are next in line to take it
+```
 
-### Shared State Variables Used
+Providing the expected JSON structure encourages the model to continue in the demonstrated format, significantly improving the consistency of the generated output.
 
-not to be confused with `Condition Variables`, these Variables are shared `Variables` that tell the `Threads` how to behave. Unlike `Condition Variables` that are instantaneous, `Variables` are lingering and can be detected at any time, so long as they are protected by a Designated `Mutex`.
+Finally, the current prompt is appended to the shared instruction prefix using the following partial JSON object:
 
-Shared:
-- `Burnout State` - set as **ACTIVE** for as long as there is no Burnout. as soon as a Burnout is detected, the `Burnout Thread` in question will change this variable to **DONE** which will be detected by all other parts of the code and start the death of all the threads and a successful closing of the program.
-- `Complete State` - Similar to `Burnout State`, but this one will be changed to `Done` when all `Coder Functions` have returned successfully so we can have the Dongle threads return without touching `Burnout State`. Protected by `Burnout Mutex` as well
+```json
+{
+    "prompt": "prompt1",
+    "name": "
+```
 
-Used by Coders
-- `Compilations Complete` - How many compilations a Coder has done. Protected by `Compiling Mutex`
-- `Last Compile Time` - When was the last Compile. Used Mainly for EDF `Scheduler`. Protected by `Compiling Mutex`
+This effectively turns generation into a constrained continuation of the required JSON structure rather than asking the model to create the complete object from scratch. The complete prompt is then tokenized, converted into token IDs, and passed to the language model for inference.
 
-Used by Dongles
-- `Lock State` - set as **FREE** by default. when a `Take` Signal is received, it changes to **HELD**. It is freed after Cooldown again.
+#### Design decision
+- The description of every available function is assembled only once into a common instruction prefix and reused for every prompt. This avoids repeatedly rebuilding identical instructions while ensuring every inference receives exactly the same context.
+- Function definitions are serialized as compact JSON without unnecessary whitespace. Since language models operate on tokens rather than characters, reducing formatting overhead leaves more of the context window available for meaningful information.
+- Instead of asking the model to generate an entire JSON object from scratch, generation begins immediately after the `"name"` key. This constrains the first prediction to selecting a function name and naturally guides the remainder of the generation toward the required output format.
 
-## Blocking Cases Handled
 
-Certain problems are baked into the project, and they must be addressed by the student. Here are some of them and the way I prevent them from occurring
+### Response Generation
 
-### Deadlock prevention
+Once the prompt has been converted into token IDs, it is passed to the `Small_LLM_Model` for *autoregressive generation*.
 
-A deadlock is when a `Mutex` is held by one thread and needs a second mutex to continue; however, a second thread has that second `Mutex` locked and requires the first `Mutex` to work. in this case, nothing can happen, as both threads are waiting for the other and none will advance.
+At each iteration, the model evaluates the current sequence and produces a list of logits, one score for every token in the vocabulary. The token with the highest logit is selected as the next output token. Before being appended to the generated sequence, the token is checked against a small set of common formatting mistakes observed during development. When necessary, it is replaced with the corrected token. The updated sequence is then fed back into the model, repeating the process one token at a time.
 
-to prevent this, I make it so the first dongle that a coder is looking for depends on its index. Odd `Coders` always look for the right `Dongle` first, while even `Coders` always look for the left `Dongle` first.
+Generation continues until a complete Function Calling dictionary has been produced. Rather than relying on a fixed number of generated tokens, the program tracks the opening and closing of JSON containers. Since generation always begins with the opening `{` and the initial `"` already provided in the prompt, the response is considered complete once every opened container has been properly closed.
 
-In an example with 2 coders, this means `Coder 1` will be looking for `Dongle 1` on its right, while `Coder 2` will also be looking for `Dongle 1` on its left. They cannot both grab one and need the other; only one can grab the first, and from the first they will be free to grab the second. As extra Insurance i also make even `Coders` Wait some time before looking for dongles.
+As a fail-safe, generation is also limited to a maximum of 120 tokens. If this limit is reached before the JSON object has been closed, the remaining closing braces are generated manually, ensuring that the output remains syntactically valid JSON even in cases where generation reaches the token limit.
 
-### Burnout prevention
+#### Design Decisions
 
-The `Schedulers` will be the ones preventing burnouts in the case that the cooldown of the Dongles is long enough that both Coders will be expecting it. This is because the `Schedulers` will determine how the Queue of the Dongles will be ordered. From there, before a `Coder` locks a `Dongle`, it must first check if it is the first on the Queue to take it. if not, it must wait for the next time the `Dongle` is available to check again.
+- The implementation always selects the token with the highest logit instead of sampling from the distribution (Greedy decoding). Since the objective is to produce deterministic Function Calling dictionaries rather than creative text, greedy decoding provides consistent and repeatable results.
+- A lightweight post-processing step corrects a small set of recurring formatting mistakes before each token is appended to the generated sequence. Although the model generally produces the expected structure, these corrections improve formatting consistency and reduce malformed JSON output without affecting the generated content.
 
-### Cooldown handling
+### Finalization and Outputs
 
-`Dongles`, after being freed, must enter a Cooldown State; this is done by the dedicated `Dongle` Thread. this thread monitors others' access to it. this thread waits for a take signal (`condition`) to lock itself, then it will wait for a Free signal to start Cooldown. after `dongle_cooldown` ms, it will unlock itself and send out a Ready signal that can be detected by any `Coder` waiting for the `Dongle`.
+After all prompts have been processed, the generated token sequences are decoded back into UTF-8 strings.
 
-### Burnout detection
+Each decoded response is combined into a single list of Function Calling dictionaries, which is then serialized as formatted JSON and written to the output file selected during argument parsing.
 
-If a `Coder` doesn't compile in `time_to_burnout`, it will burn out and must send a signal to stop all of the simulation and any console logs from being displayed. Since the `Main Coder Thread` is busy in the Compilation Loop, I use a `Coder Burnout Thread` to control each `Coder`. when a `Coder` starts compiling, it sends a Compiling Signal (`Condition`) that is detected by the `Coder Burnout Thread`. So long as the `Coder Burnout Thread` keeps detecting the Compiling Signal in intervals of `time_to_burnout`, nothing will go wrong. However, if a Signal is not detected, Burnout is activated. We change an internal Variable that is checked before any sleep or print functions, and that will make all the threads return as fast as possible so we can exit with no memory issues.
+At this point, all requested prompts have been processed, and the program exits normally.
 
-### Log serialization
 
-To prevent two threads from trying to write at the same time, Console output is protected by a dedicated mutex. This prevents corruption of the displayed message and makes sure the events are logged in the correct order that they happen, not the thread that gets a slight priority on printing
+After the LLM has run it's corse, all the responses are decoded back into strings and then joined into the final content of the output file.
 
+### Performance Analysis
+
+The implementation prioritizes deterministic and reliable generation over raw throughput.
+
+Since greedy decoding is used, every prompt always produces the same output for the same inputs, making the program easy to debug and evaluate.
+
+The largest performance cost is loading the language model into memory. For this reason, all command-line arguments and input files are validated before model initialization, avoiding expensive startup when execution would fail due to invalid inputs.
+
+During generation, function definitions are assembled into a single reusable instruction prefix and reused for every prompt, avoiding unnecessary reconstruction of identical prompt content.
+
+
+## Challenges Faced
+
+Although the provided language model is straightforward to use, producing reliable results still required solving several practical problems.
+
+### Prompt construction
+
+The model requires enough information to understand the available functions while keeping the prompt compact enough to avoid wasting context.
+
+To address this, all function definitions are serialized into a compact JSON representation that is generated once and reused for every prompt, reducing unnecessary prompt size while keeping the information available to the model.
+
+### Deterministic function selection
+
+Unlike conversational applications, function calling benefits from predictable outputs.
+
+For this reason, greedy decoding was chosen over probabilistic sampling, ensuring identical inputs always produce identical outputs.
+
+### Producing valid JSON
+
+Large language models, especially smaller ones such as the one used, do not always generate syntactically correct JSON reliably. During development, occasional formatting inconsistencies, unfinished objects, and misplaced whitespace were observed.
+
+To improve reliability, the implementation combines prompt engineering, token correction, bracket tracking and a maximum generation length with automatic JSON closure. Together, these measures greatly improve the reliability of the generated JSON output.
 
 # Instructions
 
-For compilation, a Makefile is provided. Running the command `make` on a shell console will compile the program.
+The project is managed through the provided Makefile, which offers the following rules:
+- install: Creates the project's `Python Virtual Environment` (if it does not already exist) and installs all required dependencies using `uv sync`.
+- run: Execute the main script of the project.
+  - If you wish to include non-default input or output files, you must add them like so:
+    ```bash
+    make run [--functions_definition <function_definition_file>] [--input <input_file>] [--output <output_file>]
+    ```
+- run_time: Behaves identically to `run`, but also displays the total execution time measured using Bash's `time` command after execution in the format: `Total Run Time: <run_time>`
+- debug: Run the main script in debug mode using Python’s built-in debugger using pdb.
+- clean: Removes temporary files and caches to keep the project environment clean.
+- lint: Executes the commands `flake8 .` and `mypy . --warn-return-any --warn-unused-ignores --ignore-missing-imports --disallow-untyped-defs --check-untyped-defs` to check for formatting and type hint errors
+- lint-strict: Executes the commands `flake8 .` and `mypy . --strict` to check for formatting and type hint errors more strictly
 
-The output of this compilation will be a `codexion` executable.
-
-To use it as intended, run it with a set of arguments in the following order:
-
-- `number_of_coders` - Number of **Coders** and **Dongles** present for the Simulation.
-- `time_to_burnout` - if a **Coder** does not start **compiling** after this amount of time, starting from the moment they started **compiling** for the last time, the **Coder** will burnout.
-- `time_to_compile` - Time needed to **Compile** code. Requite **Dongles**.
-- `time_to_debug` - Time needed to **Debug** code. Does not requite **Dongles**.
-- `time_to_refactor` - Time needed to **Refactor** code. Does not requite **Dongles**.
-- `number_of_compiles_required` - the number of **Compilations** each `Coder` has to complete for the **Simulation** to end in a Success.
-- `dongle_cooldown` - Time a dongle needs to cooldown after use.
-- `scheduler` - The decision mechanism used by **Dongles** to decide who gets one
-when multiple `Coders` request them. The value must be exactly one of: `fifo` or `edf`.
-
-- Example:
-
-    `./codexion 4 400 200 200 200 3 100 fifo`
-
-when running, a live log will be displayed with all the actions taken by each **Coder**. the listed actions are formatted as follows:
-
-- `<timestamp> <Coder> <Action>`
-  - `timestamp` is the time in milliseconds since the start of the Simulation
-  - `Coder` will be the ID of the `Coder` in question, ranging from 1 to `number_of_coders`
-  - `Action` will be the Action taken. 5 Actions are possible
-    - `has taken a dongle` - **Coder** takes one of the **Dongles**
-    - `is compiling` - **Coder** starts **Compiling**
-    - `is debugging` - **Coder** starts **Debugging**
-    - `is refactoring` - **Coder** starts **Refactoring**
-    - `burned out` - **Coder** declares **Burned Out**, meaning it has failed to start **Compiling** in `time_to_burnout`
+In the case that the Output file already exists, the following message will appear:
+  ```
+  File "<output_file>" already exists. Do you wish to replace it?
+  Y for 'yes', any for 'no':
+  ```
+Use 'y' to continue, or any other input to abort
 
 # Resources
 
-Most of the core concepts I learned from evaluating others and through pure experimentation; I needed only to look up how the Thread functions were called properly, and not much other research was necessary beyond understanding how threads fundamentally worked.
+Most of the core concepts I learned from previous projects and through pure experimentation with the tokens and vocabularies.
 
-For further explanation of particular aspects of internal Thread Logic or strange errors I was not able to find elsewhere, I sometimes checked in with AI with mixed results. I also used it as a tool to sift through the lengthy error messages I was not yet familiar with (my own in-built debugging outputs while in development and Valgrind memory testing output, for example).
+For further explanation of specific aspects of internal small inconsistencies or new errors I was not familiar with, I sometimes checked in with AI, with mixed results. I also used it as a tool to sift through particularly lengthy outputs and check for any inconsistencies I might have missed.
 
 ## Sources:
-Thread Functions list and explanation:
-- https://www.geeksforgeeks.org/c/thread-functions-in-c-c/
-
-Time Functions Help:
-- https://man7.org/linux/man-pages/man3/usleep.3.html
-- https://man7.org/linux/man-pages/man2/settimeofday.2.html
-- https://man7.org/linux/man-pages/man3/timeval.3type.html
-- https://man7.org/linux/man-pages/man3/timespec.3type.html
+https://huggingface.co/
+https://www.geeksforgeeks.org/python/tensors-in-pytorch/

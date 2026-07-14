@@ -1,18 +1,13 @@
 import sys
 import os
 from dotenv import load_dotenv
-# import random
 import httpcore
 from typing import Any, cast
 import json
-# from json import JSONDecodeError
 from src import (val_args, ft_repr,
                  DefFunctException, FunctDef, Parameter
                  )
 from llm_sdk import Small_LLM_Model
-
-# import numpy as np
-# from typing import Any
 
 
 class FunctCallLLM():
@@ -78,9 +73,9 @@ class FunctCallLLM():
         except DefFunctException as e:
             error_len = e.e_len
             del e.e_len
-            raise Exception("An error has occurred in the Processing of "
-                            f"Callable Function number {error_len}: "
-                            f"{self.funct_defs[error_len]}:\n\n{e}")
+            raise ValueError("An error has occurred in the Processing of "
+                             f"Callable Function number {error_len}: "
+                             f"{self.funct_defs[error_len]}:\n\n{e}")
 
     def redefine_inputs(self, arg_inputs: dict[str, str]) -> None:
 
@@ -106,9 +101,9 @@ class FunctCallLLM():
         except DefFunctException as e:
             error_len = e.e_len
             del e.e_len
-            raise Exception("An error has occurred in the Processing of "
-                            f"Callable Function number {error_len}: "
-                            f"{self.funct_defs[error_len]}:\n\n{e}")
+            raise ValueError("An error has occurred in the Processing of "
+                             f"Callable Function number {error_len}: "
+                             f"{self.funct_defs[error_len]}:\n\n{e}")
 
     def _get_prompts(self, file_name: str) -> None:
         try:
@@ -180,6 +175,7 @@ class FunctCallLLM():
     def _load_llm(self) -> None:
 
         self.llm_files = {}
+        print()
 
         load_dotenv()
         self._llm = Small_LLM_Model()
@@ -263,7 +259,6 @@ class FunctCallLLM():
             instruct_len: int = len(self.instructions)
 
             container_log: list[str] = ["{", "\""]
-            # logits_funct: list[float] = [1 for _ in range(151643)]
 
             while True:
 
@@ -322,6 +317,9 @@ class FunctCallLLM():
                             self.vocab_text_int["}\"ĊĊ"]]):
             return_val = self.vocab_text_int["}"]
 
+        elif (max_val_ind in [self.vocab_text_int["\\"]]):
+            return_val = self.vocab_text_int["\\\\"]
+
         elif (max_val_ind in [self.vocab_text_int["]\""],
                               self.vocab_text_int["]\"Ċ"]]):
             return_val = self.vocab_text_int["]"]
@@ -360,6 +358,7 @@ class FunctCallLLM():
                                  self.vocab_text_int[","],
                                  self.vocab_text_int[":"],
                                  self.vocab_text_int["Ġ{Ċ"],
+                                 self.vocab_text_int[")\",Ċ"],
                                  self.vocab_text_int["Ġ}Ċ"],
                                  self.vocab_text_int["\",Ċ"],
                                  self.vocab_text_int["\","],
@@ -370,6 +369,7 @@ class FunctCallLLM():
                                      self.vocab_text_int["\"Ċ"],
                                      self.vocab_text_int["\",Ċ"],
                                      self.vocab_text_int["\","],
+                                     self.vocab_text_int[")\",Ċ"],
                                      self.vocab_text_int["\":"]]
                     and container_log[-1] == "\""):
                 container_log.pop()
@@ -413,15 +413,15 @@ class FunctCallLLM():
 
     def export_to_file(self, file_path: str | None = None) -> None:
 
-        out_str: str
+        exp_str: str
 
         if not file_path:
             file_path = self.output_path
 
         if isinstance(self.to_export, str):
-            out_str = self.to_export
+            exp_str = self.to_export
         elif isinstance(self.to_export, dict):
-            out_str = json.dumps([self.to_export], indent=4)
+            exp_str = json.dumps([self.to_export], indent=4)
         elif isinstance(self.to_export, list):  # pyright: ignore
             if isinstance(self.to_export[0], str):
 
@@ -431,10 +431,10 @@ class FunctCallLLM():
                 for out in to_export:
                     in_list = [x for x in out.split("\n") if x]
                     out_list.append("\n    ".join(in_list))
-                out_str = "[\n    " + ",\n    ".join(out_list) + "\n]"
+                exp_str = "[\n    " + ",\n    ".join(out_list) + "\n]"
 
             elif isinstance(self.to_export[0], dict):  # pyright: ignore
-                out_str = json.dumps(self.to_export, indent=4)
+                exp_str = json.dumps(self.to_export, indent=4)
 
             else:
                 raise TypeError(
@@ -444,6 +444,23 @@ class FunctCallLLM():
             raise TypeError(
                 "'self.to_export' is an unknown type:\n\n---\n\n"
                 f"{self.to_export}\n\n---\n\nType: {type(self.to_export)}")
+
+        out_str: str = ""
+
+        for i, char in enumerate(exp_str):
+            if char == "\\":
+                if i == 0:
+                    out_str += "\\\\"
+                elif exp_str[i - 1] == "\\":
+                    out_str += char
+                elif i + 1 >= len(exp_str):
+                    out_str += "\\\\"
+                elif exp_str[i + 1] not in "\\\"":
+                    out_str += "\\\\"
+                else:
+                    out_str += char
+            else:
+                out_str += char
 
         try:
             with open(file_path, "w") as output_file:
@@ -455,8 +472,7 @@ class FunctCallLLM():
     def id_decode(self, ids: list[int]) -> str:
 
         if self._llm:
-            return "".join(self._llm.decode(ids)
-                           ).replace("Ċ", "\n").replace("Ġ", " ")
+            return self._llm.decode(ids)
         else:
             return "".join([self.vocab_int_text[i] for i in ids]
                            ).replace("Ċ", "\n").replace("Ġ", " ")
@@ -474,7 +490,20 @@ def main(args: list[str]) -> None:
         funct_caller = FunctCallLLM(arg_inputs)
     except FileExistsError:
         return
-
+    except FileNotFoundError as e:
+        print(f"File not found: {e}")
+        return
+    except ValueError as e:
+        print(e)
+        return
+    except ModuleNotFoundError as e:
+        print("Module Dependencies were not met:\n"
+              f"{e}")
+        return
+    except TypeError as e:
+        print("An error has occurred while building"
+              f" 'FunctCallLLM':\n{e}")
+        return
     except Exception as e:
         print("An error has occurred while building"
               f" 'FunctCallLLM':\n{e}")

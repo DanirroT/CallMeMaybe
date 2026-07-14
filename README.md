@@ -230,7 +230,7 @@ The project is managed through the provided Makefile, which offers the following
     ```bash
     make run [--functions_definition <function_definition_file>] [--input <input_file>] [--output <output_file>]
     ```
-- run_time: Behaves identically to `run`, but also displays the total execution time measured using Bash's `time` command.
+- run_time: Behaves identically to `run`, but also displays the total execution time measured using Bash's `time` command after execution in the format: `Total Run Time: <run_time>`
 - debug: Run the main script in debug mode using Python’s built-in debugger using pdb.
 - clean: Removes temporary files and caches to keep the project environment clean.
 - lint: Executes the commands `flake8 .` and `mypy . --warn-return-any --warn-unused-ignores --ignore-missing-imports --disallow-untyped-defs --check-untyped-defs` to check for formatting and type hint errors

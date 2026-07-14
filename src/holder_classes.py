@@ -65,18 +65,28 @@ class FunctDef(BaseModel):
     #         "\n\t}\n"
     #     )
 
+    # def __str__(self) -> str:
+    #     return (
+    #         "{"
+    #         f"\"name\":\"{self.name}\","
+    #         f"\"description\":\"{self.description}\","
+    #         "\"parameters\":{"
+    #         f"{','.join(map(str, self.parameters))}"
+    #         "},"
+    #         "\"return\":{"
+    #         f"\"type\":\"{self.returns}\""
+    #         "}}\n"
+    #     )
+
     def __str__(self) -> str:
         return (
-            "{"
             f"\"name\":\"{self.name}\","
             f"\"description\":\"{self.description}\","
-            "\"parameters\":{"
+            "\"parameters\":"
             f"{','.join(map(str, self.parameters))}"
-            "},"
-            "\"return\":{"
-            f"\"type\":\"{self.returns}\""
-            "}}\n"
+            f",\"return type\":\"{self.returns}\"\n"
         )
+
 
 # print(FunctDef(name="n", description="desc",
 #                parameters=[Parameter(p_name="a", p_type="number")],

@@ -1,7 +1,3 @@
-# import sys
-# from typing import Any
-
-
 def val_args(args: list[str]) -> dict[str, str]:
 
     argc = len(args)

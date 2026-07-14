@@ -54,7 +54,7 @@
         "prompt": "Calculate the square root of 144",
         "name": "fn_get_square_root",
         "parameters": {
-            "a": 144
+            "a": "144"
         }
     },
     {
@@ -62,7 +62,7 @@
         "name": "fn_substitute_string_with_regex",
         "parameters": {
             "source_string": "Hello 34 I'm 233 years old",
-            "regex": "34|233",
+            "regex": "(\\d+)",
             "replacement": "NUMBERS"
         }
     },

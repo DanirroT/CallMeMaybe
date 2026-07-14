@@ -6,7 +6,7 @@
 #    By: dmota-ri <dmota-ri@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/10 16:50:27 by dmota-ri          #+#    #+#              #
-#    Updated: 2026/07/06 16:42:06 by dmota-ri         ###   ########.fr        #
+#    Updated: 2026/07/14 17:37:01 by dmota-ri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,6 +64,8 @@ $(VENV):
 clean:
 	@$(RM) ./__pycache__/ ./.mypy_cache/
 	@$(RM) ./$(SRC)/__pycache__/ ./$(SRC)/.mypy_cache/
+	@$(RM) ./llm_sdk/__pycache__/ ./llm_sdk/.mypy_cache/
+	@$(RM) data/output
 
 lint:
 	@$(UV_RUN) flake8 $(OBJ) || true
