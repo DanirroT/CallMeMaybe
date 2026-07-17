@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dmota-ri <dmota-ri@student.42lisboa.com    +#+  +:+       +#+         #
+#    By: dmota-ri <dmota-ri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/10 16:50:27 by dmota-ri          #+#    #+#              #
-#    Updated: 2026/07/14 17:37:01 by dmota-ri         ###   ########.fr        #
+#    Updated: 2026/07/17 20:35:57 by dmota-ri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,21 +36,17 @@ RM = rm -fr
 .ONESHELL:
 
 run:
-	@time $(UV_RUN) $(SRC) $(filter-out $@,$(MAKECMDGOALS))
+	@time -f "\n\nTotal Run Time: %E" $(UV_RUN) $(SRC)
 
 NOW = $(shell date +%m-%d_%H:%M)
 
 record:
-	@time $(UV_RUN) $(SRC) $(filter-out $@,$(MAKECMDGOALS)) | tee Historic/$(NOW).log
+	@time -f "\n\nTotal Run Time: %E" $(UV_RUN) $(SRC) | tee Historic/$(NOW).log
 	@echo "\n\nOutput_file:\n\n" >> Historic/$(NOW).log
 	@cat data/output/function_calls.json >> Historic/$(NOW).log
 
-#  2>&1
 debug:
-	@$(DEBUGGER) $(MAIN).py $(MAP_FILE)
-
-%:
-	@:
+	@$(DEBUGGER) $(MAIN).py
 
 install: $(VENV)
 
@@ -74,4 +70,6 @@ lint:
 lint-strict:
 	@$(UV_RUN) flake8 $(OBJ) || true
 	@$(UV_RUN) mypy --strict $(OBJ) || true
-# 	@mypy --strict $(OBJ) || true
+
+%:
+	@:

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dmota-ri <dmota-ri@student.42lisboa.com    +#+  +:+       +#+         #
+#    By: dmota-ri <dmota-ri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/10 16:50:27 by dmota-ri          #+#    #+#              #
-#    Updated: 2026/07/14 17:37:13 by dmota-ri         ###   ########.fr        #
+#    Updated: 2026/07/17 20:35:13 by dmota-ri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,13 +29,13 @@ RM = rm -fr
 .ONESHELL:
 
 run:
-	@$(UV_RUN) $(SRC) $(filter-out $@,$(MAKECMDGOALS))
+	@$(UV_RUN) $(SRC)
 
 run_time:
-	@time -f "\n\nTotal Run Time: %E" $(UV_RUN) $(SRC) $(filter-out $@,$(MAKECMDGOALS))
+	@time -f "\n\nTotal Run Time: %E" $(UV_RUN) $(SRC)
 
 debug:
-	@$(DEBUGGER) $(MAIN).py $(filter-out $@,$(MAKECMDGOALS))
+	@$(DEBUGGER) $(MAIN).py
 
 install: $(VENV)
 
@@ -50,7 +50,6 @@ clean:
 	@$(RM) ./$(SRC)/__pycache__/ ./$(SRC)/.mypy_cache/
 	@$(RM) ./llm_sdk/__pycache__/ ./llm_sdk/.mypy_cache/
 	@$(RM) data/output
-
 
 lint:
 	@$(UV_RUN) flake8 $(OBJ) || true
