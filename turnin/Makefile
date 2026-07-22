@@ -6,11 +6,11 @@
 #    By: dmota-ri <dmota-ri@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/10 16:50:27 by dmota-ri          #+#    #+#              #
-#    Updated: 2026/07/14 17:37:13 by dmota-ri         ###   ########.fr        #
+#    Updated: 2026/07/22 17:03:47 by dmota-ri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Fly-in
+NAME = CallMeMaybe
 
 # DEPENDENCIES = pydantic mypy flake8 protobuf accelerate dotenv
 
