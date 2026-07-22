@@ -3,8 +3,6 @@ def val_args(args: list[str]) -> dict[str, str]:
     argc = len(args)
     if argc > 6:
         raise ValueError("Too many Arguments! Try Again")
-    if argc > 6:
-        raise ValueError("Too many Arguments! Try Again")
 
     arg_inputs: dict[str, str] = {
         "functions_definition": "data/input/functions_definition.json",

@@ -6,7 +6,7 @@
 #    By: dmota-ri <dmota-ri@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/10 16:50:27 by dmota-ri          #+#    #+#              #
-#    Updated: 2026/07/22 17:03:47 by dmota-ri         ###   ########.fr        #
+#    Updated: 2026/07/22 17:15:31 by dmota-ri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,13 +29,13 @@ RM = rm -fr
 .ONESHELL:
 
 run:
-	@$(UV_RUN) $(SRC) $(filter-out $@,$(MAKECMDGOALS))
+	@$(UV_RUN) $(SRC)
 
 run_time:
-	@time -f "\n\nTotal Run Time: %E" $(UV_RUN) $(SRC) $(filter-out $@,$(MAKECMDGOALS))
+	@time -f "\n\nTotal Run Time: %E" $(UV_RUN) $(SRC)
 
 debug:
-	@$(DEBUGGER) $(MAIN).py $(filter-out $@,$(MAKECMDGOALS))
+	@$(DEBUGGER) $(MAIN).py
 
 install: $(VENV)
 
@@ -50,7 +50,6 @@ clean:
 	@$(RM) ./$(SRC)/__pycache__/ ./$(SRC)/.mypy_cache/
 	@$(RM) ./llm_sdk/__pycache__/ ./llm_sdk/.mypy_cache/
 	@$(RM) data/output
-
 
 lint:
 	@$(UV_RUN) flake8 $(OBJ) || true
