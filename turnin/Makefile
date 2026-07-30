@@ -6,7 +6,7 @@
 #    By: dmota-ri <dmota-ri@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/10 16:50:27 by dmota-ri          #+#    #+#              #
-#    Updated: 2026/07/22 17:15:31 by dmota-ri         ###   ########.fr        #
+#    Updated: 2026/07/30 16:47:46 by dmota-ri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,6 +50,9 @@ clean:
 	@$(RM) ./$(SRC)/__pycache__/ ./$(SRC)/.mypy_cache/
 	@$(RM) ./llm_sdk/__pycache__/ ./llm_sdk/.mypy_cache/
 	@$(RM) data/output
+
+fclean: clean
+	@$(RM) ./$(VENV)
 
 lint:
 	@$(UV_RUN) flake8 $(OBJ) || true

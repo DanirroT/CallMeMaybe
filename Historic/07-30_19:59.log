@@ -1,0 +1,96 @@
+All Imports done
+
+
+File "data/output/function_calls.json" already exists, do you wish to replace it?
+Y for 'yes', any for 'no': Continuing...
+
+
+Format template: Say \"hello\" to {name}
+
+added token: fn	 ['{', '"']
+added token: _format	 ['{', '"']
+added token: _template	 ['{', '"']
+added token: ",Ċ	 ['{']
+added token: ĠĠĠ	 ['{']
+added token: Ġ"	 ['{', '"']
+added token: parameters	 ['{', '"']
+added token: ":	 ['{']
+added token: Ġ{Ċ	 ['{', '{']
+added token: ĠĠĠĠĠĠĠ	 ['{', '{']
+added token: Ġ"	 ['{', '{', '"']
+added token: template	 ['{', '{', '"']
+added token: ":	 ['{', '{']
+added token: Ġ"	 ['{', '{', '"'] -----
+added token: Say	 ['{', '{', '"']
+added token: Ġ\"	 ['{', '{', '"']
+added token: hello	 ['{', '{', '"']
+added token: \"	 ['{', '{', '"']
+added token: Ġto	 ['{', '{', '"']
+added token: Ġ{	 ['{', '{', '"']
+added token: name	 ['{', '{', '"']
+added token: }",Ċ	 ['{', '{', '"'] -----??
+added token: ĠĠĠĠĠĠĠ	 ['{', '{', '"']
+added token: Ġ"	 ['{', '{', '"', '"']
+added token: return	 ['{', '{', '"', '"']
+added token: Ġtype	 ['{', '{', '"', '"']
+added token: ":	 ['{', '{', '"']
+added token: Ġ"	 ['{', '{', '"', '"']
+added token: string	 ['{', '{', '"', '"']
+added token: "Ċ	 ['{', '{', '"']
+added token: ĠĠĠ	 ['{', '{', '"']
+added token: Ġ}ĊERROR in container generation " Ġ}Ċ
+	 ['{', '{', '"']
+added token: }ĊERROR in container generation " }Ċ
+	 ['{', '{', '"']
+added token: ``	 ['{', '{', '"']
+added token: `ĊĊ	 ['{', '{', '"']
+added token: Now	 ['{', '{', '"']
+added token: ,	 ['{', '{', '"']
+added token: Ġlet	 ['{', '{', '"']
+added token: 's	 ['{', '{', '"']
+added token: Ġcreate	 ['{', '{', '"']
+added token: Ġa	 ['{', '{', '"']
+added token: ĠJSON	 ['{', '{', '"']
+added token: Ġfor	 ['{', '{', '"']
+added token: Ġthe	 ['{', '{', '"']
+added token: Ġfunction	 ['{', '{', '"']
+added token: Ġnamed	 ['{', '{', '"']
+added token: Ġ"	 ['{', '{', '"', '"']
+added token: fn	 ['{', '{', '"', '"']
+added token: _format	 ['{', '{', '"', '"']
+added token: _template	 ['{', '{', '"', '"']
+added token: "	 ['{', '{', '"']
+added token: Ġwith	 ['{', '{', '"']
+added token: Ġthe	 ['{', '{', '"']
+added token: Ġfollowing	 ['{', '{', '"']
+added token: Ġparameters	 ['{', '{', '"']
+added token: :	 ['{', '{', '"']
+added token: Ġtemplate	 ['{', '{', '"']
+added token: Ġis	 ['{', '{', '"']
+added token: Ġ"	 ['{', '{', '"', '"']
+added token: Say	 ['{', '{', '"', '"']
+added token: Ġ\"	 ['{', '{', '"', '"']
+added token: hello	 ['{', '{', '"', '"']
+added token: \"	 ['{', '{', '"', '"']
+added token: Ġto	 ['{', '{', '"', '"']
+added token: Ġ{	 ['{', '{', '"', '"']
+added token: name	 ['{', '{', '"', '"']
+added token: }ERROR in container generation " }
+	 []
+
+
+Output_file:
+
+
+[
+    {
+        "prompt": "Format template: Say \"hello\" to {name}",
+        "name": "fn_format_template",
+        "parameters": {
+            "template": "Say \"hello\" to {name}",
+            "return type": "string"
+        }
+    }
+    ```
+    Now, let's create a JSON for the function named "fn_format_template" with the following parameters: template is "Say \"hello\" to {name}
+]

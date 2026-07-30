@@ -1,0 +1,596 @@
+All Imports done
+
+
+File "data/output/function_calls.json" already exists, do you wish to replace it?
+Y for 'yes', any for 'no': Continuing...
+
+
+What is the product of 3 and 5?
+
+added token: fn
+added token: _multiply
+added token: _numbers
+added token: ",Ċ
+added token: ĠĠĠ
+added token: Ġ"
+added token: parameters
+added token: ":
+added token: Ġ{Ċ
+added token: ĠĠĠĠĠĠĠ
+added token: Ġ"
+added token: a
+added token: ":
+added token: Ġ
+added token: 3
+added token: ,Ċ
+added token: ĠĠĠĠĠĠĠ
+added token: Ġ"
+added token: b
+added token: ":
+added token: Ġ
+added token: 5
+added token: Ċ
+added token: ĠĠĠ
+added token: Ġ}Ċ
+added token: }Ċ
+
+What is the product of 12 and 4?
+
+added token: fn
+added token: _multiply
+added token: _numbers
+added token: ",Ċ
+added token: ĠĠĠ
+added token: Ġ"
+added token: parameters
+added token: ":
+added token: Ġ{Ċ
+added token: ĠĠĠĠĠĠĠ
+added token: Ġ"
+added token: a
+added token: ":
+added token: Ġ
+added token: 1
+added token: 2
+added token: ,Ċ
+added token: ĠĠĠĠĠĠĠ
+added token: Ġ"
+added token: b
+added token: ":
+added token: Ġ
+added token: 4
+added token: Ċ
+added token: ĠĠĠ
+added token: Ġ}Ċ
+added token: }Ċ
+
+Is 4 an even number?
+
+added token: fn
+added token: _is
+added token: _even
+added token: ",Ċ
+added token: ĠĠĠ
+added token: Ġ"
+added token: parameters
+added token: ":
+added token: Ġ{Ċ
+added token: ĠĠĠĠĠĠĠ
+added token: Ġ"
+added token: n
+added token: ":
+added token: Ġ
+added token: 4
+added token: Ċ
+added token: ĠĠĠ
+added token: Ġ}Ċ
+added token: }Ċ
+
+Is 7 an even number?
+
+added token: fn
+added token: _is
+added token: _even
+added token: ",Ċ
+added token: ĠĠĠ
+added token: Ġ"
+added token: parameters
+added token: ":
+added token: Ġ{Ċ
+added token: ĠĠĠĠĠĠĠ
+added token: Ġ"
+added token: n
+added token: ":
+added token: Ġ
+added token: 7
+added token: Ċ
+added token: ĠĠĠ
+added token: Ġ}Ċ
+added token: }Ċ
+
+Calculate compound interest on 1234567.89 at 0.0375 rate for 23 years
+
+added token: fn
+added token: _cal
+added token: culate
+added token: _comp
+added token: ound
+added token: _interest
+added token: ",Ċ
+added token: ĠĠĠ
+added token: Ġ"
+added token: parameters
+added token: ":
+added token: Ġ{Ċ
+added token: ĠĠĠĠĠĠĠ
+added token: Ġ"
+added token: principal
+added token: ":
+added token: Ġ
+added token: 1
+added token: 2
+added token: 3
+added token: 4
+added token: 5
+added token: 6
+added token: 7
+added token: .
+added token: 8
+added token: 9
+added token: ,Ċ
+added token: ĠĠĠĠĠĠĠ
+added token: Ġ"
+added token: rate
+added token: ":
+added token: Ġ
+added token: 0
+added token: .
+added token: 0
+added token: 3
+added token: 7
+added token: 5
+added token: ,Ċ
+added token: ĠĠĠĠĠĠĠ
+added token: Ġ"
+added token: years
+added token: ":
+added token: Ġ
+added token: 2
+added token: 3
+added token: Ċ
+added token: ĠĠĠ
+added token: Ġ}Ċ
+added token: }Ċ
+
+Execute SQL query 'SELECT * FROM users' on the production database
+
+added token: fn
+added token: _execute
+added token: _sql
+added token: _query
+added token: ",Ċ
+added token: ĠĠĠ
+added token: Ġ"
+added token: parameters
+added token: ":
+added token: Ġ{Ċ
+added token: ĠĠĠĠĠĠĠ
+added token: Ġ"
+added token: query
+added token: ":
+added token: Ġ"
+added token: SELECT
+added token: Ġ*
+added token: ĠFROM
+added token: Ġusers
+added token: ",Ċ
+added token: ĠĠĠĠĠĠĠ
+added token: Ġ"
+added token: database
+added token: ":
+added token: Ġ"
+added token: production
+added token: "Ċ
+added token: ĠĠĠ
+added token: Ġ}Ċ
+added token: }Ċ
+
+Run the query 'INSERT INTO logs VALUES (1, 2, 3)' on the system database
+
+added token: fn
+added token: _execute
+added token: _sql
+added token: _query
+added token: ",Ċ
+added token: ĠĠĠ
+added token: Ġ"
+added token: parameters
+added token: ":
+added token: Ġ{Ċ
+added token: ĠĠĠĠĠĠĠ
+added token: Ġ"
+added token: query
+added token: ":
+added token: Ġ"
+added token: INSERT
+added token: ĠINTO
+added token: Ġlogs
+added token: ĠVALUES
+added token: Ġ(
+added token: 1
+added token: ,
+added token: Ġ
+added token: 2
+added token: ,
+added token: Ġ
+added token: 3
+added token: )",Ċ
+added token: ĠĠĠĠĠĠĠ
+added token: Ġ"
+added token: database
+added token: ":
+added token: Ġ"
+added token: system
+added token: "Ċ
+added token: ĠĠĠ
+added token: Ġ}Ċ
+added token: }Ċ
+
+Read the file at /home/user/data.json with utf-8 encoding
+
+added token: fn
+added token: _read
+added token: _file
+added token: ",Ċ
+added token: ĠĠĠ
+added token: Ġ"
+added token: parameters
+added token: ":
+added token: Ġ{Ċ
+added token: ĠĠĠĠĠĠĠ
+added token: Ġ"
+added token: path
+added token: ":
+added token: Ġ"/
+added token: home
+added token: /user
+added token: /data
+added token: .json
+added token: ",Ċ
+added token: ĠĠĠĠĠĠĠ
+added token: Ġ"
+added token: encoding
+added token: ":
+added token: Ġ"
+added token: utf
+added token: -
+added token: 8
+added token: "Ċ
+added token: ĠĠĠ
+added token: Ġ}Ċ
+added token: }Ċ
+
+Read C:\\Users\\john\\config.ini with latin-1 encoding
+
+added token: fn
+added token: _read
+added token: _file
+added token: ",Ċ
+added token: ĠĠĠ
+added token: Ġ"
+added token: parameters
+added token: ":
+added token: Ġ{Ċ
+added token: ĠĠĠĠĠĠĠ
+added token: Ġ"
+added token: path
+added token: ":
+added token: Ġ"
+added token: C
+added token: :\\
+added token: Users
+added token: \\
+added token: john
+added token: \\
+added token: config
+added token: .ini
+added token: ",Ċ
+added token: ĠĠĠĠĠĠĠ
+added token: Ġ"
+added token: encoding
+added token: ":
+added token: Ġ"
+added token: latin
+added token: -
+added token: 1
+added token: "Ċ
+added token: ĠĠĠ
+added token: Ġ}Ċ
+added token: }Ċ
+
+Format template: Hello {user}'s profile!
+
+added token: fn
+added token: _format
+added token: _template
+added token: ",Ċ
+added token: ĠĠĠ
+added token: Ġ"
+added token: parameters
+added token: ":
+added token: Ġ{Ċ
+added token: ĠĠĠĠĠĠĠ
+added token: Ġ"
+added token: template
+added token: ":
+added token: Ġ"
+added token: Hello
+added token: Ġ{
+added token: user
+added token: }'
+added token: s
+added token: Ġprofile
+added token: !",Ċ
+added token: ĠĠĠĠĠĠĠ
+added token: Ġ"
+added token: param
+added token: 1
+added token: ":
+added token: Ġ"
+added token: user
+added token: "Ċ
+added token: ĠĠĠ
+added token: Ġ}ĊERROR in container generation " Ġ}Ċ
+
+added token: }ĊERROR in container generation " }Ċ
+
+added token: ``
+added token: `ĊĊ
+added token: Now
+added token: ,
+added token: Ġlet
+added token: 's
+added token: Ġcreate
+added token: Ġa
+added token: ĠJSON
+added token: Ġfor
+added token: Ġthe
+added token: Ġfunction
+added token: Ġnamed
+added token: Ġ"
+added token: fn
+added token: _multiply
+added token: _numbers
+added token: "
+added token: Ġwith
+added token: Ġthe
+added token: Ġfollowing
+added token: Ġparameters
+added token: :
+added token: Ġa
+added token: =
+added token: 5
+added token: ,
+added token: Ġb
+added token: =
+added token: 3
+added token: ,
+added token: Ġand
+added token: Ġreturn
+added token: Ġtype
+added token: Ġas
+added token: Ġa
+added token: Ġnumber
+added token: .Ċ
+added token: Answer
+added token: :ĊĊ
+added token: {Ċ
+added token: ĠĠĠ
+added token: Ġ"
+added token: prompt
+added token: ":
+added token: Ġ"
+added token: Format
+added token: Ġtemplate
+added token: :
+added token: ĠHello
+added token: Ġ{
+added token: user
+added token: }'
+added token: s
+added token: Ġprofile
+added token: !",Ċ
+added token: ĠĠĠ
+added token: Ġ"
+added token: name
+added token: ":
+added token: Ġ"
+added token: fn
+added token: _format
+added token: _template
+added token: ",Ċ
+added token: ĠĠĠ
+Response too long, Cutting	['{', '{', '"', '"']
+added token: "
+Response too long, Cutting	['{', '{', '"']
+added token: "
+Response too long, Cutting	['{', '{']
+added token: }
+Response too long, Cutting	['{']
+added token: }
+
+Format template: Say \"hello\" to {name}
+
+added token: fn
+added token: _format
+added token: _template
+added token: ",Ċ
+added token: ĠĠĠ
+added token: Ġ"
+added token: parameters
+added token: ":
+added token: Ġ{Ċ
+added token: ĠĠĠĠĠĠĠ
+added token: Ġ"
+added token: template
+added token: ":
+added token: Ġ"
+added token: Say
+added token: Ġ\"
+added token: hello
+added token: \"
+added token: Ġto
+added token: Ġ{
+added token: name
+added token: }",Ċ
+added token: ĠĠĠĠĠĠĠ
+added token: Ġ"
+added token: return
+added token: Ġtype
+added token: ":
+added token: Ġ"
+added token: string
+added token: "Ċ
+added token: ĠĠĠ
+added token: Ġ}ĊERROR in container generation " Ġ}Ċ
+
+added token: }ĊERROR in container generation " }Ċ
+
+added token: ``
+added token: `ĊĊ
+added token: Now
+added token: ,
+added token: Ġlet
+added token: 's
+added token: Ġcreate
+added token: Ġa
+added token: ĠJSON
+added token: Ġfor
+added token: Ġthe
+added token: Ġfunction
+added token: Ġnamed
+added token: Ġ"
+added token: fn
+added token: _format
+added token: _template
+added token: "
+added token: Ġwith
+added token: Ġthe
+added token: Ġfollowing
+added token: Ġparameters
+added token: :
+added token: Ġtemplate
+added token: Ġis
+added token: Ġ"
+added token: Say
+added token: Ġ\"
+added token: hello
+added token: \"
+added token: Ġto
+added token: Ġ{
+added token: name
+added token: }ERROR in container generation " }
+	 []
+
+
+Output_file:
+
+
+[
+    {
+        "prompt": "What is the product of 3 and 5?",
+        "name": "fn_multiply_numbers",
+        "parameters": {
+            "a": 3,
+            "b": 5
+        }
+    },
+    {
+        "prompt": "What is the product of 12 and 4?",
+        "name": "fn_multiply_numbers",
+        "parameters": {
+            "a": 12,
+            "b": 4
+        }
+    },
+    {
+        "prompt": "Is 4 an even number?",
+        "name": "fn_is_even",
+        "parameters": {
+            "n": 4
+        }
+    },
+    {
+        "prompt": "Is 7 an even number?",
+        "name": "fn_is_even",
+        "parameters": {
+            "n": 7
+        }
+    },
+    {
+        "prompt": "Calculate compound interest on 1234567.89 at 0.0375 rate for 23 years",
+        "name": "fn_calculate_compound_interest",
+        "parameters": {
+            "principal": 1234567.89,
+            "rate": 0.0375,
+            "years": 23
+        }
+    },
+    {
+        "prompt": "Execute SQL query 'SELECT * FROM users' on the production database",
+        "name": "fn_execute_sql_query",
+        "parameters": {
+            "query": "SELECT * FROM users",
+            "database": "production"
+        }
+    },
+    {
+        "prompt": "Run the query 'INSERT INTO logs VALUES (1, 2, 3)' on the system database",
+        "name": "fn_execute_sql_query",
+        "parameters": {
+            "query": "INSERT INTO logs VALUES (1, 2, 3)",
+            "database": "system"
+        }
+    },
+    {
+        "prompt": "Read the file at /home/user/data.json with utf-8 encoding",
+        "name": "fn_read_file",
+        "parameters": {
+            "path": "/home/user/data.json",
+            "encoding": "utf-8"
+        }
+    },
+    {
+        "prompt": "Read C:\\Users\\john\\config.ini with latin-1 encoding",
+        "name": "fn_read_file",
+        "parameters": {
+            "path": "C:\\Users\\john\\config.ini",
+            "encoding": "latin-1"
+        }
+    },
+    {
+        "prompt": "Format template: Hello {user}'s profile!",
+        "name": "fn_format_template",
+        "parameters": {
+            "template": "Hello {user}'s profile!",
+            "param1": "user"
+        }
+    }
+    ```
+    Now, let's create a JSON for the function named "fn_multiply_numbers" with the following parameters: a=5, b=3, and return type as a number.
+    Answer:
+    {
+        "prompt": "Format template: Hello {user}'s profile!",
+        "name": "fn_format_template",
+       ""}},
+    {
+        "prompt": "Format template: Say \"hello\" to {name}",
+        "name": "fn_format_template",
+        "parameters": {
+            "template": "Say \"hello\" to {name}",
+            "return type": "string"
+        }
+    }
+    ```
+    Now, let's create a JSON for the function named "fn_format_template" with the following parameters: template is "Say \"hello\" to {name}
+]

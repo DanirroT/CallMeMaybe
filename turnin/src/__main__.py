@@ -359,6 +359,7 @@ class FunctCallLLM():
                                  self.vocab_text_int[":"],
                                  self.vocab_text_int["Ġ{Ċ"],
                                  self.vocab_text_int[")\",Ċ"],
+                                 self.vocab_text_int["}\",Ċ"],
                                  self.vocab_text_int["Ġ}Ċ"],
                                  self.vocab_text_int["\",Ċ"],
                                  self.vocab_text_int["\","],
@@ -370,6 +371,7 @@ class FunctCallLLM():
                                      self.vocab_text_int["\",Ċ"],
                                      self.vocab_text_int["\","],
                                      self.vocab_text_int[")\",Ċ"],
+                                     self.vocab_text_int["}\",Ċ"],
                                      self.vocab_text_int["\":"]]
                     and container_log[-1] == "\""):
                 container_log.pop()

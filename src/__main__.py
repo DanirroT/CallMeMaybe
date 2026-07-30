@@ -249,6 +249,10 @@ class FunctCallLLM():
 
         for prompt in self.raw_prompts:
 
+            print()
+            print(prompt)
+            print()
+
             prompt_id = self.prompt_to_id(prompt)
 
             starting = (self.universal_start + prompt_id
@@ -286,8 +290,13 @@ class FunctCallLLM():
 
                 added_token.append(max_val_ind)
 
+                print("added token:", self.vocab_int_text[added_token[-1]],
+                      end="")
+
                 container_log = self._container_management(container_log,
                                                            added_token[-1])
+
+                print("\t", container_log)
 
                 if not container_log:
                     break
@@ -359,6 +368,7 @@ class FunctCallLLM():
                                  self.vocab_text_int[":"],
                                  self.vocab_text_int["Ġ{Ċ"],
                                  self.vocab_text_int[")\",Ċ"],
+                                 self.vocab_text_int["}\",Ċ"],
                                  self.vocab_text_int["Ġ}Ċ"],
                                  self.vocab_text_int["\",Ċ"],
                                  self.vocab_text_int["\","],
@@ -370,6 +380,7 @@ class FunctCallLLM():
                                      self.vocab_text_int["\",Ċ"],
                                      self.vocab_text_int["\","],
                                      self.vocab_text_int[")\",Ċ"],
+                                     self.vocab_text_int["}\",Ċ"],
                                      self.vocab_text_int["\":"]]
                     and container_log[-1] == "\""):
                 container_log.pop()
