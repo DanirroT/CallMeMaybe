@@ -1,4 +1,8 @@
 def val_args(args: list[str]) -> dict[str, str]:
+    """
+    Function to Parse all received arguments into
+    a dictionary format. specific for the Project.
+    """
 
     argc = len(args)
     if argc > 6:
@@ -45,6 +49,10 @@ def val_args(args: list[str]) -> dict[str, str]:
 
 
 def ft_repr(s: str) -> str:
+    """
+    Function that converts any string into a representation
+    of that string. Specific to turn strings JSON safe.
+    """
     out: str = ""
     for char in s:
         if char in ["\"", "\\"]:

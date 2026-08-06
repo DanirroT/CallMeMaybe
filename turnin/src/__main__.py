@@ -8,9 +8,13 @@ from src import (val_args, ft_repr,
                  DefFunctException, FunctDef, Parameter
                  )
 from llm_sdk import Small_LLM_Model
+from torch import AcceleratorError
 
 
 class FunctCallLLM():
+    """
+    Class holding all the Methods to run the LLM for Function Calling
+    """
 
     raw_prompts: list[str]
     funct_defs: list[FunctDef]
@@ -38,16 +42,25 @@ class FunctCallLLM():
                 self._get_prompts(arg_inputs["input"])
             except FileNotFoundError:
                 raise
+            except json.decoder.JSONDecodeError as e:
+                raise ValueError(f"File {arg_inputs["input"]} is not properly"
+                                 f" formatted.\nError Message: {e}")
 
             try:
                 self._get_funct_defs(arg_inputs["functions_definition"])
             except FileNotFoundError:
                 raise
+            except json.decoder.JSONDecodeError as e:
+                raise ValueError(f"File {arg_inputs["input"]} is not properly."
+                                 f" formatted.\nError Message: {e}")
 
             try:
                 self._create_output_file(arg_inputs["output"])
             except FileExistsError:
                 raise
+            except json.decoder.JSONDecodeError as e:
+                raise ValueError(f"File {arg_inputs["input"]} is not properly."
+                                 f" formatted.\nError Message: {e}")
 
         else:
             raise ValueError("No Arguments were passed to the Class")
@@ -73,11 +86,16 @@ class FunctCallLLM():
         except DefFunctException as e:
             error_len = e.e_len
             del e.e_len
-            raise ValueError("An error has occurred in the Processing of "
-                             f"Callable Function number {error_len}: "
+            raise ValueError("An error has occurred in the Processing of"
+                             f" Callable Function number {error_len}: "
                              f"{self.funct_defs[error_len]}:\n\n{e}")
 
     def redefine_inputs(self, arg_inputs: dict[str, str]) -> None:
+        """
+        Used to redefine the 3 input files to be able to run the function
+        calling on different files on a single initialization of the LLM.
+        UNUSED
+        """
 
         try:
             self._get_prompts(arg_inputs["input"])
@@ -106,6 +124,11 @@ class FunctCallLLM():
                              f"{self.funct_defs[error_len]}:\n\n{e}")
 
     def _get_prompts(self, file_name: str) -> None:
+        """
+        Gets the Prompts out of the file and converts them into a
+        List of Strs inside the instanced object.
+        """
+
         try:
             with open(file_name) as input_file:
                 parsed_inputs = json.load(input_file)
@@ -116,6 +139,10 @@ class FunctCallLLM():
         self.raw_prompts = [ft_repr(obj["prompt"]) for obj in parsed_inputs]
 
     def _get_funct_defs(self, file_name: str) -> None:
+        """
+        Gets the Function Definitions out of the file and converts it into a
+        List of FunctDef inside the instanced object.
+        """
         try:
             with open(file_name) as funct_def_file:
                 parsed_funct_defs: list[dict[str, Any]] = (
@@ -141,6 +168,10 @@ class FunctCallLLM():
             ))
 
     def _create_output_file(self, file_name: str) -> None:
+        """
+        Creates the Output File. if the an object of the same name
+        already exists, it checks to see if the user wants to overwrite it.
+        """
 
         self.output_path = file_name
 
@@ -173,12 +204,24 @@ class FunctCallLLM():
                 print("Continuing...")
 
     def _load_llm(self) -> None:
+        """
+        Loads LLM from 'Small_LLM_Model', extracts the relevant
+        files and generates the vocabularies used later.
+        """
 
         self.llm_files = {}
         print()
 
         load_dotenv()
         self._llm = Small_LLM_Model()
+        # self._llm = Small_LLM_Model()
+        try:
+            tokens = self.prompt_to_id("test")
+            self._llm.get_logits_from_input_ids(tokens)
+        except AcceleratorError:
+            print(f"\nDefault Loading ({self._llm._device}) has failed\n"
+                  "Reloading LLM using the device as 'cpu'\n")
+            self._llm = Small_LLM_Model(device="cpu")
 
         self.llm_files["vocab"] = self._llm.get_path_to_vocab_file()
         self.llm_files["merges"] = self._llm.get_path_to_merges_file()
@@ -194,6 +237,10 @@ class FunctCallLLM():
             self.vocab_int_text[v] = k
 
     def _make_deffunct_ids(self) -> None:
+        """
+        Turns the FunctDef into a standardized initial prompt
+        held in 'self.instructions'.
+        """
 
         self.tokenized_int_funct_list = []
 
@@ -244,6 +291,17 @@ class FunctCallLLM():
         self.instructions += format_request
 
     def run_model(self) -> None:
+        """
+        Runs the Full Model after the initialization.
+
+        Takes in the 'self.instructions' sections,
+        joins one of the tokenized Prompts at a time
+        and generates the answer.
+
+        Repeats for all Prompts and creates a list wit all
+        the the output function calling dictionaries ready
+        to be printed on a JSON File.
+        """
 
         self.to_export = []
 
@@ -299,6 +357,9 @@ class FunctCallLLM():
             self.to_export.append(str_response)
 
     def prompt_to_id(self, prompt: str) -> list[int]:
+        """
+        Standardized form of turning a string into a list of IDs
+        """
 
         tokenized_prompt = self._llm.encode(prompt)
 
@@ -309,6 +370,10 @@ class FunctCallLLM():
 
     def _post_gen_exceptions(self, max_val_ind: int,
                              last_added_token: int) -> int:
+        """
+        Catches unusual, unhelpful or harmful tokens and corrects
+        them to simplified and/or corrected tokens.
+        """
 
         return_val = max_val_ind
 
@@ -343,6 +408,10 @@ class FunctCallLLM():
 
     def _container_management(self, container_log: list[str],
                               last_added_token: int) -> list[str]:
+        """
+        Manages the container Tracker, checking that brackets are tracked from
+        opening to closing, making sure the generation ends correctly
+        """
 
         if (last_added_token in [self.vocab_text_int["{"],
                                  self.vocab_text_int["}"],
@@ -352,11 +421,11 @@ class FunctCallLLM():
                                  self.vocab_text_int["]Ċ"],
                                  self.vocab_text_int["\""],
                                  self.vocab_text_int["\"Ċ"],
-                                 self.vocab_text_int['ĠĠĠĠ'],
-                                 self.vocab_text_int['ĠĠĠĠĠĠĠĠ'],
-                                 self.vocab_text_int['Ċ'],
-                                 self.vocab_text_int[","],
-                                 self.vocab_text_int[":"],
+                                 #  self.vocab_text_int['ĠĠĠĠ'],
+                                 #  self.vocab_text_int['ĠĠĠĠĠĠĠĠ'],
+                                 #  self.vocab_text_int['Ċ'],
+                                 #  self.vocab_text_int[","],
+                                 #  self.vocab_text_int[":"],
                                  self.vocab_text_int["Ġ{Ċ"],
                                  self.vocab_text_int[")\",Ċ"],
                                  self.vocab_text_int["}\",Ċ"],
@@ -414,6 +483,10 @@ class FunctCallLLM():
         return (container_log)
 
     def export_to_file(self, file_path: str | None = None) -> None:
+        """
+        after generation, export_to_file takes the answer
+        and prints into the output file
+        """
 
         exp_str: str
 
@@ -472,6 +545,10 @@ class FunctCallLLM():
                                     f"not found {e}")
 
     def id_decode(self, ids: list[int]) -> str:
+        """
+        Standardized form of decoding IDs into a string.
+        Also holds a backup decoder that is unused in the project.
+        """
 
         if self._llm:
             return self._llm.decode(ids)
@@ -481,6 +558,9 @@ class FunctCallLLM():
 
 
 def main(args: list[str]) -> None:
+    """
+    Main Function. Parses arguments, initialise LLM and runs it.
+    """
 
     try:
         arg_inputs = val_args(args)
