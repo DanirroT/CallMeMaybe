@@ -58,13 +58,13 @@ def ft_repr(s: str) -> str:
         if char in ["\"", "\\"]:
             out += "\\" + char
         elif char == "\n":
-            out += "\n"
+            out += "\\n"
         elif char == "\t":
-            out += "\t"
+            out += "\\t"
         elif char == "\0":
-            out += "\0"
+            out += "\\0"
         elif char == "\v":
-            out += "\v"
+            out += "\\v"
         else:
             out += char
     return out

@@ -6,7 +6,7 @@
 #    By: dmota-ri <dmota-ri@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/10 16:50:27 by dmota-ri          #+#    #+#              #
-#    Updated: 2026/07/30 16:47:46 by dmota-ri         ###   ########.fr        #
+#    Updated: 2026/08/10 12:05:08 by dmota-ri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,11 +36,13 @@ run_time:
 
 debug:
 	@$(DEBUGGER) $(MAIN).py
-
 install: $(VENV)
 
-	. $(VENV)bin/activate
 	uv sync
+
+install_self_cache: $(VENV)
+
+	UV_CACHE_DIR=.cache.uv HF_HOME=.cache.hf uv sync
 
 $(VENV):
 	uv venv $(VENV)

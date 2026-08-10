@@ -43,24 +43,27 @@ class FunctCallLLM():
             except FileNotFoundError:
                 raise
             except json.decoder.JSONDecodeError as e:
-                raise ValueError(f"File {arg_inputs["input"]} is not properly"
-                                 f" formatted.\nError Message: {e}")
+                raise ValueError(
+                    f"File {arg_inputs['input']} is not properly"
+                    f" formatted.\nError Message: {e}")
 
             try:
                 self._get_funct_defs(arg_inputs["functions_definition"])
             except FileNotFoundError:
                 raise
             except json.decoder.JSONDecodeError as e:
-                raise ValueError(f"File {arg_inputs["input"]} is not properly."
-                                 f" formatted.\nError Message: {e}")
+                raise ValueError(
+                    f"File {arg_inputs['functions_definition']} is not "
+                    f"properly. formatted.\nError Message: {e}")
 
             try:
                 self._create_output_file(arg_inputs["output"])
             except FileExistsError:
                 raise
             except json.decoder.JSONDecodeError as e:
-                raise ValueError(f"File {arg_inputs["input"]} is not properly."
-                                 f" formatted.\nError Message: {e}")
+                raise ValueError(
+                    f"File {arg_inputs['output']} is not properly."
+                    f" formatted.\nError Message: {e}")
 
         else:
             raise ValueError("No Arguments were passed to the Class")
