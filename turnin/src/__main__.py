@@ -217,7 +217,6 @@ class FunctCallLLM():
 
         load_dotenv()
         self._llm = Small_LLM_Model()
-        # self._llm = Small_LLM_Model()
         try:
             tokens = self.prompt_to_id("test")
             self._llm.get_logits_from_input_ids(tokens)
@@ -408,6 +407,40 @@ class FunctCallLLM():
             return_val = self.vocab_text_int["ĠĠĠĠ"]
 
         return (return_val)
+
+    def _container_check(self, curr_tokens: list[int]) -> bool:
+        """
+        Checks if all the containers (Brackets and Quotes) in the output are closed.
+        """
+
+        curr_str = self.id_decode(curr_tokens)
+
+        container_log = []
+
+        for char in curr_str:
+            if char == "\"":
+                if not container_log:
+                    container_log.append(char)
+                elif container_log[-1] == "\"":
+                    container_log.pop()
+                else:
+                    container_log.append(char)
+
+            if char in ["{", "["]:
+                container_log.append(char)
+            if char in ["}", "]"]:
+
+
+
+        container_log: list[str] = ["{", "\""]
+
+        for token in curr_tokens:
+            container_log = self._container_management(container_log, token)
+
+            if not container_log:
+                return (False)
+
+        return (True)
 
     def _container_management(self, container_log: list[str],
                               last_added_token: int) -> list[str]:
