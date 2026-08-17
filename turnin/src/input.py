@@ -1,49 +1,23 @@
+from argparse import ArgumentParser
+from typing import cast
+
+
 def val_args(args: list[str]) -> dict[str, str]:
     """
     Function to Parse all received arguments into
     a dictionary format. specific for the Project.
     """
 
-    argc = len(args)
-    if argc > 6:
-        raise ValueError("Too many Arguments! Try Again")
+    parser = ArgumentParser()
 
-    arg_inputs: dict[str, str] = {
-        "functions_definition": "data/input/functions_definition.json",
-        "input": "data/input/function_calling_tests.json",
-        "output": "data/output/function_calls.json"
-    }
-    fail: bool = False
-    next_ins: None | str = None
+    parser.add_argument("--functions_definition",
+                        default="data/input/functions_definition.json")
+    parser.add_argument("--input",
+                        default="data/input/function_calling_tests.json")
+    parser.add_argument("--output",
+                        default="data/output/function_calls.json")
 
-    for arg in args:
-
-        if next_ins:
-            arg_inputs[next_ins] = arg
-            next_ins = None
-            continue
-
-        if arg == "--functions_definition":
-            next_ins = "functions_definition"
-        elif arg == "--input":
-            next_ins = "input"
-        elif arg == "--output":
-            next_ins = "output"
-
-        elif arg.startswith("--"):
-            print(f"Error: Unknown Parameter: {arg}")
-            fail = True
-        else:
-            print("Error: Unknown Argument")
-            fail = True
-
-    for arg, file in arg_inputs.items():
-        if not file.endswith(".json"):
-            print(f"{arg} must be a json file. {file}")
-            fail = True
-
-    if fail:
-        raise ValueError("\nProgram Stopped")
+    arg_inputs = cast(dict[str, str], parser.parse_args().__dict__)
 
     return arg_inputs
 
