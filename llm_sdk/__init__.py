@@ -13,6 +13,9 @@ import os
 logging.set_verbosity_error()  # keep the console clean
 
 
+# class Small_LLM_Model:
+#     pass
+
 class Small_LLM_Model:
     """Utility class wrapping a lightweight Hugging Face causal-LM for fast, low-memory experimentation.
 
