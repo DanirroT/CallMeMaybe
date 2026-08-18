@@ -277,8 +277,8 @@ class FunctCallLLM():
                 "    \"prompt\": \"given prompt\",\n"
                 "    \"name\": \"fn_name\",\n"
                 "    \"parameters\": {\n"
-                "        \"param1\": param1_val,\n"
-                "        \"param2\": param2_val\n"
+                "        \"param1\": val1,\n"
+                "        \"param2\": val2\n"
                 "        <...>\n"
                 "    }\n"
                 "}\n\n"
@@ -324,7 +324,7 @@ class FunctCallLLM():
             answer_len: int = len(starting)
             instruct_len: int = len(self.instructions)
 
-            container_log: list[str] = ["{", "\""]
+            container_log: list[str] = ["{"]
 
             while True:
 
@@ -352,8 +352,8 @@ class FunctCallLLM():
 
                 added_token.append(max_val_ind)
 
-                container_log = self._container_management(container_log,
-                                                           added_token[-1])
+                container_log = self._container_check(container_log,
+                                                      added_token[-1])
 
                 if not container_log:
                     break

@@ -6,7 +6,7 @@
 #    By: dmota-ri <dmota-ri@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/10 16:50:27 by dmota-ri          #+#    #+#              #
-#    Updated: 2026/08/10 12:05:08 by dmota-ri         ###   ########.fr        #
+#    Updated: 2026/08/18 14:33:56 by dmota-ri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,9 @@ debug:
 install: $(VENV)
 
 	uv sync
+
+run_self_cache:
+	@UV_CACHE_DIR=.cache.uv HF_HOME=.cache.hf $(UV_RUN) $(SRC)
 
 install_self_cache: $(VENV)
 
